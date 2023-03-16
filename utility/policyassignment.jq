@@ -13,6 +13,8 @@
         "enforcementMode": .parameters.input.value.properties.enforcementMode,
     },
     "location": "${default_location}",
-    "identity": .identity
+    "identity": {
+        "type": .parameters.input.value.identity.type
+    }
 }
 | .properties.policyDefinitionId += .name

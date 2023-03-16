@@ -188,5 +188,7 @@
     "enforcementMode": "Default"
   },
   "location": "${default_location}",
-  "identity": null
+  "identity": {
+    "type": "UserAssigned"
+  }
 }
