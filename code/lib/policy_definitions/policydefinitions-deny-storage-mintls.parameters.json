@@ -1,0 +1,79 @@
+{
+  "description": "Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking",
+  "displayName": "Storage Account set to minimum TLS and Secure transfer should be enabled",
+  "metadata": {
+    "category": "Storage",
+    "version": "1.0.0"
+  },
+  "mode": "Indexed",
+  "parameters": {
+    "effect": {
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Deny",
+      "metadata": {
+        "description": "The effect determines what happens when the policy rule is evaluated to match",
+        "displayName": "Effect"
+      },
+      "type": "String"
+    },
+    "minimumTlsVersion": {
+      "allowedValues": [
+        "TLS1_2",
+        "TLS1_1",
+        "TLS1_0"
+      ],
+      "defaultValue": "TLS1_2",
+      "metadata": {
+        "description": "Select version  minimum TLS version on Azure Storage Account to enforce",
+        "displayName": "Storage Account select minimum TLS version"
+      },
+      "type": "String"
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "equals": "Microsoft.Storage/storageAccounts",
+          "field": "type"
+        },
+        {
+          "anyOf": [
+            {
+              "allOf": [
+                {
+                  "less": "2019-04-01",
+                  "value": "[requestContext().apiVersion]"
+                },
+                {
+                  "exists": "false",
+                  "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly"
+                }
+              ]
+            },
+            {
+              "equals": "false",
+              "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly"
+            },
+            {
+              "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+              "notequals": "[parameters('minimumTlsVersion')]"
+            },
+            {
+              "exists": "false",
+              "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion"
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]"
+    }
+  },
+  "policyType": "Custom"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "sparta-1-log",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce centralized logging for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures centralized logging is compliant per FSI Landing Zones",
+    "notScopes": null,
+    "parameters": {
+      "diagBlobMetrics": {
+        "value": false
+      },
+      "diagEventHubMetrics": {
+        "value": "False"
+      },
+      "diagFileMetrics": {
+        "value": false
+      },
+      "diagQueueMetrics": {
+        "value": false
+      },
+      "diagTableMetrics": {
+        "value": false
+      },
+      "enableLogAnalytics": {
+        "value": "DeployIfNotExists"
+      },
+      "logAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "logCategories": {
+        "value": "allLogs"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/sparta-1-log",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

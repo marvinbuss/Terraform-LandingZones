@@ -1,0 +1,130 @@
+{
+  "description": "This policy initiative is a group of policies that ensures PostgreSQL is compliant per FSI Landing Zones",
+  "displayName": "Enforce secure-by-default PostgreSQL for Financial Services Industry",
+  "metadata": {
+    "category": "PostgreSQL",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "postgreDiagnostics": {
+      "defaultValue": "DeployIfNotExists",
+      "type": "string"
+    },
+    "postgreLogAnalyticsWorkspaceId": {
+      "type": "string"
+    },
+    "postgreSqlAdvThreatProtection": {
+      "defaultValue": "DeployIfNotExists",
+      "type": "string"
+    },
+    "postgreSqlFlexiblePublicNetworkAccess": {
+      "defaultValue": "Deny",
+      "type": "string"
+    },
+    "postgreSqlPublicNetworkAccess": {
+      "defaultValue": "Deny",
+      "type": "string"
+    },
+    "postgreSqlSsl": {
+      "defaultValue": "Deny",
+      "type": "string"
+    }
+  },
+  "policyDefinitionGroups": [
+    {
+      "category": "Data Protection",
+      "description": "Policy to ensure PostgreSQL is using secure encryption",
+      "displayName": "Ensure PostgreSQL is using secure encryption",
+      "name": "Encryption"
+    },
+    {
+      "category": "Network Security",
+      "description": "Policy to ensure PostgreSQL is not accessible over the public internet",
+      "displayName": "Ensure PostgreSQL is not accessible over the public internet",
+      "name": "Network"
+    },
+    {
+      "category": "Identity Management",
+      "description": "Policy to ensure PostgreSQL is not using local authorization",
+      "displayName": "Ensure usage of centralized identity and auhtorization system for PostgreSQL",
+      "name": "Identity"
+    },
+    {
+      "category": "Logging and Threat Detection",
+      "description": "Policy to ensure PostgreSQL is logging all events to Log Analytics workspace",
+      "displayName": "Ensure PostgreSQL is logging all events to Log Analytics",
+      "name": "Logging"
+    }
+  ],
+  "policyDefinitions": [
+    {
+      "definitionVersion": "1.*.*",
+      "groupNames": [
+        "Logging",
+        "Encryption"
+      ],
+      "parameters": {
+        "effect": {
+          "value": "[parameters('postgreSqlAdvThreatProtection')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/db048e65-913c-49f9-bb5f-1084184671d3",
+      "policyDefinitionReferenceId": "Dine-PostgreSql-Adv-Threat-Protection"
+    },
+    {
+      "definitionVersion": "1.*.*",
+      "groupNames": [
+        "Network"
+      ],
+      "parameters": {
+        "effect": {
+          "value": "[parameters('postgreSqlSsl')]"
+        }
+      },
+      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-PostgreSql-SSL-Connection",
+      "policyDefinitionReferenceId": "Deny-PostgreSql-Ssl"
+    },
+    {
+      "definitionVersion": "1.*.*",
+      "groupNames": [
+        "Logging"
+      ],
+      "parameters": {
+        "effect": {
+          "value": "[parameters('postgreDiagnostics')]"
+        },
+        "logAnalytics": {
+          "value": "[parameters('postgreLogAnalyticsWorkspaceId')]"
+        }
+      },
+      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-PostgreSQL",
+      "policyDefinitionReferenceId": "Dine-Diagnostics-Postgre"
+    },
+    {
+      "definitionVersion": "2.*.*",
+      "groupNames": [
+        "Network"
+      ],
+      "parameters": {
+        "effect": {
+          "value": "[parameters('postgreSqlPublicNetworkAccess')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b52376f7-9612-48a1-81cd-1ffe4b61032c",
+      "policyDefinitionReferenceId": "Deny-PostgreSql-Public-Network-Access"
+    },
+    {
+      "definitionVersion": "3.*.*",
+      "groupNames": [
+        "Network"
+      ],
+      "parameters": {
+        "effect": {
+          "value": "[parameters('postgreSqlFlexiblePublicNetworkAccess')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5e1de0e3-42cb-4ebc-a86d-61d0c619ca48",
+      "policyDefinitionReferenceId": "Deny-PostgreSql-Flexible-Public-Network-Access"
+    }
+  ]
+}

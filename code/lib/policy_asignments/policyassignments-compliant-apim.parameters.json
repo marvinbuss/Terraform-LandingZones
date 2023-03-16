@@ -1,0 +1,24 @@
+{
+  "name": "Compliant-Apim",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default API Management for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures API Management is compliant per FSI Landing Zones",
+    "notScopes": null,
+    "parameters": {
+      "apimDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "apimLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Apim",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

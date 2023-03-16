@@ -1,0 +1,44 @@
+{
+  "description": "Secure your blob and file storage account with greater flexibility using customer-managed keys. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Using customer-managed keys provides additional capabilities to control rotation of the key encryption key or cryptographically erase data.",
+  "displayName": "Storage accounts should use customer-managed key for encryption",
+  "metadata": {
+    "category": "Storage",
+    "version": "1.0.3"
+  },
+  "mode": "Indexed",
+  "parameters": {
+    "effect": {
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Deny",
+      "metadata": {
+        "description": "Enable or disable the execution of the policy",
+        "displayName": "Effect"
+      },
+      "type": "String"
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "equals": "Microsoft.Storage/storageAccounts",
+          "field": "type"
+        },
+        {
+          "not": {
+            "equals": "Microsoft.Keyvault",
+            "field": "Microsoft.Storage/storageAccounts/encryption.keySource"
+          }
+        }
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]"
+    }
+  },
+  "policyType": "Custom"
+}

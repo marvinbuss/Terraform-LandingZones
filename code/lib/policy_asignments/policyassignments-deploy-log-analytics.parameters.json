@@ -1,0 +1,36 @@
+{
+  "name": "Deploy-Log-Analytics",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Configure Log Analytics workspace and automation account to centralize logs and monitoring",
+    "description": "Deploy resource group containing Log Analytics workspace and linked automation account to centralize logs and monitoring. The automation account is aprerequisite for solutions like Updates and Change Tracking.",
+    "notScopes": null,
+    "parameters": {
+      "automationAccountName": {
+        "value": "sparta-1-aauto"
+      },
+      "automationRegion": {
+        "value": "eastus"
+      },
+      "dataRetention": {
+        "value": "30"
+      },
+      "rgName": {
+        "value": "sparta-1-mgmt"
+      },
+      "workspaceName": {
+        "value": "sparta-1-law"
+      },
+      "workspaceRegion": {
+        "value": "eastus"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Log-Analytics",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

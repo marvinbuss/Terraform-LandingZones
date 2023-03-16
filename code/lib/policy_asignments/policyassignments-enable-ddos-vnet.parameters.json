@@ -1,0 +1,24 @@
+{
+  "name": "Enable-DDoS-VNET",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Virtual networks should be protected by Azure DDoS Protection Standard",
+    "description": "Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection Standard. For more information, visit https://aka.ms/ddosprotectiondocs.",
+    "notScopes": null,
+    "parameters": {
+      "ddosPlan": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-ddos/providers/Microsoft.Network/ddosProtectionPlans/sparta-1-ddos-eastus"
+      },
+      "effect": {
+        "value": "Modify"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Enable-DDoS-VNET",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

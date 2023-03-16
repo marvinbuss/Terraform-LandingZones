@@ -1,0 +1,48 @@
+{
+  "description": "Azure Service Bus supports the option of encrypting data at rest with either Microsoft-managed keys (default) or customer-managed keys. Choosing to encrypt data using customer-managed keys enables you to assign, rotate, disable, and revoke access to the keys that Service Bus will use to encrypt data in your namespace. Note that Service Bus only supports encryption with customer-managed keys for premium namespaces.",
+  "displayName": "Service Bus Premium namespaces must use a customer-managed key for encryption",
+  "metadata": {
+    "category": "Service Bus",
+    "version": "1.0.0"
+  },
+  "mode": "Indexed",
+  "parameters": {
+    "effect": {
+      "allowedValues": [
+        "Deny",
+        "Audit",
+        "Disabled"
+      ],
+      "defaultValue": "Deny",
+      "metadata": {
+        "description": "Enable or disable the execution of the policy",
+        "displayName": "Effect"
+      },
+      "type": "String"
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "equals": "Microsoft.ServiceBus/namespaces",
+          "field": "type"
+        },
+        {
+          "equals": "Premium",
+          "field": "Microsoft.ServiceBus/namespaces/sku.tier"
+        },
+        {
+          "not": {
+            "equals": "Microsoft.Keyvault",
+            "field": "Microsoft.ServiceBus/namespaces/encryption.keySource"
+          }
+        }
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]"
+    }
+  },
+  "policyType": "Custom"
+}

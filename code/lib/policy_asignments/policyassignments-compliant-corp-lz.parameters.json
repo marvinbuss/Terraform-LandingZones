@@ -1,0 +1,192 @@
+{
+  "name": "Compliant-Corp-Lz",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Corp Connected Landing Zones for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Corp Connected Landing Zones are compliant per Financial Services Industry requirements",
+    "notScopes": null,
+    "parameters": {
+      "aaPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "aaPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azure-automation.net"
+      },
+      "adfPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "adfPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.datafactory.azure.net"
+      },
+      "appServiceAppsPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "appServiceAppsPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
+      },
+      "asrPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "asrPrivateDnsZone-Backup": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eastus.backup.windowsazure.com"
+      },
+      "asrPrivateDnsZone-Blob": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+      },
+      "asrPrivateDnsZone-Queue": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.queue.core.windows.net"
+      },
+      "avdHostPoolPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "avdHostPoolPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.wvd.microsoft.com"
+      },
+      "avdHostPoolPrivateEndpointGroupId": {
+        "value": "connection"
+      },
+      "avdWorkspacePrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "avdWorkspacePrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.wvd.microsoft.com"
+      },
+      "avdWorkspacePrivateEndpointGroupId": {
+        "value": "feed"
+      },
+      "cognitiveServicesOpenAiPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "cognitiveServicesOpenAiPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.openai.azure.com"
+      },
+      "cognitiveServicesPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "cognitiveServicesPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.cognitiveservices.azure.com"
+      },
+      "containerRegistryPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "containerRegistryPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/eastus.privatelink.azurecr.io"
+      },
+      "cosmosDbPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "cosmosDbPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.documents.azure.com"
+      },
+      "cosmosDbPrivateEndpointGroupId": {
+        "value": "Sql"
+      },
+      "diskPrivateDns": {
+        "value": "DeployIfNotExists"
+      },
+      "diskPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+      },
+      "eventGridDomainPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "eventGridDomainPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eventgrid.azure.net"
+      },
+      "eventGridTopicPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "eventGridTopicPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.eventgrid.azure.net"
+      },
+      "eventHubNamespacesPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "eventHubNamespacesPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net"
+      },
+      "keyVaultPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "keyVaultPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net"
+      },
+      "mlPrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "mlPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.api.azureml.ms"
+      },
+      "mlSecondPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.notebooks.azure.net"
+      },
+      "serviceBusDinePrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "serviceBusPrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net"
+      },
+      "storageBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageBlobPrivateDnsZoneId": {},
+      "storageDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageDfsPrivateDnsZoneId": {},
+      "storageFileDnsZone": {
+        "value": "Disabled"
+      },
+      "storageFileDnsZoneId": {},
+      "storageFileSyncPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageFileSyncPrivateDnsZoneId": {},
+      "storageQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageQueuePrivateDnsZoneId": {},
+      "storageSecondaryBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryBlobPrivateDnsZoneId": {},
+      "storageSecondaryDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryDfsPrivateDnsZoneId": {},
+      "storageSecondaryQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryQueuePrivateDnsZoneId": {},
+      "storageSecondaryTablePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryTablePrivateDnsZoneId": {},
+      "storageSecondaryWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryWebPrivateDnsZoneId": {},
+      "storageTablePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageTablePrivateDnsZoneId": {},
+      "storageWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageWebPrivateDnsZoneId": {},
+      "synapsePrivateDnsZone": {
+        "value": "DeployIfNotExists"
+      },
+      "synapsePrivateDnsZoneId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-privatedns/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Corp-Lz",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

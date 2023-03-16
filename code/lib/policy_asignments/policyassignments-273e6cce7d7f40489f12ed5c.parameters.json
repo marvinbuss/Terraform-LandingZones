@@ -1,0 +1,27 @@
+{
+  "name": "273e6cce7d7f40489f12ed5c",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Not allowed resource types",
+    "description": null,
+    "notScopes": [],
+    "parameters": {
+      "listOfResourceTypesNotAllowed": {
+        "value": [
+          "microsoft.network/virtualnetworks/virtualnetworkpeerings",
+          "microsoft.network/expressroutecircuits/peerings",
+          "microsoft.network/expressroutecircuits/peerings/connections",
+          "microsoft.network/expressroutecrossconnections/peerings",
+          "microsoft.network/virtualrouters/peerings"
+        ]
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/273e6cce7d7f40489f12ed5c",
+    "nonComplianceMessages": [],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

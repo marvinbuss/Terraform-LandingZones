@@ -1,0 +1,24 @@
+{
+  "name": "Deploy-Budget",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Ensure there is a budget associated with the subscription",
+    "description": "Ensure there is a budget on all subscriptions under the assigned scope to control cost and spending.",
+    "notScopes": null,
+    "parameters": {
+      "amount": {
+        "value": "1000"
+      },
+      "budgetName": {
+        "value": "DefaultBudget"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Budget",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}

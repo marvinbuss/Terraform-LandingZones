@@ -1,0 +1,69 @@
+{
+  "name": "Deploy-ASCDF-Config",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Deploy Microsoft Defender for Cloud configuration",
+    "description": "Deploy Microsoft Defender for Cloud and Security Contacts",
+    "notScopes": null,
+    "parameters": {
+      "ascExportResourceGroupLocation": {
+        "value": "eastus"
+      },
+      "ascExportResourceGroupName": {
+        "value": "sparta-1-asc-export"
+      },
+      "emailSecurityContact": {
+        "value": "stor@stor.com"
+      },
+      "enableAscForAppServices": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForArm": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForCSPM": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForContainers": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForCosmosDb": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForDns": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForKeyVault": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForOssDb": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForServers": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForSql": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForSqlOnVm": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForStorage": {
+        "value": "DeployIfNotExists"
+      },
+      "enableAscForSynapse": {
+        "value": "DeployIfNotExists"
+      },
+      "logAnalytics": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Deploy-ASCDF-Config",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": null
+}
