@@ -35,7 +35,7 @@ permissions:
 jobs:
   deployment:
     name: Terraform Plan
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     continue-on-error: false
     environment: ${{ inputs.environment }}
 
