@@ -1,50 +1,58 @@
 {
-  "description": "Azure Storage accounts should disable SFTP and local users for features like SFTP. Enforce this for increased data exfiltration protection.",
-  "displayName": "SFTP and local users should be restricted for Storage Accounts",
-  "metadata": {
-    "category": "Storage",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "Deny",
-        "Audit",
-        "Disabled"
-      ],
-      "defaultValue": "Deny",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy",
-        "displayName": "Effect"
-      },
-      "type": "String"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Storage/storageAccounts",
-          "field": "type"
-        },
-        {
-          "anyOf": [
-            {
-              "exists": "false",
-              "field": "Microsoft.Storage/storageAccounts/isSftpEnabled"
-            },
-            {
-              "field": "Microsoft.Storage/storageAccounts/isSftpEnabled",
-              "notEquals": false
-            }
-          ]
-        }
-      ]
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-Storage-Sftp",
+  "properties": {
+    "description": "Azure Storage accounts should disable SFTP and local users for features like SFTP. Enforce this for increased data exfiltration protection.",
+    "displayName": "SFTP and local users should be restricted for Storage Accounts",
+    "metadata": {
+      "category": "Storage",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "then": {
-      "effect": "[parameters('effect')]"
-    }
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Storage/storageAccounts",
+            "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "exists": "false",
+                "field": "Microsoft.Storage/storageAccounts/isSftpEnabled"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/isSftpEnabled",
+                "notEquals": false
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

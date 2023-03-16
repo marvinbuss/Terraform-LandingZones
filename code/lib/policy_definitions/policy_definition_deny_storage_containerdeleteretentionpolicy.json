@@ -1,62 +1,71 @@
 {
-  "description": "Enforce container delete retention policies larger than seven days for storage account. Enable this for increased data loss protection",
-  "displayName": "Storage Accounts should use a container delete retention policy",
-  "metadata": {
-    "category": "Storage",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "Deny",
-        "Audit",
-        "Disabled"
-      ],
-      "defaultValue": "Deny",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy",
-        "displayName": "Effect"
-      },
-      "type": "String"
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-Storage-ContainerDeleteRetentionPolicy",
+  "properties": {
+    "description": "Enforce container delete retention policies larger than seven days for storage account. Enable this for increased data loss protection",
+    "displayName": "Storage Accounts should use a container delete retention policy",
+    "metadata": {
+      "category": "Storage",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "minContainerDeleteRetentionInDays": {
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Specifies the minimum number of days for the container delete retention policy",
-        "displayName": "Minimum Container Delete Retention in Days"
-      },
-      "type": "Integer"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Storage/storageAccounts/blobServices",
-          "field": "type"
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
         },
-        {
-          "anyOf": [
-            {
-              "exists": false,
-              "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled"
-            },
-            {
-              "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled",
-              "notEquals": true
-            },
-            {
-              "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.days",
-              "less": "[parameters('minContainerDeleteRetentionInDays')]"
-            }
-          ]
-        }
-      ]
+        "type": "String"
+      },
+      "minContainerDeleteRetentionInDays": {
+        "defaultValue": 7,
+        "metadata": {
+          "description": "Specifies the minimum number of days for the container delete retention policy",
+          "displayName": "Minimum Container Delete Retention in Days"
+        },
+        "type": "Integer"
+      }
     },
-    "then": {
-      "effect": "[parameters('effect')]"
-    }
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Storage/storageAccounts/blobServices",
+            "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "exists": false,
+                "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled",
+                "notEquals": true
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.days",
+                "less": "[parameters('minContainerDeleteRetentionInDays')]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

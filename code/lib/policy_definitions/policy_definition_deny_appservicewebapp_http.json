@@ -1,46 +1,54 @@
 {
-  "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
-  "displayName": "Web Application should only be accessible over HTTPS",
-  "metadata": {
-    "category": "App Service",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "Audit",
-        "Disabled",
-        "Deny"
-      ],
-      "defaultValue": "Deny",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy",
-        "displayName": "Effect"
-      },
-      "type": "String"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Web/sites",
-          "field": "type"
-        },
-        {
-          "field": "kind",
-          "like": "app*"
-        },
-        {
-          "equals": "false",
-          "field": "Microsoft.Web/sites/httpsOnly"
-        }
-      ]
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-AppServiceWebApp-http",
+  "properties": {
+    "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+    "displayName": "Web Application should only be accessible over HTTPS",
+    "metadata": {
+      "category": "App Service",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "then": {
-      "effect": "[parameters('effect')]"
-    }
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Web/sites",
+            "field": "type"
+          },
+          {
+            "field": "kind",
+            "like": "app*"
+          },
+          {
+            "equals": "false",
+            "field": "Microsoft.Web/sites/httpsOnly"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

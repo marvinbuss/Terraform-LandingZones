@@ -1,54 +1,63 @@
 {
-  "description": "Azure Storage accounts should restrict the resource access rule for service-level network ACLs to services from a specific Azure subscription. Enforce this for increased data exfiltration protection.",
-  "displayName": "Resource Access Rules resource IDs should be restricted for Storage Accounts",
-  "metadata": {
-    "category": "Storage",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "Deny",
-        "Audit",
-        "Disabled"
-      ],
-      "defaultValue": "Deny",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy",
-        "displayName": "Effect"
-      },
-      "type": "String"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Storage/storageAccounts",
-          "field": "type"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]"
-          },
-          "greater": 0
-        },
-        {
-          "count": {
-            "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]",
-            "where": {
-              "equals": "*",
-              "value": "[split(current('Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*].resourceId'), '/')[2]]"
-            }
-          },
-          "greater": 0
-        }
-      ]
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-Storage-ResourceAccessRulesResourceId",
+  "properties": {
+    "description": "Azure Storage accounts should restrict the resource access rule for service-level network ACLs to services from a specific Azure subscription. Enforce this for increased data exfiltration protection.",
+    "displayName": "Resource Access Rules resource IDs should be restricted for Storage Accounts",
+    "metadata": {
+      "category": "Storage",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "then": {
-      "effect": "[parameters('effect')]"
-    }
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Storage/storageAccounts",
+            "field": "type"
+          },
+          {
+            "count": {
+              "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]"
+            },
+            "greater": 0
+          },
+          {
+            "count": {
+              "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]",
+              "where": {
+                "equals": "*",
+                "value": "[split(current('Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*].resourceId'), '/')[2]]"
+              }
+            },
+            "greater": 0
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

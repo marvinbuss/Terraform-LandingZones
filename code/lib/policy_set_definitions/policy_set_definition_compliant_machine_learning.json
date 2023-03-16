@@ -1,187 +1,193 @@
 {
-  "description": "This policy initiative is a group of policies that ensures Machine Learning is compliant per FSI Landing Zones",
-  "displayName": "Enforce secure-by-default Machine Learning for Financial Services Industry",
-  "metadata": {
-    "category": "Machine Learning",
-    "version": "1.0.0"
-  },
-  "parameters": {
-    "mlCmk": {
-      "defaultValue": "Deny",
-      "type": "string"
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-Machine-Learning",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Machine Learning is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Machine Learning for Financial Services Industry",
+    "metadata": {
+      "category": "Machine Learning",
+      "version": "1.0.0"
     },
-    "mlDiagnostics": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
+    "parameters": {
+      "mlCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "mlDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "mlLocalAuth": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "mlLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "mlLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "mlModifyLocalAuth": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "mlModifyPublicNetworkAccess": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "mlOutdatedOS": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "mlPublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "mlUserAssignedIdentity": {
+        "defaultValue": "Deny",
+        "type": "string"
+      }
     },
-    "mlLocalAuth": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "mlLogAnalyticsWorkspaceId": {
-      "type": "string"
-    },
-    "mlLogCategories": {
-      "defaultValue": "allLogs",
-      "type": "string"
-    },
-    "mlModifyLocalAuth": {
-      "defaultValue": "Modify",
-      "type": "string"
-    },
-    "mlModifyPublicNetworkAccess": {
-      "defaultValue": "Modify",
-      "type": "string"
-    },
-    "mlOutdatedOS": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "mlPublicNetworkAccess": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "mlUserAssignedIdentity": {
-      "defaultValue": "Deny",
-      "type": "string"
-    }
-  },
-  "policyDefinitionGroups": [
-    {
-      "category": "Data Protection",
-      "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
-      "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
-      "name": "Encryption"
-    },
-    {
-      "category": "Network Security",
-      "description": "Policy to ensure Machine Learning is not accessible over the public internet",
-      "displayName": "Ensure Machine Learning is not accessible over the public internet",
-      "name": "Network"
-    },
-    {
-      "category": "Identity Management",
-      "description": "Policy to ensure Machine Learning is not using local authorization",
-      "displayName": "Ensure usage of centralized identity and auhtorization system for Machine Learning",
-      "name": "Identity"
-    },
-    {
-      "category": "Logging and Threat Detection",
-      "description": "Policy to ensure Machine Learning is logging all events to Log Analytics workspace",
-      "displayName": "Ensure Machine Learning is logging all events to Log Analytics",
-      "name": "Logging"
-    }
-  ],
-  "policyDefinitions": [
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Logging"
-      ],
-      "parameters": {
-        "categoryGroup": {
-          "value": "[parameters('mlLogCategories')]"
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
+        "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Machine Learning is not accessible over the public internet",
+        "displayName": "Ensure Machine Learning is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Machine Learning is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Machine Learning",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Machine Learning is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Machine Learning is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('mlLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('mlDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('mlLogAnalyticsWorkspaceId')]"
+          }
         },
-        "effect": {
-          "value": "[parameters('mlDiagnostics')]"
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/90c90eda-bfe7-4c67-bf26-410420ed1047",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Ml"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlCmk')]"
+          }
         },
-        "logAnalytics": {
-          "value": "[parameters('mlLogAnalyticsWorkspaceId')]"
-        }
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ba769a63-b8cc-4b2d-abf6-ac33c7204be8",
+        "policyDefinitionReferenceId": "Deny-ML-Cmk"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/90c90eda-bfe7-4c67-bf26-410420ed1047",
-      "policyDefinitionReferenceId": "Dine-Diagnostics-Ml"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlCmk')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effects": {
+            "value": "[parameters('mlOutdatedOS')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-ML-Outdated-OS",
+        "policyDefinitionReferenceId": "Deny-ML-Outdated-Os"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ba769a63-b8cc-4b2d-abf6-ac33c7204be8",
-      "policyDefinitionReferenceId": "Deny-ML-Cmk"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effects": {
-          "value": "[parameters('mlOutdatedOS')]"
-        }
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f",
+        "policyDefinitionReferenceId": "Deny-ML-Local-Auth"
       },
-      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-ML-Outdated-OS",
-      "policyDefinitionReferenceId": "Deny-ML-Outdated-Os"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlLocalAuth')]"
-        }
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlModifyLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6f9a2d0-cff7-4855-83ad-4cd750666512",
+        "policyDefinitionReferenceId": "Modify-ML-Local-Auth"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f",
-      "policyDefinitionReferenceId": "Deny-ML-Local-Auth"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlModifyLocalAuth')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlModifyPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a10ee784-7409-4941-b091-663697637c0f",
+        "policyDefinitionReferenceId": "Modify-ML-Public-Network-Access"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6f9a2d0-cff7-4855-83ad-4cd750666512",
-      "policyDefinitionReferenceId": "Modify-ML-Local-Auth"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlModifyPublicNetworkAccess')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlUserAssignedIdentity')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5f0c7d88-c7de-45b8-ac49-db49e72eaa78",
+        "policyDefinitionReferenceId": "Deny-ML-User-Assigned-Identity"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a10ee784-7409-4941-b091-663697637c0f",
-      "policyDefinitionReferenceId": "Modify-ML-Public-Network-Access"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlUserAssignedIdentity')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5f0c7d88-c7de-45b8-ac49-db49e72eaa78",
-      "policyDefinitionReferenceId": "Deny-ML-User-Assigned-Identity"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlPublicNetworkAccess')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/438c38d2-3772-465a-a9cc-7a6666a275ce",
-      "policyDefinitionReferenceId": "Deny-ML-Public-Network-Access"
-    }
-  ]
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/438c38d2-3772-465a-a9cc-7a6666a275ce",
+        "policyDefinitionReferenceId": "Deny-ML-Public-Network-Access"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
 }

@@ -1,761 +1,767 @@
 {
-  "description": "This policy initiative is a group of policies that ensures Corp Connected Landing Zones are compliant per FSI Landing Zones",
-  "displayName": "Enforce secure-by-default Corp Connected Landing Zones for Financial Services Industry",
-  "metadata": {
-    "category": "Corp Connected Landing Zones",
-    "version": "1.0.0"
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-Corp-Lz",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Corp Connected Landing Zones are compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Corp Connected Landing Zones for Financial Services Industry",
+    "metadata": {
+      "category": "Corp Connected Landing Zones",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "aaPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "aaPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "aaPrivateEndpointGroupId": {
+        "defaultValue": "DSCAndHybridWorker",
+        "type": "string"
+      },
+      "adfPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "adfPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "appServiceAppsPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "appServiceAppsPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "asrPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "asrPrivateDnsZone-Backup": {
+        "type": "string"
+      },
+      "asrPrivateDnsZone-Blob": {
+        "type": "string"
+      },
+      "asrPrivateDnsZone-Queue": {
+        "type": "string"
+      },
+      "avdHostPoolPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "avdHostPoolPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "avdHostPoolPrivateEndpointGroupId": {
+        "defaultValue": "connection",
+        "type": "string"
+      },
+      "avdWorkspacePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "avdWorkspacePrivateDnsZoneId": {
+        "type": "string"
+      },
+      "avdWorkspacePrivateEndpointGroupId": {
+        "defaultValue": "feed",
+        "type": "string"
+      },
+      "cognitiveServicesOpenAiPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cognitiveServicesOpenAiPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "cognitiveServicesPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cognitiveServicesPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "containerRegistryPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "containerRegistryPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "cosmosDbPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cosmosDbPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "cosmosDbPrivateEndpointGroupId": {
+        "type": "string"
+      },
+      "diskPrivateDns": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "diskPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "eventGridDomainPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "eventGridDomainPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "eventGridTopicPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "eventGridTopicPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "eventHubNamespacesPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "eventHubNamespacesPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "keyVaultPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "keyVaultPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "mlPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "mlPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "mlSecondPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "serviceBusDinePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "serviceBusPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageBlobPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageBlobPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageDfsPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageDfsPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageFileDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageFileDnsZoneId": {
+        "type": "string"
+      },
+      "storageFileSyncPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageFileSyncPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageQueuePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageQueuePrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageSecondaryBlobPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageSecondaryBlobPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageSecondaryDfsPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageSecondaryDfsPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageSecondaryQueuePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageSecondaryQueuePrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageSecondaryTablePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageSecondaryTablePrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageSecondaryWebPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageSecondaryWebPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageTablePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageTablePrivateDnsZoneId": {
+        "type": "string"
+      },
+      "storageWebPrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "storageWebPrivateDnsZoneId": {
+        "type": "string"
+      },
+      "synapsePrivateDnsZone": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "synapsePrivateDnsZoneId": {
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure Corp connected resources are using secure encryption",
+        "displayName": "Ensure Corp connected resources are using secure encryption",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Corp connected landing zones are not accessible over the public internet",
+        "displayName": "Ensure Corp connected landing zones are not accessible over the public internet",
+        "name": "Network"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('avdWorkspacePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('avdWorkspacePrivateDnsZoneId')]"
+          },
+          "privateEndpointGroupId": {
+            "value": "[parameters('avdWorkspacePrivateEndpointGroupId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/34804460-d88b-4922-a7ca-537165e060ed",
+        "policyDefinitionReferenceId": "Dine-Workspace-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('avdHostpoolPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('avdHostpoolPrivateDnsZoneId')]"
+          },
+          "privateEndpointGroupId": {
+            "value": "[parameters('avdHostpoolPrivateEndpointGroupId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9427df23-0f42-4e1e-bf99-a6133d841c4a",
+        "policyDefinitionReferenceId": "Dine-Hostpool-DNS-Zone"
+      },
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('synapsePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('synapsePrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e5ed725-f16c-478b-bd4b-7bfa2f7940b9",
+        "policyDefinitionReferenceId": "Dine-Synapse-Private-Dns-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusDinePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('serviceBusPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f0fcf93c-c063-4071-9668-c47474bd3564",
+        "policyDefinitionReferenceId": "DINE-Sb-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('cognitiveServicesPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c4bc6f10-cb41-49eb-b000-d5ab82e2a091",
+        "policyDefinitionReferenceId": "Dine-Cognitive-Services-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesOpenAiPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('cognitiveServicesOpenAiPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c4bc6f10-cb41-49eb-b000-d5ab82e2a091",
+        "policyDefinitionReferenceId": "Dine-OpenAi-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('mlPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('mlPrivateDnsZoneId')]"
+          },
+          "secondPrivateDnsZoneId": {
+            "value": "[parameters('mlSecondPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ee40564d-486e-4f68-a5ca-7a621edae0fb",
+        "policyDefinitionReferenceId": "Dine-ML-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('keyVaultPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('keyVaultPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ac673a9a-f77d-4846-b2d8-a57f8e1c01d4",
+        "policyDefinitionReferenceId": "DINE-KV-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventHubNamespacesPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('eventHubNamespacesPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ed66d4f5-8220-45dc-ab4a-20d1749c74e6",
+        "policyDefinitionReferenceId": "Dine-EH-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridTopicPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('eventGridTopicPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/baf19753-7502-405f-8745-370519b20483",
+        "policyDefinitionReferenceId": "Dine-EventGrid-Topic-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('eventGridDomainPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('eventGridDomainPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d389df0a-e0d7-4607-833c-75a6fdac2c2d",
+        "policyDefinitionReferenceId": "Dine-EventGrid-Domain-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('adfPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('adfPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86cd96e1-1745-420d-94d4-d3f2fe415aa4",
+        "policyDefinitionReferenceId": "Dine-Adf-Private-Dns-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('containerRegistryPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('containerRegistryPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e9585a95-5b8c-4d03-b193-dc7eb5ac4c32",
+        "policyDefinitionReferenceId": "Dine-ContainerRegistry-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('cosmosDbPrivateDnsZoneId')]"
+          },
+          "privateEndpointGroupId": {
+            "value": "[parameters('cosmosDbPrivateEndpointGroupId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a63cc0bd-cda4-4178-b705-37dc439d3e0f",
+        "policyDefinitionReferenceId": "Dine-CosmosDb-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('diskPrivateDns')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('diskPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bc05b96c-0b36-4ca9-82f0-5c53f96ce05a",
+        "policyDefinitionReferenceId": "Dine-Disk-Private-DNS"
+      },
+      {
+        "definitionVersion": "1.*.*-preview",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('asrPrivateDnsZone')]"
+          },
+          "privateDnsZone-Backup": {
+            "value": "[parameters('asrPrivateDnsZone-Backup')]"
+          },
+          "privateDnsZone-Blob": {
+            "value": "[parameters('asrPrivateDnsZone-Blob')]"
+          },
+          "privateDnsZone-Queue": {
+            "value": "[parameters('asrPrivateDnsZone-Queue')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af783da1-4ad1-42be-800d-d19c70038820",
+        "policyDefinitionReferenceId": "Dine-Asr-Private-Dns-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('aaPrivateDnsZoneId')]"
+          },
+          "privateEndpointGroupId": {
+            "value": "[parameters('aaPrivateEndpointGroupId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6dd01e4f-1be1-4e80-9d0b-d109e04cb064",
+        "policyDefinitionReferenceId": "Dine-Aa-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('appServiceAppsPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('appServiceAppsPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b318f84a-b872-429b-ac6d-a01b96814452",
+        "policyDefinitionReferenceId": "Dine-AppService-Apps-Private-DNS-Zone"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageBlobPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageBlobPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/75973700-529f-4de2-b794-fb9b6781b6b0",
+        "policyDefinitionReferenceId": "Dine-Storage-Blob-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageSecondaryBlobPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageSecondaryBlobPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d847d34b-9337-4e2d-99a5-767e5ac9c582",
+        "policyDefinitionReferenceId": "Dine-Storage-SecondaryBlob-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageDfsPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageDfsPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83c6fe0f-2316-444a-99a1-1ecd8a7872ca",
+        "policyDefinitionReferenceId": "Dine-Storage-Dfs-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageSecondaryDfsPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageSecondaryDfsPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/90bd4cb3-9f59-45f7-a6ca-f69db2726671",
+        "policyDefinitionReferenceId": "Dine-Storage-SecondaryDfs-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageQueuePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageQueuePrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bcff79fb-2b0d-47c9-97e5-3023479b00d1",
+        "policyDefinitionReferenceId": "Dine-Storage-Queue-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageSecondaryQueuePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageSecondaryQueuePrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/da9b4ae8-5ddc-48c5-b9c0-25f8abf7a3d6",
+        "policyDefinitionReferenceId": "Dine-Storage-SecondaryQueue-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageWebPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageWebPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9adab2a5-05ba-4fbd-831a-5bf958d04218",
+        "policyDefinitionReferenceId": "Dine-Storage-Web-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageSecondaryWebPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageSecondaryWebPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d19ae5f1-b303-4b82-9ca8-7682749faf0c",
+        "policyDefinitionReferenceId": "Dine-Storage-SecondaryWeb-PrivateDns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageFileDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageFileDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6df98d03-368a-4438-8730-a93c4d7693d6",
+        "policyDefinitionReferenceId": "Dine-Storage-FileGroupId-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageTablePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageTablePrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/028bbd88-e9b5-461f-9424-a1b63a7bee1a",
+        "policyDefinitionReferenceId": "Dine-Table-Storage-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageSecondaryTablePrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageSecondaryTablePrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c1d634a5-f73d-4cdd-889f-2cc7006eb47f",
+        "policyDefinitionReferenceId": "Dine-SecondaryTable-Storage-Private-Dns"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageFileSyncPrivateDnsZone')]"
+          },
+          "privateDnsZoneId": {
+            "value": "[parameters('storageFileSyncPrivateDnsZoneId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06695360-db88-47f6-b976-7500d4297475",
+        "policyDefinitionReferenceId": "Dine-Storage-File-Sync-Private-Dns"
+      }
+    ]
   },
-  "parameters": {
-    "aaPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "aaPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "aaPrivateEndpointGroupId": {
-      "defaultValue": "DSCAndHybridWorker",
-      "type": "string"
-    },
-    "adfPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "adfPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "appServiceAppsPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "appServiceAppsPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "asrPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "asrPrivateDnsZone-Backup": {
-      "type": "string"
-    },
-    "asrPrivateDnsZone-Blob": {
-      "type": "string"
-    },
-    "asrPrivateDnsZone-Queue": {
-      "type": "string"
-    },
-    "avdHostPoolPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "avdHostPoolPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "avdHostPoolPrivateEndpointGroupId": {
-      "defaultValue": "connection",
-      "type": "string"
-    },
-    "avdWorkspacePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "avdWorkspacePrivateDnsZoneId": {
-      "type": "string"
-    },
-    "avdWorkspacePrivateEndpointGroupId": {
-      "defaultValue": "feed",
-      "type": "string"
-    },
-    "cognitiveServicesOpenAiPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "cognitiveServicesOpenAiPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "cognitiveServicesPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "cognitiveServicesPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "containerRegistryPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "containerRegistryPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "cosmosDbPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "cosmosDbPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "cosmosDbPrivateEndpointGroupId": {
-      "type": "string"
-    },
-    "diskPrivateDns": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "diskPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "eventGridDomainPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "eventGridDomainPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "eventGridTopicPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "eventGridTopicPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "eventHubNamespacesPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "eventHubNamespacesPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "keyVaultPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "keyVaultPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "mlPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "mlPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "mlSecondPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "serviceBusDinePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "serviceBusPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageBlobPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageBlobPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageDfsPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageDfsPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageFileDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageFileDnsZoneId": {
-      "type": "string"
-    },
-    "storageFileSyncPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageFileSyncPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageQueuePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageQueuePrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageSecondaryBlobPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageSecondaryBlobPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageSecondaryDfsPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageSecondaryDfsPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageSecondaryQueuePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageSecondaryQueuePrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageSecondaryTablePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageSecondaryTablePrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageSecondaryWebPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageSecondaryWebPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageTablePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageTablePrivateDnsZoneId": {
-      "type": "string"
-    },
-    "storageWebPrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "storageWebPrivateDnsZoneId": {
-      "type": "string"
-    },
-    "synapsePrivateDnsZone": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "synapsePrivateDnsZoneId": {
-      "type": "string"
-    }
-  },
-  "policyDefinitionGroups": [
-    {
-      "category": "Data Protection",
-      "description": "Policy to ensure Corp connected resources are using secure encryption",
-      "displayName": "Ensure Corp connected resources are using secure encryption",
-      "name": "Encryption"
-    },
-    {
-      "category": "Network Security",
-      "description": "Policy to ensure Corp connected landing zones are not accessible over the public internet",
-      "displayName": "Ensure Corp connected landing zones are not accessible over the public internet",
-      "name": "Network"
-    }
-  ],
-  "policyDefinitions": [
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('avdWorkspacePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('avdWorkspacePrivateDnsZoneId')]"
-        },
-        "privateEndpointGroupId": {
-          "value": "[parameters('avdWorkspacePrivateEndpointGroupId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/34804460-d88b-4922-a7ca-537165e060ed",
-      "policyDefinitionReferenceId": "Dine-Workspace-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('avdHostpoolPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('avdHostpoolPrivateDnsZoneId')]"
-        },
-        "privateEndpointGroupId": {
-          "value": "[parameters('avdHostpoolPrivateEndpointGroupId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9427df23-0f42-4e1e-bf99-a6133d841c4a",
-      "policyDefinitionReferenceId": "Dine-Hostpool-DNS-Zone"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('synapsePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('synapsePrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e5ed725-f16c-478b-bd4b-7bfa2f7940b9",
-      "policyDefinitionReferenceId": "Dine-Synapse-Private-Dns-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusDinePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('serviceBusPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f0fcf93c-c063-4071-9668-c47474bd3564",
-      "policyDefinitionReferenceId": "DINE-Sb-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('cognitiveServicesPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c4bc6f10-cb41-49eb-b000-d5ab82e2a091",
-      "policyDefinitionReferenceId": "Dine-Cognitive-Services-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesOpenAiPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('cognitiveServicesOpenAiPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c4bc6f10-cb41-49eb-b000-d5ab82e2a091",
-      "policyDefinitionReferenceId": "Dine-OpenAi-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('mlPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('mlPrivateDnsZoneId')]"
-        },
-        "secondPrivateDnsZoneId": {
-          "value": "[parameters('mlSecondPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ee40564d-486e-4f68-a5ca-7a621edae0fb",
-      "policyDefinitionReferenceId": "Dine-ML-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('keyVaultPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('keyVaultPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ac673a9a-f77d-4846-b2d8-a57f8e1c01d4",
-      "policyDefinitionReferenceId": "DINE-KV-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('eventHubNamespacesPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('eventHubNamespacesPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ed66d4f5-8220-45dc-ab4a-20d1749c74e6",
-      "policyDefinitionReferenceId": "Dine-EH-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('eventGridTopicPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('eventGridTopicPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/baf19753-7502-405f-8745-370519b20483",
-      "policyDefinitionReferenceId": "Dine-EventGrid-Topic-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('eventGridDomainPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('eventGridDomainPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d389df0a-e0d7-4607-833c-75a6fdac2c2d",
-      "policyDefinitionReferenceId": "Dine-EventGrid-Domain-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('adfPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('adfPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86cd96e1-1745-420d-94d4-d3f2fe415aa4",
-      "policyDefinitionReferenceId": "Dine-Adf-Private-Dns-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('containerRegistryPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('containerRegistryPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e9585a95-5b8c-4d03-b193-dc7eb5ac4c32",
-      "policyDefinitionReferenceId": "Dine-ContainerRegistry-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cosmosDbPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('cosmosDbPrivateDnsZoneId')]"
-        },
-        "privateEndpointGroupId": {
-          "value": "[parameters('cosmosDbPrivateEndpointGroupId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a63cc0bd-cda4-4178-b705-37dc439d3e0f",
-      "policyDefinitionReferenceId": "Dine-CosmosDb-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('diskPrivateDns')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('diskPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bc05b96c-0b36-4ca9-82f0-5c53f96ce05a",
-      "policyDefinitionReferenceId": "Dine-Disk-Private-DNS"
-    },
-    {
-      "definitionVersion": "1.*.*-preview",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('asrPrivateDnsZone')]"
-        },
-        "privateDnsZone-Backup": {
-          "value": "[parameters('asrPrivateDnsZone-Backup')]"
-        },
-        "privateDnsZone-Blob": {
-          "value": "[parameters('asrPrivateDnsZone-Blob')]"
-        },
-        "privateDnsZone-Queue": {
-          "value": "[parameters('asrPrivateDnsZone-Queue')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af783da1-4ad1-42be-800d-d19c70038820",
-      "policyDefinitionReferenceId": "Dine-Asr-Private-Dns-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('aaPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('aaPrivateDnsZoneId')]"
-        },
-        "privateEndpointGroupId": {
-          "value": "[parameters('aaPrivateEndpointGroupId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6dd01e4f-1be1-4e80-9d0b-d109e04cb064",
-      "policyDefinitionReferenceId": "Dine-Aa-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('appServiceAppsPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('appServiceAppsPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b318f84a-b872-429b-ac6d-a01b96814452",
-      "policyDefinitionReferenceId": "Dine-AppService-Apps-Private-DNS-Zone"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageBlobPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageBlobPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/75973700-529f-4de2-b794-fb9b6781b6b0",
-      "policyDefinitionReferenceId": "Dine-Storage-Blob-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageSecondaryBlobPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageSecondaryBlobPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d847d34b-9337-4e2d-99a5-767e5ac9c582",
-      "policyDefinitionReferenceId": "Dine-Storage-SecondaryBlob-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageDfsPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageDfsPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83c6fe0f-2316-444a-99a1-1ecd8a7872ca",
-      "policyDefinitionReferenceId": "Dine-Storage-Dfs-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageSecondaryDfsPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageSecondaryDfsPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/90bd4cb3-9f59-45f7-a6ca-f69db2726671",
-      "policyDefinitionReferenceId": "Dine-Storage-SecondaryDfs-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageQueuePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageQueuePrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bcff79fb-2b0d-47c9-97e5-3023479b00d1",
-      "policyDefinitionReferenceId": "Dine-Storage-Queue-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageSecondaryQueuePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageSecondaryQueuePrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/da9b4ae8-5ddc-48c5-b9c0-25f8abf7a3d6",
-      "policyDefinitionReferenceId": "Dine-Storage-SecondaryQueue-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageWebPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageWebPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9adab2a5-05ba-4fbd-831a-5bf958d04218",
-      "policyDefinitionReferenceId": "Dine-Storage-Web-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageSecondaryWebPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageSecondaryWebPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d19ae5f1-b303-4b82-9ca8-7682749faf0c",
-      "policyDefinitionReferenceId": "Dine-Storage-SecondaryWeb-PrivateDns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageFileDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageFileDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6df98d03-368a-4438-8730-a93c4d7693d6",
-      "policyDefinitionReferenceId": "Dine-Storage-FileGroupId-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageTablePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageTablePrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/028bbd88-e9b5-461f-9424-a1b63a7bee1a",
-      "policyDefinitionReferenceId": "Dine-Table-Storage-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageSecondaryTablePrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageSecondaryTablePrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c1d634a5-f73d-4cdd-889f-2cc7006eb47f",
-      "policyDefinitionReferenceId": "Dine-SecondaryTable-Storage-Private-Dns"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('storageFileSyncPrivateDnsZone')]"
-        },
-        "privateDnsZoneId": {
-          "value": "[parameters('storageFileSyncPrivateDnsZoneId')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06695360-db88-47f6-b976-7500d4297475",
-      "policyDefinitionReferenceId": "Dine-Storage-File-Sync-Private-Dns"
-    }
-  ]
+  "type": "Microsoft.Authorization/policySetDefinitions"
 }

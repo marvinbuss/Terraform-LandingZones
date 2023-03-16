@@ -1,18 +1,15 @@
 get-childItem '/Users/uday/git/uday31in/AzOps/sparta-1 (sparta-1)/' -Filter *policydefinitions*.json -Recurse | % {
     $name = $_.Name;
-    $policy = get-content $_ | jq '.parameters.input.value.properties | del(.metadata.createdBy , .metadata.updatedBy)'
+    $policy = get-content $_ | jq '.parameters.input.value | del(.ResourceId, .tenantID, .metadata.createdBy , .metadata.updatedBy)'
     $destination = join-path  "/Users/uday/git/uday31in/Terraform-LandingZones/code/lib/policy_definitions/" -ChildPath ("policy_definition_" + ($($name.ToString() -replace 'microsoft.authorization_policydefinitions-'))).replace(".parameters","").replace("-","_")
     $policy > $destination
 }
-
-
-
 get-childItem '/Users/uday/git/uday31in/AzOps/sparta-1 (sparta-1)/' -Filter *policySetdefinitions*.json -Recurse | % {
     $name = $_.Name;
-    $policySet = get-content $_ | jq '.parameters.input.value.properties | del(.metadata.createdBy, .metadata.updatedBy)' | ConvertFrom-Json
+    $policySet = get-content $_ | jq '.parameters.input.value | del(.metadata.createdBy, .metadata.updatedBy)' | ConvertFrom-Json
     $destination = join-path  "/Users/uday/git/uday31in/Terraform-LandingZones/code/lib/policy_set_definitions" -ChildPath ("policy_set_definition_" + ($($name.ToString() -replace 'microsoft.authorization_policysetdefinitions-'))).replace(".parameters","").replace("-","_")
 
-    $policySet.policyDefinitions |% {
+    $policySet.properties.policyDefinitions |% {
         $guidPattern = "\b[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}\b"
         if ($_.policyDefinitionId  -notmatch $guidPattern) {
             Write-Verbose "Custom Policy Definition: $($_.policyDefinitionId)"
@@ -29,3 +26,10 @@ get-childItem '/Users/uday/git/uday31in/AzOps/sparta-1 (sparta-1)/' -Filter *pol
     $($name.ToString() -replace 'microsoft.authorization_')
     $policyAssignment > $destination
 }
+
+###### Get Policy
+
+$(Get-ChildItem ./code/lib/policy_definitions -Recurse |% { Get-Content $_ | ConvertFrom-Json}) |% {"$('"'+$_.Name + '",')"}
+
+#### Get Policy Set
+$(Get-ChildItem ./code/lib/policy_set_definitions -Recurse |% { Get-Content $_ | ConvertFrom-Json}) |% {"$('"'+$_.Name + '",')"}

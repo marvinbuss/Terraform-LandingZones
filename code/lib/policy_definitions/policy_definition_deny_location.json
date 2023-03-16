@@ -1,44 +1,52 @@
 {
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.",
-  "displayName": "Allowed locations for Landing Zone workloads",
-  "metadata": {
-    "category": "General"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "listOfAllowedLocations": {
-      "metadata": {
-        "description": "The list of locations that can be specified when deploying resources.",
-        "displayName": "Allowed locations",
-        "strongType": "location"
-      },
-      "type": "Array"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "field": "location",
-          "notIn": "[parameters('listOfAllowedLocations')]"
-        },
-        {
-          "field": "location",
-          "notEquals": "global"
-        },
-        {
-          "field": "type",
-          "notEquals": "Microsoft.AzureActiveDirectory/b2cDirectories"
-        },
-        {
-          "field": "type",
-          "notEquals": "Microsoft.Resources/deployments"
-        }
-      ]
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-Location",
+  "properties": {
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.",
+    "displayName": "Allowed locations for Landing Zone workloads",
+    "metadata": {
+      "category": "General",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
     },
-    "then": {
-      "effect": "deny"
-    }
+    "mode": "Indexed",
+    "parameters": {
+      "listOfAllowedLocations": {
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources.",
+          "displayName": "Allowed locations",
+          "strongType": "location"
+        },
+        "type": "Array"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "location",
+            "notIn": "[parameters('listOfAllowedLocations')]"
+          },
+          {
+            "field": "location",
+            "notEquals": "global"
+          },
+          {
+            "field": "type",
+            "notEquals": "Microsoft.AzureActiveDirectory/b2cDirectories"
+          },
+          {
+            "field": "type",
+            "notEquals": "Microsoft.Resources/deployments"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

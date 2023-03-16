@@ -1,113 +1,121 @@
 {
-  "description": "Deploy a specific min TLS version requirement and enforce SSL on SQL managed instances. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
-  "displayName": "SQL managed instances deploy a specific min TLS version requirement.",
-  "metadata": {
-    "category": "SQL",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "DeployIfNotExists",
-        "Disabled"
-      ],
-      "defaultValue": "DeployIfNotExists",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy minimum TLS version SQL servers",
-        "displayName": "Effect SQL servers"
-      },
-      "type": "String"
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deploy-SqlMi-minTLS",
+  "properties": {
+    "description": "Deploy a specific min TLS version requirement and enforce SSL on SQL managed instances. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+    "displayName": "SQL managed instances deploy a specific min TLS version requirement.",
+    "metadata": {
+      "category": "SQL",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "minimalTlsVersion": {
-      "allowedValues": [
-        "1.2",
-        "1.1",
-        "1.0"
-      ],
-      "defaultValue": "1.2",
-      "metadata": {
-        "description": "Select version minimum TLS version SQL servers to enforce",
-        "displayName": "Select version for SQL server"
-      },
-      "type": "String"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Sql/managedInstances",
-          "field": "type"
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy minimum TLS version SQL servers",
+          "displayName": "Effect SQL servers"
         },
-        {
-          "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
-          "notequals": "[parameters('minimalTlsVersion')]"
-        }
-      ]
+        "type": "String"
+      },
+      "minimalTlsVersion": {
+        "allowedValues": [
+          "1.2",
+          "1.1",
+          "1.0"
+        ],
+        "defaultValue": "1.2",
+        "metadata": {
+          "description": "Select version minimum TLS version SQL servers to enforce",
+          "displayName": "Select version for SQL server"
+        },
+        "type": "String"
+      }
     },
-    "then": {
-      "details": {
-        "deployment": {
-          "properties": {
-            "mode": "Incremental",
-            "parameters": {
-              "location": {
-                "value": "[field('location')]"
-              },
-              "minimalTlsVersion": {
-                "value": "[parameters('minimalTlsVersion')]"
-              },
-              "resourceName": {
-                "value": "[field('name')]"
-              }
-            },
-            "template": {
-              "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-              "contentVersion": "1.0.0.0",
-              "outputs": {},
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Sql/managedInstances",
+            "field": "type"
+          },
+          {
+            "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
+            "notequals": "[parameters('minimalTlsVersion')]"
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "deployment": {
+            "properties": {
+              "mode": "Incremental",
               "parameters": {
                 "location": {
-                  "type": "String"
+                  "value": "[field('location')]"
                 },
                 "minimalTlsVersion": {
-                  "type": "String"
+                  "value": "[parameters('minimalTlsVersion')]"
                 },
                 "resourceName": {
-                  "type": "String"
+                  "value": "[field('name')]"
                 }
               },
-              "resources": [
-                {
-                  "apiVersion": "2020-02-02-preview",
-                  "location": "[parameters('location')]",
-                  "name": "[concat(parameters('resourceName'))]",
-                  "properties": {
-                    "minimalTlsVersion": "[parameters('minimalTlsVersion')]"
+              "template": {
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                  "location": {
+                    "type": "String"
                   },
-                  "type": "Microsoft.Sql/managedInstances"
-                }
-              ],
-              "variables": {}
+                  "minimalTlsVersion": {
+                    "type": "String"
+                  },
+                  "resourceName": {
+                    "type": "String"
+                  }
+                },
+                "resources": [
+                  {
+                    "apiVersion": "2020-02-02-preview",
+                    "location": "[parameters('location')]",
+                    "name": "[concat(parameters('resourceName'))]",
+                    "properties": {
+                      "minimalTlsVersion": "[parameters('minimalTlsVersion')]"
+                    },
+                    "type": "Microsoft.Sql/managedInstances"
+                  }
+                ],
+                "variables": {}
+              }
             }
-          }
+          },
+          "existenceCondition": {
+            "allOf": [
+              {
+                "equals": "[parameters('minimalTlsVersion')]",
+                "field": "Microsoft.Sql/managedInstances/minimalTlsVersion"
+              }
+            ]
+          },
+          "name": "current",
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+          ],
+          "type": "Microsoft.Sql/managedInstances"
         },
-        "existenceCondition": {
-          "allOf": [
-            {
-              "equals": "[parameters('minimalTlsVersion')]",
-              "field": "Microsoft.Sql/managedInstances/minimalTlsVersion"
-            }
-          ]
-        },
-        "name": "current",
-        "roleDefinitionIds": [
-          "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
-        ],
-        "type": "Microsoft.Sql/managedInstances"
-      },
-      "effect": "[parameters('effect')]"
-    }
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

@@ -1,170 +1,176 @@
 {
-  "description": "This policy initiative is a group of policies that ensures Service Bus is compliant per FSI Landing Zones",
-  "displayName": "Enforce secure-by-default Service Bus for Financial Services Industry",
-  "metadata": {
-    "category": "Service Bus",
-    "version": "1.0.0"
-  },
-  "parameters": {
-    "ServiceBusLogAnalyticsEffect": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "String"
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-Service-Bus",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Service Bus is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Service Bus for Financial Services Industry",
+    "metadata": {
+      "category": "Service Bus",
+      "version": "1.0.0"
     },
-    "ServiceBusLogAnalyticsWorkspaceId": {
-      "type": "String"
-    },
-    "profileName": {
-      "defaultValue": "setByPolicy",
-      "type": "string"
-    },
-    "serviceBusAuthzRules": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "serviceBusDenyCmk": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "serviceBusDenyDisabledLocalAuth": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "serviceBusDisablePublicNetworkAccess": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "serviceBusDoubleEncryption": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "serviceBusModifyDisableLocalAuth": {
-      "defaultValue": "Modify",
-      "type": "string"
-    }
-  },
-  "policyDefinitionGroups": [
-    {
-      "category": "Data Protection",
-      "description": "Policy to ensure Service Bus is using secure encryption",
-      "displayName": "Ensure Service Bus is using secure encryption",
-      "name": "Encryption"
-    },
-    {
-      "category": "Network Security",
-      "description": "Policy to ensure Service Bus is not accessible over the public internet",
-      "displayName": "Ensure Service Bus is not accessible over the public internet",
-      "name": "Network"
-    },
-    {
-      "category": "Identity Management",
-      "description": "Policy to ensure Service Bus is not using local authorization",
-      "displayName": "Ensure usage of centralized identity and auhtorization system for Service Bus",
-      "name": "Identity"
-    },
-    {
-      "category": "Logging and Threat Detection",
-      "description": "Policy to ensure Service Bus is logging all events to Log Analytics workspace",
-      "displayName": "Ensure Service Bus is logging all events to Log Analytics",
-      "name": "Logging"
-    }
-  ],
-  "policyDefinitions": [
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusAuthzRules')]"
-        }
+    "parameters": {
+      "ServiceBusLogAnalyticsEffect": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "String"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1817ec0-a368-432a-8057-8371e17ac6ee",
-      "policyDefinitionReferenceId": "Deny-Sb-Authz-Rules"
+      "ServiceBusLogAnalyticsWorkspaceId": {
+        "type": "String"
+      },
+      "profileName": {
+        "defaultValue": "setByPolicy",
+        "type": "string"
+      },
+      "serviceBusAuthzRules": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "serviceBusDenyCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "serviceBusDenyDisabledLocalAuth": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "serviceBusDisablePublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "serviceBusDoubleEncryption": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "serviceBusModifyDisableLocalAuth": {
+        "defaultValue": "Modify",
+        "type": "string"
+      }
     },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Logging"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('ServiceBusLogAnalyticsEffect')]"
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure Service Bus is using secure encryption",
+        "displayName": "Ensure Service Bus is using secure encryption",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Service Bus is not accessible over the public internet",
+        "displayName": "Ensure Service Bus is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Service Bus is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Service Bus",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Service Bus is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Service Bus is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusAuthzRules')]"
+          }
         },
-        "logAnalytics": {
-          "value": "[parameters('ServiceBusLogAnalyticsWorkspaceId')]"
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1817ec0-a368-432a-8057-8371e17ac6ee",
+        "policyDefinitionReferenceId": "Deny-Sb-Authz-Rules"
+      },
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('ServiceBusLogAnalyticsEffect')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('ServiceBusLogAnalyticsWorkspaceId')]"
+          },
+          "profileName": {
+            "value": "[parameters('profileName')]"
+          }
         },
-        "profileName": {
-          "value": "[parameters('profileName')]"
-        }
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/04d53d87-841c-4f23-8a5b-21564380b55e",
+        "policyDefinitionReferenceId": "Dine-Sb-Diagnostics"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/04d53d87-841c-4f23-8a5b-21564380b55e",
-      "policyDefinitionReferenceId": "Dine-Sb-Diagnostics"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusDenyCmk')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusDenyCmk')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-ServiceBus-CMK",
+        "policyDefinitionReferenceId": "Deny-Sb-Cmk"
       },
-      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-ServiceBus-CMK",
-      "policyDefinitionReferenceId": "Deny-Sb-Cmk"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusDoubleEncryption')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusDoubleEncryption')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ebaf4f25-a4e8-415f-86a8-42d9155bef0b",
+        "policyDefinitionReferenceId": "Deny-Sb-Encryption"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ebaf4f25-a4e8-415f-86a8-42d9155bef0b",
-      "policyDefinitionReferenceId": "Deny-Sb-Encryption"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusDisablePublicNetworkAccess')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusDisablePublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cbd11fd3-3002-4907-b6c8-579f0e700e13",
+        "policyDefinitionReferenceId": "Deny-Sb-PublicEndpoint"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cbd11fd3-3002-4907-b6c8-579f0e700e13",
-      "policyDefinitionReferenceId": "Deny-Sb-PublicEndpoint"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusDenyDisabledLocalAuth')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusDenyDisabledLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cfb11c26-f069-4c14-8e36-56c394dae5af",
+        "policyDefinitionReferenceId": "Deny-Sb-LocalAuth"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cfb11c26-f069-4c14-8e36-56c394dae5af",
-      "policyDefinitionReferenceId": "Deny-Sb-LocalAuth"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('serviceBusModifyDisableLocalAuth')]"
-        }
-      },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/910711a6-8aa2-4f15-ae62-1e5b2ed3ef9e",
-      "policyDefinitionReferenceId": "Modify-Sb-LocalAuth"
-    }
-  ]
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('serviceBusModifyDisableLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/910711a6-8aa2-4f15-ae62-1e5b2ed3ef9e",
+        "policyDefinitionReferenceId": "Modify-Sb-LocalAuth"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
 }

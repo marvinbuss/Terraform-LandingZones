@@ -1,231 +1,237 @@
 {
-  "description": "This policy initiative is a group of policies that ensures Open AI (Cognitive Service) is compliant per FSI Landing Zones",
-  "displayName": "Enforce secure-by-default Open AI (Cognitive Service) for Financial Services Industry",
-  "metadata": {
-    "category": "Cognitive Services",
-    "version": "1.0.0"
-  },
-  "parameters": {
-    "cognitiveServicesCmk": {
-      "defaultValue": "Deny",
-      "type": "string"
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-OpenAi",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Open AI (Cognitive Service) is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Open AI (Cognitive Service) for Financial Services Industry",
+    "metadata": {
+      "category": "Cognitive Services",
+      "version": "1.0.0"
     },
-    "cognitiveServicesCustomerStorage": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesDiagnostics": {
-      "defaultValue": "DeployIfNotExists",
-      "type": "string"
-    },
-    "cognitiveServicesDisableLocalAuth": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesLogAnalyticsWorkspaceId": {
-      "type": "string"
-    },
-    "cognitiveServicesManagedIdentity": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesModifyDisableLocalAuth": {
-      "defaultValue": "Modify",
-      "type": "string"
-    },
-    "cognitiveServicesModifyPublicNetworkAccess": {
-      "defaultValue": "Modify",
-      "type": "string"
-    },
-    "cognitiveServicesNetworkAccess": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesNetworkAcls": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesOutboundNetworkAccess": {
-      "defaultValue": "Deny",
-      "type": "string"
-    },
-    "cognitiveServicesPublicNetworkAccess": {
-      "defaultValue": "Deny",
-      "type": "string"
-    }
-  },
-  "policyDefinitionGroups": [
-    {
-      "category": "Data Protection",
-      "description": "Policy to ensure data protection for Open AI (Cognitive Service)",
-      "displayName": "Ensure compliance for data encryption, protection, and recovery for Open AI (Cognitive Service)",
-      "name": "Encryption"
-    },
-    {
-      "category": "Network Security",
-      "description": "Policy to ensure Open AI (Cognitive Service) not accessible over the public internet",
-      "displayName": "Ensure Open AI (Cognitive Service) is not accessible over the public internet",
-      "name": "Network"
-    },
-    {
-      "category": "Identity Management",
-      "description": "Policy to ensure Open AI (Cognitive Service) is not using local authorization",
-      "displayName": "Ensure usage of centralized identity and auhtorization system for Open AI (Cognitive Service)",
-      "name": "Identity"
-    },
-    {
-      "category": "Logging and Threat Detection",
-      "description": "Policy to ensure Open AI (Cognitive Service) is logging all events to Log Analytics workspace",
-      "displayName": "Ensure Open AI (Cognitive Service) is logging all events to Log Analytics",
-      "name": "Logging"
-    }
-  ],
-  "policyDefinitions": [
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesOutboundNetworkAccess')]"
-        }
+    "parameters": {
+      "cognitiveServicesCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
       },
-      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-CognitiveServices-RestrictOutboundNetworkAccess",
-      "policyDefinitionReferenceId": "Deny-OpenAi-OutboundNetworkAccess"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesNetworkAcls')]"
-        }
+      "cognitiveServicesCustomerStorage": {
+        "defaultValue": "Deny",
+        "type": "string"
       },
-      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-CognitiveServices-NetworkAcls",
-      "policyDefinitionReferenceId": "Deny-OpenAi-NetworkAcls"
+      "cognitiveServicesDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cognitiveServicesDisableLocalAuth": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cognitiveServicesLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "cognitiveServicesManagedIdentity": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cognitiveServicesModifyDisableLocalAuth": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "cognitiveServicesModifyPublicNetworkAccess": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "cognitiveServicesNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cognitiveServicesNetworkAcls": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cognitiveServicesOutboundNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cognitiveServicesPublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      }
     },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Logging"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesDiagnostics')]"
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure data protection for Open AI (Cognitive Service)",
+        "displayName": "Ensure compliance for data encryption, protection, and recovery for Open AI (Cognitive Service)",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Open AI (Cognitive Service) not accessible over the public internet",
+        "displayName": "Ensure Open AI (Cognitive Service) is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Open AI (Cognitive Service) is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Open AI (Cognitive Service)",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Open AI (Cognitive Service) is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Open AI (Cognitive Service) is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesOutboundNetworkAccess')]"
+          }
         },
-        "logAnalytics": {
-          "value": "[parameters('cognitiveServicesLogAnalyticsWorkspaceId')]"
-        }
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-CognitiveServices-RestrictOutboundNetworkAccess",
+        "policyDefinitionReferenceId": "Deny-OpenAi-OutboundNetworkAccess"
       },
-      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-OpenAi",
-      "policyDefinitionReferenceId": "Dine-Diagnostics-OpenAi"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesManagedIdentity')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesNetworkAcls')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-CognitiveServices-NetworkAcls",
+        "policyDefinitionReferenceId": "Deny-OpenAi-NetworkAcls"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fe3fd216-4f83-4fc1-8984-2bbec80a3418",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-Managed-Identity"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesDisableLocalAuth')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('cognitiveServicesLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-OpenAi",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-OpenAi"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/71ef260a-8f18-47b7-abcb-62d0673d94dc",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-Local-Auth"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesCmk')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesManagedIdentity')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fe3fd216-4f83-4fc1-8984-2bbec80a3418",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-Managed-Identity"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/67121cc7-ff39-4ab8-b7e3-95b84dab487d",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-CMK"
-    },
-    {
-      "definitionVersion": "3.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesModifyPublicNetworkAccess')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesDisableLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/71ef260a-8f18-47b7-abcb-62d0673d94dc",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-Local-Auth"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47ba1dd7-28d9-4b07-a8d5-9813bed64e0c",
-      "policyDefinitionReferenceId": "Modify-Cognitive-Services-Public-Network-Access"
-    },
-    {
-      "definitionVersion": "2.*.*",
-      "groupNames": [
-        "Encryption"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesCustomerStorage')]"
-        }
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesCmk')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/67121cc7-ff39-4ab8-b7e3-95b84dab487d",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-CMK"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/46aa9b05-0e60-4eae-a88b-1e9d374fa515",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-Cust-Storage"
-    },
-    {
-      "definitionVersion": "1.*.*",
-      "groupNames": [
-        "Identity"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesModifyDisableLocalAuth')]"
-        }
+      {
+        "definitionVersion": "3.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesModifyPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47ba1dd7-28d9-4b07-a8d5-9813bed64e0c",
+        "policyDefinitionReferenceId": "Modify-Cognitive-Services-Public-Network-Access"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/14de9e63-1b31-492e-a5a3-c3f7fd57f555",
-      "policyDefinitionReferenceId": "Modify-Cognitive-Services-Local-Auth"
-    },
-    {
-      "definitionVersion": "3.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesPublicNetworkAccess')]"
-        }
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesCustomerStorage')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/46aa9b05-0e60-4eae-a88b-1e9d374fa515",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-Cust-Storage"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0725b4dd-7e76-479c-a735-68e7ee23d5ca",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-Public-Network-Access"
-    },
-    {
-      "definitionVersion": "3.*.*",
-      "groupNames": [
-        "Network"
-      ],
-      "parameters": {
-        "effect": {
-          "value": "[parameters('cognitiveServicesNetworkAccess')]"
-        }
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesModifyDisableLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/14de9e63-1b31-492e-a5a3-c3f7fd57f555",
+        "policyDefinitionReferenceId": "Modify-Cognitive-Services-Local-Auth"
       },
-      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/037eea7a-bd0a-46c5-9a66-03aea78705d3",
-      "policyDefinitionReferenceId": "Deny-Cognitive-Services-Network-Access"
-    }
-  ]
+      {
+        "definitionVersion": "3.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0725b4dd-7e76-479c-a735-68e7ee23d5ca",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "3.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/037eea7a-bd0a-46c5-9a66-03aea78705d3",
+        "policyDefinitionReferenceId": "Deny-Cognitive-Services-Network-Access"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
 }

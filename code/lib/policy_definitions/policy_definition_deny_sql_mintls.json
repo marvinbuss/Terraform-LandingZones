@@ -1,63 +1,71 @@
 {
-  "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
-  "displayName": "Azure SQL Database should have the minimal TLS version set to the highest version",
-  "metadata": {
-    "category": "SQL",
-    "version": "1.0.0"
-  },
-  "mode": "Indexed",
-  "parameters": {
-    "effect": {
-      "allowedValues": [
-        "Audit",
-        "Disabled",
-        "Deny"
-      ],
-      "defaultValue": "Audit",
-      "metadata": {
-        "description": "Enable or disable the execution of the policy",
-        "displayName": "Effect"
-      },
-      "type": "String"
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Deny-Sql-minTLS",
+  "properties": {
+    "description": "Setting minimal TLS version to 1.2 improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
+    "displayName": "Azure SQL Database should have the minimal TLS version set to the highest version",
+    "metadata": {
+      "category": "SQL",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
     },
-    "minimalTlsVersion": {
-      "allowedValues": [
-        "1.2",
-        "1.1",
-        "1.0"
-      ],
-      "defaultValue": "1.2",
-      "metadata": {
-        "description": "Select version minimum TLS version SQL servers to enforce",
-        "displayName": "Select version for SQL server"
-      },
-      "type": "String"
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "equals": "Microsoft.Sql/servers",
-          "field": "type"
+    "mode": "Indexed",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny"
+        ],
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
         },
-        {
-          "anyOf": [
-            {
-              "exists": "false",
-              "field": "Microsoft.Sql/servers/minimalTlsVersion"
-            },
-            {
-              "field": "Microsoft.Sql/servers/minimalTlsVersion",
-              "notequals": "[parameters('minimalTlsVersion')]"
-            }
-          ]
-        }
-      ]
+        "type": "String"
+      },
+      "minimalTlsVersion": {
+        "allowedValues": [
+          "1.2",
+          "1.1",
+          "1.0"
+        ],
+        "defaultValue": "1.2",
+        "metadata": {
+          "description": "Select version minimum TLS version SQL servers to enforce",
+          "displayName": "Select version for SQL server"
+        },
+        "type": "String"
+      }
     },
-    "then": {
-      "effect": "[parameters('effect')]"
-    }
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Sql/servers",
+            "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "exists": "false",
+                "field": "Microsoft.Sql/servers/minimalTlsVersion"
+              },
+              {
+                "field": "Microsoft.Sql/servers/minimalTlsVersion",
+                "notequals": "[parameters('minimalTlsVersion')]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
   },
-  "policyType": "Custom"
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
 }
