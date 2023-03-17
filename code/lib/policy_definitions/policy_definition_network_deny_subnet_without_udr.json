@@ -7,8 +7,8 @@
     "displayName": "Subnets should have a User Defined Route",
     "metadata": {
       "category": "Network",
-      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
-      "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+
+
       "version": "2.0.0"
     },
     "mode": "All",
@@ -93,6 +93,6 @@
     },
     "policyType": "Custom"
   },
-  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+
   "type": "Microsoft.Authorization/policyDefinitions"
 }
