@@ -5,8 +5,8 @@
   "scope": null,
   "properties": {
     "displayName": "Storage Accounts should restrict CORS rules",
-    "mode": "Indexed",
     "description": "Deny cors rules for storage account for increased data exfiltration protection and endpoint protection.",
+    "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"
@@ -18,7 +18,11 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": ["Deny", "Audit", "Disabled"],
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
         "defaultValue": "Deny"
       }
     },

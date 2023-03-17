@@ -1,6 +1,6 @@
 {
-  "name": "Compliant-Storage",
   "type": "Microsoft.Authorization/policyAssignments",
+  "name": "Cmplnt-Storage",
   "apiVersion": "2019-09-01",
   "properties": {
     "displayName": "Enforce secure-by-default Storage Account for Financial Services Industry",
@@ -108,7 +108,9 @@
       },
       "storageAllowedNetworkAclsBypass": {
         "type": "array",
-        "value": ["None"]
+        "value": [
+          "None"
+        ]
       },
       "storageResourceAccessRulesTenantId": {
         "value": "Deny"
@@ -202,7 +204,7 @@
         "value": false
       }
     },
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Storage",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Storage",
     "nonComplianceMessages": [
       {
         "message": "Compliant Storage Account required {enforcementMode}."
@@ -213,11 +215,6 @@
   },
   "location": "${default_location}",
   "identity": {
-    "type": "UserAssigned",
-
-    --Arm has this not sure how to add
-    "userAssignedIdentities": {
-        "[parameters('userAssignedIdentityResourceId')]": {}
-    }
+    "type": "SystemAssigned"
   }
 }
