@@ -19,7 +19,7 @@ module "enterprise_scale" {
   custom_policy_roles      = {}
 
   # Landing Zone configuration
-  custom_landing_zones          = {}
+  custom_landing_zones          = local.custom_landing_zones
   deploy_core_landing_zones     = true
   deploy_connectivity_resources = false
   subscription_id_connectivity  = ""
@@ -31,7 +31,7 @@ module "enterprise_scale" {
   subscription_id_management  = ""
   # configure_management_resources   = local.configure_management_resources
   deploy_diagnostics_for_mg   = false
-  deploy_corp_landing_zones   = false
+  deploy_corp_landing_zones   = true
   deploy_online_landing_zones = false
   deploy_sap_landing_zones    = false
   deploy_demo_landing_zones   = false
@@ -83,7 +83,7 @@ module "enterprise_scale" {
     connectivity   = local.mg_connectivity_archetype_config_overrides
     management     = local.mg_management_archetype_config_overrides
     identity       = local.mg_identity_archetype_config_overrides
-    # corp           = {}
+    corp           = local.mg_corp_archetype_config_overrides
     # online         = {}
     # sap            = {}
   }
@@ -96,6 +96,7 @@ module "enterprise_scale" {
     connectivity   = local.mg_connectivity_subscription_id_overrides
     management     = local.mg_management_subscription_id_overrides
     identity       = local.mg_identity_subscription_id_overrides
+    corp           = local.mg_connectivity_subscription_id_overrides
   }
 
   # Specify custom template variables

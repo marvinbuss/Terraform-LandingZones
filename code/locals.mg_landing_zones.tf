@@ -39,7 +39,7 @@ locals {
         storageAccountsCopyScope                        = "Deny",
         storageAccountsAllowedCopyScope                 = "AAD",
         storageServicesEncryption                       = "Deny",
-        storageLocalUser                                = "Deny",
+        storageSftp                                     = "Deny",
         storageNetworkAclsBypass                        = "Deny",
         storageAllowedNetworkAclsBypass = [
           "None"

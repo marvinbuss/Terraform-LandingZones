@@ -76,7 +76,7 @@
       "storageServicesEncryption": {
         "value": "Deny"
       },
-      "storageLocalUser": {
+      "storageSftp": {
         "value": "Deny"
       },
       "storageNetworkAclsBypass": {

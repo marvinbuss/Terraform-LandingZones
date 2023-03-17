@@ -62,24 +62,24 @@
               {
                 "anyOf": [
                   {
-                    "field": "Microsoft.Storage/storageAccounts/encryption.services.queue.enabled",
+                    "field": "Microsoft.Storage/storageAccounts/encryption.services.queue.keyType",
                     "exists": "false"
                   },
                   {
-                    "field": "Microsoft.Storage/storageAccounts/encryption.services.queue.enabled",
-                    "notEquals": true
+                    "field": "Microsoft.Storage/storageAccounts/encryption.services.queue.keyType",
+                    "notEquals": "Account"
                   }
                 ]
               },
               {
                 "anyOf": [
                   {
-                    "field": "Microsoft.Storage/storageAccounts/encryption.services.table.enabled",
+                    "field": "Microsoft.Storage/storageAccounts/encryption.services.table.keyType",
                     "exists": "false"
                   },
                   {
-                    "field": "Microsoft.Storage/storageAccounts/encryption.services.table.enabled",
-                    "notEquals": true
+                    "field": "Microsoft.Storage/storageAccounts/encryption.services.table.keyType",
+                    "notEquals": "Account"
                   }
                 ]
               }

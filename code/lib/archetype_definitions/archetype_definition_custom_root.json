@@ -9,7 +9,7 @@
       "Deny-Storage-CopyScope",
       "Deny-Storage-CorsRules",
       "Deny-Storage-Cmk",
-      "Deny-Storage-LocalUser",
+      "Deny-Storage-Sftp",
       "Deny-Storage-NetworkAclsBypass",
       "Deny-Storage-AllowBlobPublicAccess",
       "Deny-Storage-ResourceAccessRulesResourceId",
