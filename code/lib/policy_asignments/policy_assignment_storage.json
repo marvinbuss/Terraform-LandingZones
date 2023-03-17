@@ -110,54 +110,6 @@
       "storageCorsRules": {
         "value": "Deny"
       },
-      "storageBlobPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageBlobPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryBlobPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryBlobPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageDfsPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageDfsPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryDfsPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryDfsPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageQueuePrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageQueuePrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryQueuePrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryQueuePrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageWebPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageWebPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryWebPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryWebPrivateDnsZoneId": {
-        "value": ""
-      },
       "modifyStorageAccountPublicEndpoint": {
         "value": "Modify"
       }
