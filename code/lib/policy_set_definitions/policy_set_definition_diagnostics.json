@@ -1,0 +1,211 @@
+{
+  "name": "Cmplnt-Diagnostics",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "apiVersion": "2021-06-01",
+  "scope": null,
+  "properties": {
+    "displayName": "Enforce centralized logging for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures centralized logging is compliant per FSI Landing Zones",
+    "policyType": "Custom",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "General"
+    },
+    "policyDefinitionGroups": [
+      {
+        "name": "Encryption",
+        "category": "Data Protection",
+        "displayName": "Ensure Storage Account is using secure encryption",
+        "description": "Policy to ensure Storage Account is using secure encryption"
+      },
+      {
+        "name": "Network",
+        "category": "Network Security",
+        "displayName": "Ensure Storage Account is not accessible over the public internet",
+        "description": "Policy to ensure Storage Account is not accessible over the public internet"
+      },
+      {
+        "name": "Identity",
+        "category": "Identity Management",
+        "displayName": "Ensure usage of centralized identity and authorization system for Storage Account",
+        "description": "Policy to ensure Storage Account is not using local authorization"
+      },
+      {
+        "name": "Logging",
+        "category": "Logging and Threat Detection",
+        "displayName": "Ensure Storage Account is logging all events to Log Analytics",
+        "description": "Policy to ensure Storage Account is logging all events to Log Analytics workspace"
+      }
+    ],
+    "parameters": {
+      "storageFileSyncDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "storageFileSyncLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "storageTableDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "storageTableLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "storageAccountsDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "storageAccountsLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "storageQueueDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "storageQueueLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "storageBlobDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "storageBlobLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "diagFileMetrics": {
+        "type": "boolean",
+        "defaultValue": false
+      },
+      "diagBlobMetrics": {
+        "type": "boolean",
+        "defaultValue": false
+      },
+      "diagQueueMetrics": {
+        "type": "boolean",
+        "defaultValue": false
+      },
+      "diagTableMetrics": {
+        "type": "boolean",
+        "defaultValue": false
+      },
+      "cognitiveServicesDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "cognitiveServicesLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b4fe1a3b-0715-4c6c-a5ea-ffc33cf823cb",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Storage-blob",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageBlobDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('storageBlobLogAnalyticsWorkspaceId')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7bd000e3-37c7-4928-9f31-86c4b77c5c45",
+        "policyDefinitionReferenceId": "Dine-Storage-Queue-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageQueueDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('storageQueueLogAnalyticsWorkspaceId')]"
+          },
+          "metricsEnabled": {
+            "value": "[parameters('diagQueueMetrics')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59759c62-9a22-4cdf-ae64-074495983fef",
+        "policyDefinitionReferenceId": "Dine-Storage-Accounts-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageAccountsDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('storageAccountsLogAnalyticsWorkspaceId')]"
+          },
+          "metricsEnabled": {
+            "value": "[parameters('diagBlobMetrics')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2fb86bf3-d221-43d1-96d1-2434af34eaa0",
+        "policyDefinitionReferenceId": "Dine-Storage-Table-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageTableDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('storageTableLogAnalyticsWorkspaceId')]"
+          },
+          "metricsEnabled": {
+            "value": "[parameters('diagTableMetrics')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/25a70cc8-2bd4-47f1-90b6-1478e4662c96",
+        "policyDefinitionReferenceId": "Dine-Storage-FileSync-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('storageFileSyncDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('storageFileSyncLogAnalyticsWorkspaceId')]"
+          },
+          "metricsEnabled": {
+            "value": "[parameters('diagFileMetrics')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-CognitiveServices-Diagnostics",
+        "policyDefinitionReferenceId": "Dine-CognitiveServices-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('cognitiveServicesLogAnalyticsWorkspaceId')]"
+          }
+        }
+      }
+    ]
+  }
+}
