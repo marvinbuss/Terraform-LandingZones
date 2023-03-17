@@ -1,14 +1,42 @@
 {
-  "kind": "policysetdefinitions",
-  "location": "global",
-  "name": "Compliant-API-Management",
+  "name": "Cmplnt-API-Management",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
-    "description": "This policy initiative is a group of policies that ensures API Management is compliant per FSI Landing Zones",
+    "policyType": "Custom",
     "displayName": "Enforce secure-by-default API Management for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures API Management is compliant per FSI Landing Zones",
     "metadata": {
-      "category": "API Management",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "category": "API Management"
     },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure API Management is using secure encryption",
+        "displayName": "Ensure API Management is using secure encryption",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure API Management is not accessible over the public internet",
+        "displayName": "Ensure API Management is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure API Management is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and authorization system for API Management",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure API Management is logging all events to Log Analytics workspace",
+        "displayName": "Ensure API Management is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
     "parameters": {
       "apiSubscriptionScope": {
         "defaultValue": "Deny",
@@ -62,32 +90,6 @@
         "type": "string"
       }
     },
-    "policyDefinitionGroups": [
-      {
-        "category": "Data Protection",
-        "description": "Policy to ensure API Management is using secure encryption",
-        "displayName": "Ensure API Management is using secure encryption",
-        "name": "Encryption"
-      },
-      {
-        "category": "Network Security",
-        "description": "Policy to ensure API Management is not accessible over the public internet",
-        "displayName": "Ensure API Management is not accessible over the public internet",
-        "name": "Network"
-      },
-      {
-        "category": "Identity Management",
-        "description": "Policy to ensure API Management is not using local authorization",
-        "displayName": "Ensure usage of centralized identity and auhtorization system for API Management",
-        "name": "Identity"
-      },
-      {
-        "category": "Logging and Threat Detection",
-        "description": "Policy to ensure API Management is logging all events to Log Analytics workspace",
-        "displayName": "Ensure API Management is logging all events to Log Analytics",
-        "name": "Logging"
-      }
-    ],
     "policyDefinitions": [
       {
         "groupNames": [
@@ -129,7 +131,7 @@
             "value": "[parameters('apimVnetUsage')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-APIM-WithOutVnet",
+        "policyDefinitionId": "${root_scope_resource_id}/Microsoft.Authorization/policyDefinitions/Deny-APIM-WithOutVnet",
         "policyDefinitionReferenceId": "Deny-Apim-without-Vnet"
       },
       {
@@ -233,6 +235,5 @@
         "policyDefinitionReferenceId": "Deny-Api-subscription-scope"
       }
     ]
-  },
-  "type": "Microsoft.Authorization/policySetDefinitions"
+  }
 }

@@ -1,17 +1,15 @@
 {
-  "kind": "policydefinitions",
-  "location": "global",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "name": "Deny-APIM-WithOutVnet",
+  "apiVersion": "2021-06-01",
   "properties": {
-    "description": "Azure Virtual Network deployment provides enhanced security, isolation and allows you to place your API Management service in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies, which enables access to your backend services within the network and/or on-premises. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.",
     "displayName": "API Management services should use a virtual network",
-    "metadata": {
-      "category": "API Management",
-      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
-      "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
-      "version": "1.0.1"
-    },
+    "description": "Azure Virtual Network deployment provides enhanced security, isolation and allows you to place your API Management service in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies, which enables access to your backend services within the network and/or on-premises. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.",
     "mode": "Indexed",
+    "metadata": {
+      "version": "1.0.1",
+      "category": "API Management"
+    },
     "parameters": {
       "effect": {
         "allowedValues": [
@@ -73,9 +71,6 @@
       "then": {
         "effect": "[parameters('effect')]"
       }
-    },
-    "policyType": "Custom"
-  },
-  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
-  "type": "Microsoft.Authorization/policyDefinitions"
+    }
+  }
 }
