@@ -4,4 +4,6 @@ locals {
     parameters     = {}
     access_control = {}
   }
+
+  mg_sandboxes_subscription_id_overrides = var.mg_sandboxes_subscription_ids
 }

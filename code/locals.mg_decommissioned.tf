@@ -4,4 +4,6 @@ locals {
     parameters     = {}
     access_control = {}
   }
+
+  mg_decommissioned_subscription_id_overrides = var.mg_decommissioned_subscription_ids
 }
