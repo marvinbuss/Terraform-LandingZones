@@ -1,0 +1,220 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "name": "Cmplnt-Storage",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Storage Account for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Storage is compliant per FSI Landing Zones",
+    "notScopes": [],
+    "parameters": {
+      "storageKeysExpiration": {
+        "value": "Deny"
+      },
+      "modifyStorageFileSyncPublicEndpoint": {
+        "value": "Modify"
+      },
+      "storageFileSyncPublicEndpoint": {
+        "value": "Deny"
+      },
+      "storageFileSyncDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageFileSyncLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageAccountNetworkRules": {
+        "value": "Deny"
+      },
+      "storageTableDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageTableLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageAccountRestrictNetworkRules": {
+        "value": "Deny"
+      },
+      "storageThreatProtection": {
+        "value": "DeployIfNotExists"
+      },
+      "storageClassicToArm": {
+        "value": "Deny"
+      },
+      "storageAccountSecureTransfer": {
+        "value": "Deny"
+      },
+      "storageAccountsInfraEncryption": {
+        "value": "Deny"
+      },
+      "storageAccountsPublicAccess": {
+        "value": "Deny"
+      },
+      "storageAccountsDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageAccountsLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageAccountsCmk": {
+        "value": "Deny"
+      },
+      "storageQueueDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageQueueLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageTableCmk": {
+        "value": "Deny"
+      },
+      "storageAccountSharedKey": {
+        "value": "Deny"
+      },
+      "storageAccountsCrossTenant": {
+        "value": "Deny"
+      },
+      "storageAccountsModifyDisablePublicNetworkAccess": {
+        "value": "Modify"
+      },
+      "storageAccountsDisablePublicNetworkAccess": {
+        "value": "Deny"
+      },
+      "storageAccountsDoubleEncryption": {
+        "value": "Deny"
+      },
+      "storageQueueCmk": {
+        "value": "Deny"
+      },
+      "storageAccountsTls": {
+        "value": "Deny"
+      },
+      "storageAccountsEncryptionCmk": {
+        "value": "Deny"
+      },
+      "storageAccountsCopyScope": {
+        "value": "Deny"
+      },
+      "storageAccountsAllowedCopyScope": {
+        "value": "AAD"
+      },
+      "storageServicesEncryption": {
+        "value": "Deny"
+      },
+      "storageLocalUser": {
+        "value": "Deny"
+      },
+      "storageNetworkAclsBypass": {
+        "value": "Deny"
+      },
+      "storageAllowedNetworkAclsBypass": {
+        "type": "array",
+        "value": [
+          "None"
+        ]
+      },
+      "storageResourceAccessRulesTenantId": {
+        "value": "Deny"
+      },
+      "storageResourceAccessRulesResourceId": {
+        "value": "Deny"
+      },
+      "storageNetworkAclsVirtualNetworkRules": {
+        "value": "Deny"
+      },
+      "storageAllowBlobPublicAccess": {
+        "value": "Deny"
+      },
+      "storageContainerDeleteRetentionPolicy": {
+        "value": "Deny"
+      },
+      "storageMinContainerDeleteRetentionInDays": {
+        "type": "Integer",
+        "value": 7
+      },
+      "storageCorsRules": {
+        "value": "Deny"
+      },
+      "storageBlobDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageBlobLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageBlobPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryBlobPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageDfsPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryDfsPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageQueuePrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryQueuePrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageWebPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryWebPrivateDnsZoneId": {
+        "value": ""
+      },
+      "modifyStorageAccountPublicEndpoint": {
+        "value": "Modify"
+      },
+      "diagFileMetrics": {
+        "value": false
+      },
+      "diagBlobMetrics": {
+        "value": false
+      },
+      "diagQueueMetrics": {
+        "value": false
+      },
+      "diagTableMetrics": {
+        "value": false
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Storage",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Storage Account required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}

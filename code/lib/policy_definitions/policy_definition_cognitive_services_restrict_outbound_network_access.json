@@ -1,0 +1,56 @@
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
+  "apiVersion": "2021-06-01",
+  "scope": null,
+  "properties": {
+    "displayName": "Outbound network access should be restricted for Cognitive Services",
+    "description": "Azure Cognitive Services allow restricting outbound network access. Enable this to limit outbound connectivity for the service.",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Cognitive Services"
+    },
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.CognitiveServices/accounts",
+            "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "exists": "false",
+                "field": "Microsoft.CognitiveServices/accounts/restrictOutboundNetworkAccess"
+              },
+              {
+                "field": "Microsoft.CognitiveServices/accounts/restrictOutboundNetworkAccess",
+                "notEquals": true
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}

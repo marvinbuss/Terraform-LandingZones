@@ -30,5 +30,9 @@ module "enterprise_scale" {
     # corp           = {}
     # online         = {}
     # sap            = {}
+  
+  # Specify custom template variables
+  template_file_variables = {
+    user_assigned_identity_id = ""
   }
 }
