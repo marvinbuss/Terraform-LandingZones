@@ -20,7 +20,8 @@
     "policy_set_definitions": [
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
-      "Cmplnt-Diagnostics"
+      "Cmplnt-Diagnostics",
+      "Cmplnt-PrivateDns"
     ],
     "role_definitions": [],
     "archetype_config": {
