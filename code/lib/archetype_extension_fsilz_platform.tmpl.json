@@ -1,10 +1,9 @@
 {
-    "extend_es_landing_zones": {
+    "extend_fsilzplatform": {
         "policy_assignments": [
-            "Cmplnt-CognitiveServices",
-            "Compliant-Network",
             "Dine-Nsg-FlowLogs",
-            "sparta-1-log"
+            "sparta-1-log",
+            "Compliant-Network"
         ],
         "policy_definitions": [],
         "policy_set_definitions": [],

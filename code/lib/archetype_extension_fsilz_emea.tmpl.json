@@ -1,7 +1,6 @@
 {
-    "extend_es_landing_zones": {
+    "extend_fsilz_emea": {
         "policy_assignments": [
-            "Cmplnt-CognitiveServices"
         ],
         "policy_definitions": [],
         "policy_set_definitions": [],

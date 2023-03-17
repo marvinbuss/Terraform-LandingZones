@@ -33,3 +33,17 @@ $(Get-ChildItem ./code/lib/policy_definitions -Recurse |% { Get-Content $_ | Con
 
 #### Get Policy Set
 $(Get-ChildItem ./code/lib/policy_set_definitions -Recurse |% { Get-Content $_ | ConvertFrom-Json}) |% {"$('"'+$_.Name + '",')"}
+
+### Policy Assignment at platform
+
+Get-ChildItem '/Users/uday/git/uday31in/AzOps/sparta-1 (sparta-1)/sparta-1-platform (sparta-1-platform)' -Filter  *policyassignments*.json |% {
+    $assignment = Get-Content $_ | ConvertFrom-Json
+    $assignment.parameters.input.value.name
+    $assignment.parameters.input.value.properties.parameters
+}
+### Policy Assignment at Landing Zones
+Get-ChildItem '/Users/uday/git/uday31in/AzOps/sparta-1 (sparta-1)/sparta-1-landingzones (sparta-1-landingzones)' -Filter  *policyassignments*.json |% {
+    $assignment = Get-Content $_ | ConvertFrom-Json
+    $assignment.parameters.input.value.name
+    $assignment.parameters.input.value.properties.parameters
+}

@@ -1,0 +1,107 @@
+{
+    "extend_fsilz_landing_zones": {
+        "policy_assignments": [
+            "Dine-Nsg-FlowLogs",
+            "Compliant-Network",
+            "Compliant-Storage",
+            "Compliant-Apim",
+            "Compliant-Automation",
+            "Compliant-Backup",
+            "Compliant-Key-Vault",
+            "Compliant-OpenAi",
+            "Deny-Azure-Regions",
+            "Deny-Azure-Resources",
+            "Deny-Azure-Rg-Regions"
+        ],
+        "policy_definitions": [],
+        "policy_set_definitions": [],
+        "role_definitions": [],
+        "archetype_config": {
+            "parameters": {
+                "Deny-Azure-Rg-Regions": {
+                    "listOfAllowedLocations": [
+                        "eastus"
+                    ]
+                },
+                "Deny-Azure-Resources": {
+                    "listOfResourceTypesAllowed": [
+                        "myListValue1",
+                        "myListValue2",
+                        "myListValue3"
+                    ]
+                },
+                "Deny-Azure-Regions": {
+                    "listOfAllowedLocations": [
+                        "eastus"
+                    ]
+                },
+                "Compliant-OpenAi": {
+                    "cognitiveServicesLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                },
+                "Compliant-Key-Vault": {
+                    "hsmDiagnostics": "DeployIfNotExists",
+                    "hsmLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "keyVaultDiagnostics": "DeployIfNotExists",
+                    "keyVaultLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                },
+                "Compliant-Backup": {
+                    "asrLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                },
+                "Compliant-Automation": {
+                    "aaDiagnostics": "DeployIfNotExists",
+                    "aaLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                },
+                "Compliant-Apim": {
+                    "apimDiagnostics": "DeployIfNotExists",
+                    "apimLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                },
+                "Compliant-Storage": {
+                    "diagBlobMetrics": false,
+                    "diagEventHubMetrics": false,
+                    "diagFileMetrics": false,
+                    "diagQueueMetrics": false,
+                    "diagTableMetrics": false,
+                    "enableLogAnalytics": "DeployIfNotExists",
+                    "logAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "logCategories": "allLogs"
+                },
+                "Compliant-Network": {
+                    "bastionDiagnostics": "DeployIfNotExists",
+                    "bastionLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "ddosPlanResourceId": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-ddos/providers/Microsoft.Network/ddosProtectionPlans/sparta-1-ddos-eastus",
+                    "erDiagnostics": "DeployIfNotExists",
+                    "erDiagnosticsLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "fdCdnDiagnostics": "DeployIfNotExists",
+                    "fdCdnLogAnalyticsWorkpaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "fdDiagnostics": "DeployIfNotExists",
+                    "fdDiagnosticsLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "gwDiagnostics": "DeployIfNotExists",
+                    "gwLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "lbDiagnostics": "DeployIfNotExists",
+                    "lbDiagnosticsLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "nsgDiagnostics": "DeployIfNotExists",
+                    "nsgLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "p2sDiagnostics": "DeployIfNotExists",
+                    "p2sLogAnalyticsWorkspaceId": "DeployIfNotExists",
+                    "pipDiagnostics": "DeployIfNotExists",
+                    "pipLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "tmDiagnostics": "DeployIfNotExists",
+                    "tmDiagnosticsLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "vnetDiagnostics": "DeployIfNotExists",
+                    "vnetDiagnosticsLogAnalyticsWorkspaceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law",
+                    "vnetModifyDdos": "Modify"
+                },
+                "Dine-Nsg-FlowLogs": {
+                    "networkWatcherName": "NetworkWatcher_eastus",
+                    "networkWatcherRg": "NetworkWatcherRG",
+                    "nsgRegion": "eastus",
+                    "storageId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-nwlog-eastus/providers/Microsoft.Storage/storageAccounts/sparta1eastusfgrdc55fji",
+                    "workspaceId": "04710811-b487-4e8d-9c04-28fe00bfb4e8",
+                    "workspaceRegion": "eastus",
+                    "workspaceResourceId": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+                }
+            },
+            "access_control": {}
+        }
+    }
+}
