@@ -5,8 +5,8 @@
   "scope": null,
   "properties": {
     "displayName": "Public blob access should be restricted for Storage Accounts",
-    "mode": "Indexed",
     "description": "Azure Storage accounts should restrict blob access to private. Enforce this for increased data exfiltration protection.",
+    "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"
@@ -18,7 +18,11 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": ["Deny", "Audit", "Disabled"],
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
         "defaultValue": "Deny"
       }
     },

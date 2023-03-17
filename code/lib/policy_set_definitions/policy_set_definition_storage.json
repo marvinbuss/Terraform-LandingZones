@@ -7,7 +7,6 @@
     "policyType": "Custom",
     "displayName": "Enforce secure-by-default Storage Account for Financial Services Industry",
     "description": "This policy initiative is a group of policies that ensures Storage is compliant per FSI Landing Zones",
-
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"

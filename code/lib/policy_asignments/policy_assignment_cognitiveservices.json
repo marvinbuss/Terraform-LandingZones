@@ -1,54 +1,54 @@
 {
-    "name": "Cmplnt-CognitiveServices",
-    "type": "Microsoft.Authorization/policyAssignments",
-    "apiVersion": "2019-09-01",
-    "properties": {
-        "displayName": "Enforce secure-by-default Cognitive Services for Financial Services Industry",
-        "description": "This policy initiative is a group of policies that ensures Cognitive Services are compliant per FSI Landing Zones",
-        "notScopes": [],
-        "parameters": {
-            "cognitiveServicesNetworkAccess": {
-                "value": "Deny"
-            },
-            "cognitiveServicesPublicNetworkAccess": {
-                "value": "Deny"
-            },
-            "cognitiveServicesModifyPublicNetworkAccess": {
-                "value": "Modify"
-            },
-            "cognitiveServicesModifyDisableLocalAuth": {
-                "value": "Modify"
-            },
-            "cognitiveServicesDisableLocalAuth": {
-                "value": "Deny"
-            },
-            "cognitiveServicesCustomerStorage": {
-                "value": "Deny"
-            },
-            "cognitiveServicesCmk": {
-                "value": "Deny"
-            },
-            "cognitiveServicesManagedIdentity": {
-                "value": "Deny"
-            },
-            "cognitiveServicesNetworkAcls": {
-                "value": "Deny"
-            },
-            "cognitiveServicesOutboundNetworkAccess": {
-                "value": "Deny"
-            }
-        },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-CognitiveServices",
-        "nonComplianceMessages": [
-            {
-                "message": "Compliant Cognitive Service required {enforcementMode}."
-            }
-        ],
-        "scope": "${current_scope_resource_id}",
-        "enforcementMode": null
+  "name": "Cmplnt-CognitiveServices",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Cognitive Services for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Cognitive Services are compliant per FSI Landing Zones",
+    "notScopes": [],
+    "parameters": {
+      "cognitiveServicesNetworkAccess": {
+        "value": "Deny"
+      },
+      "cognitiveServicesPublicNetworkAccess": {
+        "value": "Deny"
+      },
+      "cognitiveServicesModifyPublicNetworkAccess": {
+        "value": "Modify"
+      },
+      "cognitiveServicesModifyDisableLocalAuth": {
+        "value": "Modify"
+      },
+      "cognitiveServicesDisableLocalAuth": {
+        "value": "Deny"
+      },
+      "cognitiveServicesCustomerStorage": {
+        "value": "Deny"
+      },
+      "cognitiveServicesCmk": {
+        "value": "Deny"
+      },
+      "cognitiveServicesManagedIdentity": {
+        "value": "Deny"
+      },
+      "cognitiveServicesNetworkAcls": {
+        "value": "Deny"
+      },
+      "cognitiveServicesOutboundNetworkAccess": {
+        "value": "Deny"
+      }
     },
-    "location": "${default_location}",
-    "identity": {
-        "type": "SystemAssigned"
-    }
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-CognitiveServices",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Cognitive Service required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
 }

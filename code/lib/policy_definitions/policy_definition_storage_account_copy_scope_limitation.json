@@ -5,8 +5,8 @@
   "scope": null,
   "properties": {
     "displayName": "Allowed Copy scope should be restricted for Storage Accounts",
-    "mode": "Indexed",
     "description": "Azure Storage accounts should restrict the allowed copy scope. Enforce this for increased data exfiltration protection.",
+    "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"
@@ -18,7 +18,11 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": ["Deny", "Audit", "Disabled"],
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
         "defaultValue": "Deny"
       },
       "allowedCopyScope": {
@@ -27,7 +31,10 @@
           "displayName": "Allowed Copy Scope",
           "description": "Specify the allowed copy scope."
         },
-        "allowedValues": ["AAD", "PrivateLink"],
+        "allowedValues": [
+          "AAD",
+          "PrivateLink"
+        ],
         "defaultValue": "AAD"
       }
     },
