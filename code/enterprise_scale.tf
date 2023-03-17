@@ -88,17 +88,14 @@ module "enterprise_scale" {
     # sap            = {}
   }
   subscription_id_overrides = {
-    root           = {}
-    decommissioned = {}
-    sandboxes      = {}
-    landing-zones  = {}
-    platform       = {}
-    connectivity   = {}
-    management     = {}
-    identity       = {}
-    # corp           = {}
-    # online         = {}
-    # sap            = {}
+    root           = local.mg_root_subscription_id_overrides
+    decommissioned = local.mg_decommissioned_subscription_id_overrides
+    sandboxes      = local.mg_sandboxes_subscription_id_overrides
+    landing-zones  = local.mg_landing_zones_subscription_id_overrides
+    platform       = local.mg_platform_subscription_id_overrides
+    connectivity   = local.mg_connectivity_subscription_id_overrides
+    management     = local.mg_management_subscription_id_overrides
+    identity       = local.mg_identity_subscription_id_overrides
   }
 
   # Specify custom template variables

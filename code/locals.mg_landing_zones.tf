@@ -74,4 +74,6 @@ locals {
     }
     access_control = {}
   }
+
+  mg_landing_zones_subscription_id_overrides = var.mg_landing_zones_subscription_ids
 }

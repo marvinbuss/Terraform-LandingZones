@@ -4,4 +4,6 @@ locals {
     parameters     = {}
     access_control = {}
   }
+
+  mg_management_subscription_id_overrides = []
 }
