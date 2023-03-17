@@ -1,0 +1,92 @@
+{
+  "name": "Cmplnt-Network",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Network and Networking Services for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Network and Networking Services are compliant per FSI Landing Zones",
+    "notScopes": null,
+    "parameters": {
+      "bastionDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "bastionLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "ddosPlanResourceId": {
+        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-ddos/providers/Microsoft.Network/ddosProtectionPlans/sparta-1-ddos-eastus"
+      },
+      "erDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "erDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "fdCdnDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "fdCdnLogAnalyticsWorkpaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "fdDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "fdDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "gwDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "gwLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "lbDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "lbDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "nsgDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "nsgLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "p2sDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "p2sLogAnalyticsWorkspaceId": {
+        "value": "DeployIfNotExists"
+      },
+      "pipDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "pipLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "tmDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "tmDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "vnetDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "vnetDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "vnetModifyDdos": {
+        "value": "Modify"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Network",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "UserAssigned"
+  }
+}
