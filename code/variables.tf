@@ -15,3 +15,13 @@ variable "default_location" {
   default     = "eastus"
   description = "Specifies the default location for resources, including references to location within Policy templates."
 }
+
+variable "log_analytics_id" {
+  description = "Specifies the resource ID of the Log Analytics Workspace"
+  type        = string
+  sensitive   = false
+  validation {
+    condition     = length(split("/", var.log_analytics_id)) == 9
+    error_message = "Please specify a valid resource ID."
+  }
+}
