@@ -38,8 +38,7 @@
           {
             "count": {
               "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]",
-              "where": {
---beloooooooooooooooooooow:                
+              "where": {               
                 "value": "[split(current('Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*].resourceId'), '/')[2]]",
                 "equals": "*"
               }
