@@ -1,0 +1,189 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "kind": "policysetdefinitions",
+        "location": "global",
+        "name": "Compliant-AVD",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Virtual Desktop is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Virtual Desktop for Financial Services Industry",
+          "metadata": {
+            "category": "Desktop Virtualization",
+            "version": "1.0.0"
+          },
+          "parameters": {
+            "avdAppGroupDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "avdAppGroupLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "avdHostPoolDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "avdHostPoolLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "avdHostPoolModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "avdHostPoolPublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "avdWorkspaceDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "avdWorkspaceLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "avdWorkspaceModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "avdWorkspacePublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            }
+          },
+          "policyDefinitionGroups": [
+            {
+              "category": "Data Protection",
+              "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
+              "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
+              "name": "Encryption"
+            },
+            {
+              "category": "Network Security",
+              "description": "Policy to ensure Key Vault is not accessible over the public internet",
+              "displayName": "Ensure Virtual Desktop is not accessible over the public internet",
+              "name": "Network"
+            },
+            {
+              "category": "Identity Management",
+              "description": "Policy to ensure Virtual Desktop is not using local authorization",
+              "displayName": "Ensure usage of centralized identity and auhtorization system for Virtual Desktop",
+              "name": "Identity"
+            },
+            {
+              "category": "Logging and Threat Detection",
+              "description": "Policy to ensure Virtual Desktop is logging all events to Log Analytics workspace",
+              "displayName": "Ensure Virtual Desktop is logging all events to Log Analytics",
+              "name": "Logging"
+            }
+          ],
+          "policyDefinitions": [
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdAppGroupDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('avdAppGroupLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-avdAppGroup",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-avdAppGroup"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdHostPoolDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('avdHostPoolLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-avdHostPool",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-avdHostPool"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdWorkspaceDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('avdWorkspaceLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-avdWorkspace",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-avdWorkspace"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdWorkspacePublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/87ac3038-c07a-4b92-860d-29e270a4f3cd",
+              "policyDefinitionReferenceId": "Deny-Workspace-PublicNetworkAccess"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdWorkspaceModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ce6ebf1d-0b94-4df9-9257-d8cacc238b4f",
+              "policyDefinitionReferenceId": "Modify-Workspace-PublicNetworkAccess"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdHostPoolPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c25dcf31-878f-4eba-98eb-0818fdc6a334",
+              "policyDefinitionReferenceId": "Deny-Hostpool-PublicNetworkAccess"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('avdHostPoolModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0913ff-51e7-47b8-97bb-ea17127f7c8d",
+              "policyDefinitionReferenceId": "Modify-Hostpool-PublicNetworkAccess"
+            }
+          ]
+        },
+        "type": "Microsoft.Authorization/policySetDefinitions"
+      }
+    }
+  }
+}

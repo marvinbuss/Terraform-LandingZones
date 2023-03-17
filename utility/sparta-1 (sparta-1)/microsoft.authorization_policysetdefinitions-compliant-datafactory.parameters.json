@@ -1,0 +1,200 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "kind": "policysetdefinitions",
+        "location": "global",
+        "name": "Compliant-DataFactory",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Data Factory is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Data Factory for Financial Services Industry",
+          "metadata": {
+            "category": "Data Factory",
+            "version": "1.0.0"
+          },
+          "parameters": {
+            "adfCmk": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "adfDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "adfGit": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "adfLinkedServiceKeyVault": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "adfLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "adfManagedIdentity": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "adfModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "adfPublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "adfSqlIntegration": {
+              "defaultValue": "Deny",
+              "type": "string"
+            }
+          },
+          "policyDefinitionGroups": [
+            {
+              "category": "Data Protection",
+              "description": "Policy to ensure data protection for Data Factory",
+              "displayName": "Ensure compliance for data encryption, protection, and recovery for Data Factory",
+              "name": "Encryption"
+            },
+            {
+              "category": "Network Security",
+              "description": "Policy to ensure Data Factory not accessible over the public internet",
+              "displayName": "Ensure Data Factory is not accessible over the public internet",
+              "name": "Network"
+            },
+            {
+              "category": "Identity Management",
+              "description": "Policy to ensure Data Factory is not using local authorization",
+              "displayName": "Ensure usage of centralized identity and auhtorization system for Data Factory",
+              "name": "Identity"
+            },
+            {
+              "category": "Logging and Threat Detection",
+              "description": "Policy to ensure Data Factory is logging all events to Log Analytics workspace",
+              "displayName": "Ensure Data Factory is logging all events to Log Analytics",
+              "name": "Logging"
+            },
+            {
+              "category": "DevOps Security",
+              "description": "Policy to ensure Data Factory is configured to use Git as source control",
+              "displayName": "Ensure Data Factory is is using Git as source control",
+              "name": "DevOps"
+            }
+          ],
+          "policyDefinitions": [
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('adfLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-DataFactory",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-DataFactory"
+            },
+            {
+              "definitionVersion": "2.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfManagedIdentity')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f78ccdb4-7bf4-4106-8647-270491d2978a",
+              "policyDefinitionReferenceId": "Deny-Adf-Managed-Identity"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "DevOps"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfGit')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/77d40665-3120-4348-b539-3192ec808307",
+              "policyDefinitionReferenceId": "Deny-Adf-Git"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfCmk')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4ec52d6d-beb7-40c4-9a9e-fe753254690e",
+              "policyDefinitionReferenceId": "Deny-Adf-Cmk"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1cf164be-6819-4a50-b8fa-4bcaa4f98fb6",
+              "policyDefinitionReferenceId": "Deny-Adf-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfLinkedServiceKeyVault')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/127ef6d7-242f-43b3-9eef-947faf1725d0",
+              "policyDefinitionReferenceId": "Deny-Adf-Linked-Service-Key-Vault"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08b1442b-7789-4130-8506-4f99a97226a7",
+              "policyDefinitionReferenceId": "Modify-Adf-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "2.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('adfSqlIntegration')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0088bc63-6dee-4a9c-9d29-91cfdc848952",
+              "policyDefinitionReferenceId": "Deny-Adf-Sql-Integration"
+            }
+          ]
+        },
+        "type": "Microsoft.Authorization/policySetDefinitions"
+      }
+    }
+  }
+}

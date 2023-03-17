@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "6d841023068d4f5b99d1b2fb",
+        "Properties": {
+          "Description": "testing purposes",
+          "DisplayName": "marvin-test - Azure Service Enablement - Allowed Azure services to be used in the FSI Landing Zones",
+          "ExemptionCategory": "Waiver",
+          "ExpiresOn": "2023-03-14T23:00:00+00:00",
+          "Metadata": {},
+          "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones/providers/Microsoft.Authorization/policyAssignments/Deny-Azure-Resources",
+          "PolicyDefinitionReferenceIds": []
+        },
+        "ResourceName": "6d841023068d4f5b99d1b2fb",
+        "ResourceType": "Microsoft.Authorization/policyExemptions"
+      }
+    }
+  }
+}

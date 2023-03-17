@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/subscriptions/8acd66a0-739e-4c34-88d3-acb78559fdf8/providers/Microsoft.Authorization/policyAssignments/DataProtectionSecurityCenter",
+        "kind": "policyassignments",
+        "location": "global",
+        "name": "DataProtectionSecurityCenter",
+        "properties": {
+          "description": "This policy assignment was automatically created by Azure Security Center",
+          "displayName": "ASC DataProtection (subscription: 8acd66a0-739e-4c34-88d3-acb78559fdf8)",
+          "enforcementMode": "Default",
+          "metadata": {
+            "assignedBy": "Security Center",
+            "createdBy": "976f6cc5-71e1-450a-a8fc-de52dddcbe04"
+          },
+          "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/9cb3cc7a-b39b-4b82-bc89-e5a5d9ff7b97",
+          "scope": "/subscriptions/8acd66a0-739e-4c34-88d3-acb78559fdf8"
+        },
+        "subscriptionId": "8acd66a0-739e-4c34-88d3-acb78559fdf8",
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

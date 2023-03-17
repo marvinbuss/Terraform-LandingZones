@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-APIM-WithOutVnet",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deny-APIM-WithOutVnet",
+        "properties": {
+          "description": "Azure Virtual Network deployment provides enhanced security, isolation and allows you to place your API Management service in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies, which enables access to your backend services within the network and/or on-premises. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.",
+          "displayName": "API Management services should use a virtual network",
+          "metadata": {
+            "category": "API Management",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "version": "1.0.1"
+          },
+          "mode": "Indexed",
+          "parameters": {
+            "effect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "evaluatedSkuNames": {
+              "allowedValues": [
+                "Developer",
+                "Basic",
+                "Standard",
+                "Premium",
+                "Consumption"
+              ],
+              "defaultValue": [
+                "Developer",
+                "Premium"
+              ],
+              "metadata": {
+                "description": "List of API Management SKUs against which this policy will be evaluated.",
+                "displayName": "API Management SKU Names"
+              },
+              "type": "Array"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.ApiManagement/service",
+                  "field": "type"
+                },
+                {
+                  "field": "Microsoft.ApiManagement/service/sku.name",
+                  "in": "[parameters('evaluatedSkuNames')]"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "exists": "false",
+                      "field": "Microsoft.ApiManagement/service/virtualNetworkType"
+                    },
+                    {
+                      "equals": "None",
+                      "field": "Microsoft.ApiManagement/service/virtualNetworkType"
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

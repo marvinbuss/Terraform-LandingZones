@@ -26,3 +26,10 @@ variable "subscription_id_management" {
     error_message = "Value must be a valid Subscription ID (GUID)."
   }
 }
+
+variable "existing_log_analytics_workspace_resource_id" {
+  type        = string
+  description = "If specified, module will skip creation of Log Analytics workspace and use existing."
+  default     = ""
+}
+

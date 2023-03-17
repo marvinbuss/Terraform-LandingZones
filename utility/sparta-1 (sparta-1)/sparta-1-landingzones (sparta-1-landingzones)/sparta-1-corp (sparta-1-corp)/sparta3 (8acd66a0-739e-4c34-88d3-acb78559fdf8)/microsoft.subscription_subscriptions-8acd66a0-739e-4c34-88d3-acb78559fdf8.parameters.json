@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "DisplayName": "Sparta3",
+        "Name": "8acd66a0-739e-4c34-88d3-acb78559fdf8",
+        "Type": "/subscriptions"
+      }
+    }
+  }
+}

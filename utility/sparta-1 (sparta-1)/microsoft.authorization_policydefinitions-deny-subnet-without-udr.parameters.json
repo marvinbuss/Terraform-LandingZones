@@ -1,0 +1,107 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-UDR",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deny-Subnet-Without-UDR",
+        "properties": {
+          "description": "This policy denies the creation of a subnet without a User Defined Route (UDR).",
+          "displayName": "Subnets should have a User Defined Route",
+          "metadata": {
+            "category": "Network",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "version": "2.0.0"
+          },
+          "mode": "All",
+          "parameters": {
+            "effect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            },
+            "excludedSubnets": {
+              "defaultValue": [
+                "GatewaySubnet",
+                "AzureFirewallSubnet",
+                "AzureFirewallManagementSubnet",
+                "AzureBastionSubnet"
+              ],
+              "metadata": {
+                "description": "Array of subnet names that are excluded from this policy",
+                "displayName": "Excluded Subnets"
+              },
+              "type": "Array"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "anyOf": [
+                {
+                  "allOf": [
+                    {
+                      "equals": "Microsoft.Network/virtualNetworks",
+                      "field": "type"
+                    },
+                    {
+                      "count": {
+                        "field": "Microsoft.Network/virtualNetworks/subnets[*]",
+                        "where": {
+                          "allOf": [
+                            {
+                              "exists": "false",
+                              "field": "Microsoft.Network/virtualNetworks/subnets[*].routeTable.id"
+                            },
+                            {
+                              "field": "Microsoft.Network/virtualNetworks/subnets[*].name",
+                              "notIn": "[parameters('excludedSubnets')]"
+                            }
+                          ]
+                        }
+                      },
+                      "notEquals": 0
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "equals": "Microsoft.Network/virtualNetworks/subnets",
+                      "field": "type"
+                    },
+                    {
+                      "field": "name",
+                      "notIn": "[parameters('excludedSubnets')]"
+                    },
+                    {
+                      "exists": "false",
+                      "field": "Microsoft.Network/virtualNetworks/subnets/routeTable.id"
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

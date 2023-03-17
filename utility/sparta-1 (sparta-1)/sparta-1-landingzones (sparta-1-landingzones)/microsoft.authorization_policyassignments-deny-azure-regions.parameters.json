@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones/providers/Microsoft.Authorization/policyAssignments/Deny-Azure-Regions",
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "Deny-Azure-Regions",
+        "properties": {
+          "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.",
+          "displayName": "Azure Regions for Azure services that are allowed per FSI compliance",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "listOfAllowedLocations": {
+              "value": [
+                "Global",
+                "eastus"
+              ]
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Location",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

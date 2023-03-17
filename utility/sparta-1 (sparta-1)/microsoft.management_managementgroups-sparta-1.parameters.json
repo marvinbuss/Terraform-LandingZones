@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Children": [
+          {
+            "DisplayName": "sparta-1-platform",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-platform",
+            "Name": "sparta-1-platform",
+            "Type": "Microsoft.Management/managementGroups"
+          },
+          {
+            "DisplayName": "sparta-1-playground",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-playground",
+            "Name": "sparta-1-playground",
+            "Type": "Microsoft.Management/managementGroups"
+          },
+          {
+            "DisplayName": "sparta-1-decommissioned",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-decommissioned",
+            "Name": "sparta-1-decommissioned",
+            "Type": "Microsoft.Management/managementGroups"
+          },
+          {
+            "DisplayName": "sparta-1-landingzones",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones",
+            "Name": "sparta-1-landingzones",
+            "Type": "Microsoft.Management/managementGroups"
+          }
+        ],
+        "DisplayName": "sparta-1",
+        "Name": "sparta-1",
+        "ParentDisplayName": "Tenant Root Group",
+        "ParentId": "/providers/Microsoft.Management/managementGroups/5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "ParentName": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "TenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "Type": "Microsoft.Management/managementGroups",
+        "UpdatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+      }
+    }
+  }
+}

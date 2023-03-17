@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "DisplayName": "policy-jupiter-2",
+        "Name": "8692fb2a-bd71-4c8d-b9bb-110e93c892ca",
+        "Type": "/subscriptions"
+      }
+    }
+  }
+}

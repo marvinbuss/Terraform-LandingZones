@@ -1,0 +1,318 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "kind": "policysetdefinitions",
+        "location": "global",
+        "name": "Compliant-Event-Grid",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Event Grid is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Event Grid for Financial Services Industry",
+          "metadata": {
+            "category": "Event Grid",
+            "version": "1.0.0"
+          },
+          "parameters": {
+            "eventGridDomainDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "eventGridDomainLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "eventGridDomainLogCategories": {
+              "defaultValue": "allLogs",
+              "type": "string"
+            },
+            "eventGridDomainModifyLocalAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventGridDomainModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventGridLocalAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventGridParnerNamespaceLocalAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventGridParnerNamespaceModifyLocalAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventGridPartnerDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "eventGridPartnerLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "eventGridPartnerLogCategories": {
+              "defaultValue": "allLogs",
+              "type": "string"
+            },
+            "eventGridPubclicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventGridTopicDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "eventGridTopicLocalAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventGridTopicLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "eventGridTopicLogCategories": {
+              "defaultValue": "allLogs",
+              "type": "string"
+            },
+            "eventGridTopicModifyLocalAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventGridTopicModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventGridTopicPublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            }
+          },
+          "policyDefinitionGroups": [
+            {
+              "category": "Data Protection",
+              "description": "Policy to ensure data protection for Event Grid",
+              "displayName": "Ensure compliance for data encryption, protection, and recovery for Event Grid",
+              "name": "Encryption"
+            },
+            {
+              "category": "Network Security",
+              "description": "Policy to ensure Event Grid not accessible over the public internet",
+              "displayName": "Ensure Event Grid is not accessible over the public internet",
+              "name": "Network"
+            },
+            {
+              "category": "Identity Management",
+              "description": "Policy to ensure Event Grid is not using local authorization",
+              "displayName": "Ensure usage of centralized identity and auhtorization system for Event Grid",
+              "name": "Identity"
+            },
+            {
+              "category": "Logging and Threat Detection",
+              "description": "Policy to ensure Event Grid is logging all events to Log Analytics workspace",
+              "displayName": "Ensure Event Grid is logging all events to Log Analytics",
+              "name": "Logging"
+            },
+            {
+              "category": "Backup and Recovery",
+              "description": "Policy to ensure Backup is enabled and stored securely",
+              "displayName": "Ensure Backup is enabled and stored securely",
+              "name": "Backup"
+            }
+          ],
+          "policyDefinitions": [
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "categoryGroup": {
+                  "value": "[parameters('eventGridDomainLogCategories')]"
+                },
+                "effect": {
+                  "value": "[parameters('eventGridDomainDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('eventGridDomainLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b90ec596-faa6-4c61-9515-34085703e260",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-EventGrid-Domain"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "categoryGroup": {
+                  "value": "[parameters('eventGridTopicLogCategories')]"
+                },
+                "effect": {
+                  "value": "[parameters('eventGridTopicDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('eventGridTopicLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/46b2dd5d-3936-4347-8908-b298ea4466d3",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-EventGrid-Topic"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "categoryGroup": {
+                  "value": "[parameters('eventGridPartnerLogCategories')]"
+                },
+                "effect": {
+                  "value": "[parameters('eventGridPartnerDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('eventGridPartnerLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3496f6fd-57ba-485c-8a14-183c4493b781",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-EventGrid-Partner"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridDomainModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/898e9824-104c-4965-8e0e-5197588fa5d4",
+              "policyDefinitionReferenceId": "Modify-EventGrid-Domain-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridTopicModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36ea4b4b-0f7f-4a54-89fa-ab18f555a172",
+              "policyDefinitionReferenceId": "Modify-EventGrid-Topic-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridParnerNamespaceModifyLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2dd0e8b9-4289-4bb0-b813-1883298e9924",
+              "policyDefinitionReferenceId": "Modify-EventGrid-Partner-Namespace-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridDomainModifyLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8ac2748f-3bf1-4c02-a3b6-92ae68cf75b1",
+              "policyDefinitionReferenceId": "Modify-EventGrid-Domain-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridTopicLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ae9fb87f-8a17-4428-94a4-8135d431055c",
+              "policyDefinitionReferenceId": "Deny-EventGrid-Topic-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridTopicModifyLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c8144d9-746a-4501-b08c-093c8d29ad04",
+              "policyDefinitionReferenceId": "Modify-EventGrid-Topic-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridTopicPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1adadefe-5f21-44f7-b931-a59b54ccdb45",
+              "policyDefinitionReferenceId": "Deny-EventGrid-Topic-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridParnerNamespaceLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8632b003-3545-4b29-85e6-b2b96773df1e",
+              "policyDefinitionReferenceId": "Deny-EventGrid-Partner-Namespace-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8bfadddb-ee1c-4639-8911-a38cb8e0b3bd",
+              "policyDefinitionReferenceId": "Deny-EventGrid-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventGridPubclicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f8f774be-6aee-492a-9e29-486ef81f3a68",
+              "policyDefinitionReferenceId": "Deny-EventGrid-Public-Network-Access"
+            }
+          ]
+        },
+        "type": "Microsoft.Authorization/policySetDefinitions"
+      }
+    }
+  }
+}

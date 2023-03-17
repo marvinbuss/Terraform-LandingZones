@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Name": "2df4c7943a764e7aa8ca7e9e",
+        "Properties": {
+          "DisplayName": "marvin-test - Enforce secure-by-default Storage Account for Financial Services Industry",
+          "ExemptionCategory": "Waiver",
+          "Metadata": {},
+          "PolicyAssignmentId": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones/providers/Microsoft.Authorization/policyAssignments/4d962249d6db4222820b21a8",
+          "PolicyDefinitionReferenceIds": []
+        },
+        "ResourceName": "2df4c7943a764e7aa8ca7e9e",
+        "ResourceType": "Microsoft.Authorization/policyExemptions"
+      }
+    }
+  }
+}

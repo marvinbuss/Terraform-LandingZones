@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones/providers/Microsoft.Authorization/policyAssignments/4d962249d6db4222820b21a8",
+        "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourcegroups/sparta-1-policy-identity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sparta-1-policy-identity": {
+              "clientId": "4d10169e-0c25-4dfb-b57c-71946ed8b10e",
+              "principalId": "af6ba423-3cf2-411c-af92-118bddc8c506"
+            }
+          }
+        },
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "4d962249d6db4222820b21a8",
+        "properties": {
+          "displayName": "Enforce secure-by-default Storage Account for Financial Services Industry",
+          "enforcementMode": "Default",
+          "metadata": {
+            "assignedBy": "Kristian Nese",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "parameterScopes": {}
+          },
+          "nonComplianceMessages": [],
+          "notScopes": [],
+          "overrides": [],
+          "parameters": {
+            "storageAccountsLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "storageBlobLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "storageFileSyncLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "storageQueueLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "storageTableLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Storage",
+          "resourceSelectors": [],
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

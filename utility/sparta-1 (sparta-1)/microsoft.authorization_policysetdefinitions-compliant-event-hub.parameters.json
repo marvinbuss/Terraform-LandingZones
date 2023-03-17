@@ -1,0 +1,177 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "kind": "policysetdefinitions",
+        "location": "global",
+        "name": "Compliant-Event-Hub",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Event Hub is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Event Hub for Financial Services Industry",
+          "metadata": {
+            "category": "Event Hub",
+            "version": "1.0.0"
+          },
+          "parameters": {
+            "eventHubAuthRules": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventHubDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "eventHubLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "eventHubNamespacesCmk": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventHubNamespacesDoubleEncryption": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventHubNamespacesLocalAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "eventHubNamespacesModifyLocalAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "eventHubNamespacesPublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            }
+          },
+          "policyDefinitionGroups": [
+            {
+              "category": "Data Protection",
+              "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
+              "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
+              "name": "Encryption"
+            },
+            {
+              "category": "Network Security",
+              "description": "Policy to ensure Event Hub is not accessible over the public internet",
+              "displayName": "Ensure Event Hub is not accessible over the public internet",
+              "name": "Network"
+            },
+            {
+              "category": "Identity Management",
+              "description": "Policy to ensure Event Hub is not using local authorization",
+              "displayName": "Ensure usage of centralized identity and auhtorization system for Event Hub",
+              "name": "Identity"
+            },
+            {
+              "category": "Logging and Threat Detection",
+              "description": "Policy to ensure Event Hub is logging all events to Log Analytics workspace",
+              "displayName": "Ensure Event Hub is logging all events to Log Analytics",
+              "name": "Logging"
+            }
+          ],
+          "policyDefinitions": [
+            {
+              "definitionVersion": "2.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('eventHubLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f6e93e8-6b31-41b1-83f6-36e449a42579",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-EH"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubNamespacesCmk')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-EH-Cmk",
+              "policyDefinitionReferenceId": "Deny-EH-Cmk"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubNamespacesDoubleEncryption')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/836cd60e-87f3-4e6a-a27c-29d687f01a4c",
+              "policyDefinitionReferenceId": "Deny-EH-Double-Encryption"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubNamespacesPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0602787f-9896-402a-a6e1-39ee63ee435e",
+              "policyDefinitionReferenceId": "Dine-EH-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubNamespacesModifyLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/57f35901-8389-40bb-ac49-3ba4f86d889d",
+              "policyDefinitionReferenceId": "Modify-EH-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubNamespacesLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5d4e3c65-4873-47be-94f3-6f8b953a3598",
+              "policyDefinitionReferenceId": "Deny-EH-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('eventHubAuthRules')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b278e460-7cfc-4451-8294-cccc40a940d7",
+              "policyDefinitionReferenceId": "Deny-EH-Auth-Rules"
+            }
+          ]
+        },
+        "type": "Microsoft.Authorization/policySetDefinitions"
+      }
+    }
+  }
+}
