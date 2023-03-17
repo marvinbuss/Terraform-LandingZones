@@ -11,7 +11,7 @@
         "value": "DeployIfNotExists"
       },
       "apimLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_workspace_id}"
+        "value": "${log_analytics_id}"
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Apim",
