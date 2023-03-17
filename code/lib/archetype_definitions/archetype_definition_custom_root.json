@@ -1,0 +1,29 @@
+{
+  "custom_root": {
+    "policy_assignments": [],
+    "policy_definitions": [
+      "Deny-CognitiveServices-NetworkAcls",
+      "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
+      "Deny-Storage-ContainerDeleteRetentionPolicy",
+      "Deny-Storage-CopyScope",
+      "Deny-Storage-CorsRules",
+      "Deny-Storage-Cmk",
+      "Deny-Storage-LocalUser",
+      "Deny-Storage-NetworkAclsBypass",
+      "Deny-Storage-AllowBlobPublicAccess",
+      "Deny-Storage-ResourceAccessRulesResourceId",
+      "Deny-Storage-ResourceAccessRulesTenantId",
+      "Deny-Storage-ServicesEncryption",
+      "Deny-Storage-NetworkAclsVirtualNetworkRules"
+    ],
+    "policy_set_definitions": [
+      "Cmplnt-CognitiveServices",
+      "Cmplnt-Storage"
+    ],
+    "role_definitions": [],
+    "archetype_config": {
+      "parameters": {},
+      "access_control": {}
+    }
+  }
+}

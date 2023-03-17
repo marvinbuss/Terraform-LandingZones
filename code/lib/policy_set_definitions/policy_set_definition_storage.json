@@ -1,5 +1,5 @@
 {
-  "name": "Compliant-Storage",
+  "name": "Cmplnt-Storage",
   "type": "Microsoft.Authorization/policySetDefinitions",
   "apiVersion": "2021-06-01",
   "scope": null,
