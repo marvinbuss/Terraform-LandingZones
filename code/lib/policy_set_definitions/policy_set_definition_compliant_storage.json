@@ -299,7 +299,7 @@
     "policyDefinitions": [
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-Cmk",
-        "policyDefinitionReferenceId": "Storage accounts should use customer-managed key for encryption",
+        "policyDefinitionReferenceId": "Deny-Storage-Cmk",
         "groupNames": ["Encryption"],
         "parameters": {
           "effect": {
@@ -309,7 +309,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-CopyScope",
-        "policyDefinitionReferenceId": "Allowed Copy scope should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-CopyScope",
         "groupNames": ["Network"],
         "parameters": {
           "effect": {
@@ -322,7 +322,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-ServicesEncryption",
-        "policyDefinitionReferenceId": "Encryption for storage services should be enforced for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-ServicesEncryption",
         "groupNames": ["Encryption"],
         "parameters": {
           "effect": {
@@ -332,7 +332,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-LocalUser",
-        "policyDefinitionReferenceId": "Local users should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-LocalUser",
         "groupNames": ["Identity"],
         "parameters": {
           "effect": {
@@ -342,7 +342,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-NetworkAclsBypass",
-        "policyDefinitionReferenceId": "Network ACL bypass option should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-NetworkAclsBypass",
         "groupNames": ["Identity"],
         "parameters": {
           "effect": {
@@ -355,7 +355,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-ResourceAccessRulesTenantId",
-        "policyDefinitionReferenceId": "Resource Access Rules Tenants should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-ResourceAccessRulesTenantId",
         "groupNames": ["Network"],
         "parameters": {
           "effect": {
@@ -365,7 +365,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-ResourceAccessRulesResourceId",
-        "policyDefinitionReferenceId": "Resource Access Rules resource IDs should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-ResourceAccessRulesResourceId",
         "groupNames": ["Network"],
         "parameters": {
           "effect": {
@@ -375,7 +375,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-NetworkAclsVirtualNetworkRules",
-        "policyDefinitionReferenceId": "Virtual network rules should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-NetworkAclsVirtualNetworkRules",
         "groupNames": ["Network"],
         "parameters": {
           "effect": {
@@ -385,7 +385,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-AllowBlobPublicAccess",
-        "policyDefinitionReferenceId": "Public blob access should be restricted for Storage Accounts",
+        "policyDefinitionReferenceId": "Deny-Storage-AllowBlobPublicAccess",
         "groupNames": ["Identity"],
         "parameters": {
           "effect": {
@@ -395,7 +395,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-ContainerDeleteRetentionPolicy",
-        "policyDefinitionReferenceId": "Storage Accounts should use a container delete retention policy",
+        "policyDefinitionReferenceId": "Deny-Storage-ContainerDeleteRetentionPolicy",
         "groupNames": ["Encryption"],
         "parameters": {
           "effect": {
@@ -408,7 +408,7 @@
       },
       {
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-CorsRules",
-        "policyDefinitionReferenceId": "Storage Accounts should restrict CORS rules",
+        "policyDefinitionReferenceId": "Deny-Storage-CorsRules",
         "groupNames": ["Network"],
         "parameters": {
           "effect": {
