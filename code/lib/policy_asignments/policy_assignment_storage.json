@@ -16,20 +16,8 @@
       "storageFileSyncPublicEndpoint": {
         "value": "Deny"
       },
-      "storageFileSyncDiagnostics": {
-        "value": "DeployIfNotExists"
-      },
-      "storageFileSyncLogAnalyticsWorkspaceId": {
-        "value": ""
-      },
       "storageAccountNetworkRules": {
         "value": "Deny"
-      },
-      "storageTableDiagnostics": {
-        "value": "DeployIfNotExists"
-      },
-      "storageTableLogAnalyticsWorkspaceId": {
-        "value": ""
       },
       "storageAccountRestrictNetworkRules": {
         "value": "Deny"
@@ -49,20 +37,8 @@
       "storageAccountsPublicAccess": {
         "value": "Deny"
       },
-      "storageAccountsDiagnostics": {
-        "value": "DeployIfNotExists"
-      },
-      "storageAccountsLogAnalyticsWorkspaceId": {
-        "value": ""
-      },
       "storageAccountsCmk": {
         "value": "Deny"
-      },
-      "storageQueueDiagnostics": {
-        "value": "DeployIfNotExists"
-      },
-      "storageQueueLogAnalyticsWorkspaceId": {
-        "value": ""
       },
       "storageTableCmk": {
         "value": "Deny"
@@ -134,74 +110,8 @@
       "storageCorsRules": {
         "value": "Deny"
       },
-      "storageBlobDiagnostics": {
-        "value": "DeployIfNotExists"
-      },
-      "storageBlobLogAnalyticsWorkspaceId": {
-        "value": ""
-      },
-      "storageBlobPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageBlobPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryBlobPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryBlobPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageDfsPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageDfsPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryDfsPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryDfsPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageQueuePrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageQueuePrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryQueuePrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryQueuePrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageWebPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageWebPrivateDnsZoneId": {
-        "value": ""
-      },
-      "storageSecondaryWebPrivateDnsZone": {
-        "value": "Disabled"
-      },
-      "storageSecondaryWebPrivateDnsZoneId": {
-        "value": ""
-      },
       "modifyStorageAccountPublicEndpoint": {
         "value": "Modify"
-      },
-      "diagFileMetrics": {
-        "value": false
-      },
-      "diagBlobMetrics": {
-        "value": false
-      },
-      "diagQueueMetrics": {
-        "value": false
-      },
-      "diagTableMetrics": {
-        "value": false
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Storage",
