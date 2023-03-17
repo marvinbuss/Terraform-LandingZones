@@ -38,23 +38,25 @@ locals {
         storageContainerDeleteRetentionPolicy    = "Deny",
         storageMinContainerDeleteRetentionInDays = 7,
         storageCorsRules                         = "Deny",
-        storageBlobPrivateDnsZone                = "Disabled",
-        storageBlobPrivateDnsZoneId              = "",
-        storageSecondaryBlobPrivateDnsZone       = "Disabled",
-        storageSecondaryBlobPrivateDnsZoneId     = "",
-        storageDfsPrivateDnsZone                 = "Disabled",
-        storageSecondaryDfsPrivateDnsZone        = "Disabled",
-        storageSecondaryDfsPrivateDnsZoneId      = "",
-        storageQueuePrivateDnsZone               = "Disabled",
-        storageQueuePrivateDnsZoneId             = "",
-        storageSecondaryQueuePrivateDnsZone      = "Disabled",
-        storageSecondaryQueuePrivateDnsZoneId    = "",
-        storageWebPrivateDnsZone                 = "Disabled",
-        storageWebPrivateDnsZoneId               = "",
-        storageSecondaryWebPrivateDnsZone        = "Disabled",
-        storageSecondaryWebPrivateDnsZoneId      = "",
         modifyStorageAccountPublicEndpoint       = "Modify"
       }
+      # Cmplnt-PrivateDns = {
+      #   storageBlobPrivateDnsZone                = "Disabled",
+      #   storageBlobPrivateDnsZoneId              = "",
+      #   storageSecondaryBlobPrivateDnsZone       = "Disabled",
+      #   storageSecondaryBlobPrivateDnsZoneId     = "",
+      #   storageDfsPrivateDnsZone                 = "Disabled",
+      #   storageSecondaryDfsPrivateDnsZone        = "Disabled",
+      #   storageSecondaryDfsPrivateDnsZoneId      = "",
+      #   storageQueuePrivateDnsZone               = "Disabled",
+      #   storageQueuePrivateDnsZoneId             = "",
+      #   storageSecondaryQueuePrivateDnsZone      = "Disabled",
+      #   storageSecondaryQueuePrivateDnsZoneId    = "",
+      #   storageWebPrivateDnsZone                 = "Disabled",
+      #   storageWebPrivateDnsZoneId               = "",
+      #   storageSecondaryWebPrivateDnsZone        = "Disabled",
+      #   storageSecondaryWebPrivateDnsZoneId      = "",
+      # }
     }
     access_control = {}
   }
