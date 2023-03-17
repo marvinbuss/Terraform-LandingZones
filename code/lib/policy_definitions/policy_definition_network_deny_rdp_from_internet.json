@@ -114,6 +114,5 @@
     },
     "policyType": "Custom"
   },
-
   "type": "Microsoft.Authorization/policyDefinitions"
 }

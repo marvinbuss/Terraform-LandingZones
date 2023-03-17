@@ -7,7 +7,6 @@
     "displayName": "Subnets should have a Network Security Group",
     "metadata": {
       "category": "Network",
-
       "version": "1.0.0"
     },
     "mode": "All",
@@ -91,6 +90,5 @@
     },
     "policyType": "Custom"
   },
-
   "type": "Microsoft.Authorization/policyDefinitions"
 }

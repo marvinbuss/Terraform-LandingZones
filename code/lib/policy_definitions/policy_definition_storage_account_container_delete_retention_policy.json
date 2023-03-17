@@ -17,7 +17,11 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": ["Deny", "Audit", "Disabled"],
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
         "defaultValue": "Deny"
       },
       "minContainerDeleteRetentionInDays": {

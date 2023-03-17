@@ -7,7 +7,6 @@
     "displayName": "Deploy Diagnostic Settings for Load Balancer to Log Analytics workspace",
     "metadata": {
       "category": "Network",
-
       "version": "1.0.0"
     },
     "mode": "Indexed",
@@ -161,6 +160,5 @@
     },
     "policyType": "Custom"
   },
-
   "type": "Microsoft.Authorization/policyDefinitions"
 }

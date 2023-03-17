@@ -536,7 +536,7 @@
             "value": "[parameters('subnetUdr')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-UDR",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-UDR",
         "policyDefinitionReferenceId": "Deny-Subnet-Without-UDR"
       },
       {
@@ -550,7 +550,7 @@
             "value": "[parameters('subnetNsg')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-NSG",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-NSG",
         "policyDefinitionReferenceId": "Deny-Subnet-Without-NSG"
       },
       {
@@ -564,7 +564,7 @@
             "value": "[parameters('denyInboundInternet')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Inbound-Internet-All",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Inbound-Internet-All",
         "policyDefinitionReferenceId": "Deny-Inbound-Internet-All"
       },
       {
@@ -578,7 +578,7 @@
             "value": "[parameters('subnetServiceEndpoint')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Service-Endpoints",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Service-Endpoints",
         "policyDefinitionReferenceId": "Deny-Subnet-with-Service-Endpoints"
       },
       {
@@ -594,7 +594,7 @@
             "value": "[parameters('lbDiagnosticsLogAnalyticsWorkspaceId')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-LoadBalancer",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-LoadBalancer",
         "policyDefinitionReferenceId": "Dine-Diagnostics-LoadBalancer"
       },
       {
@@ -610,7 +610,7 @@
             "value": "[parameters('fdDiagnosticsLogAnalyticsWorkspaceId')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-FrontDoor",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-FrontDoor",
         "policyDefinitionReferenceId": "Dine-Diagnostics-FrontDoor"
       },
       {
@@ -626,7 +626,7 @@
             "value": "[parameters('tmDiagnosticsLogAnalyticsWorkspaceId')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-TrafficManager",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-TrafficManager",
         "policyDefinitionReferenceId": "Dine-Diagnostics-TrafficManager"
       },
       {
@@ -642,7 +642,7 @@
             "value": "[parameters('vnetDiagnosticsLogAnalyticsWorkspaceId')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-Vnet",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-Vnet",
         "policyDefinitionReferenceId": "Dine-Diagnostics-Vnet"
       },
       {
@@ -655,7 +655,7 @@
             "value": "[parameters('denyRdpFromInternet')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
         "policyDefinitionReferenceId": "Deny-Rdp-From-Internet"
       },
       {
@@ -668,7 +668,7 @@
             "value": "[parameters('denySshFromInternet')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-SSH-From-Internet",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-SSH-From-Internet",
         "policyDefinitionReferenceId": "Deny-Ssh-From-Internet"
       },
       {
@@ -684,7 +684,7 @@
             "value": "[parameters('erDiagnosticsLogAnalyticsWorkspaceId')]"
           }
         },
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-ExpressRouteCircuit",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-ExpressRouteCircuit",
         "policyDefinitionReferenceId": "Dine-Diagnostics-ExpressRoute"
       }
     ]

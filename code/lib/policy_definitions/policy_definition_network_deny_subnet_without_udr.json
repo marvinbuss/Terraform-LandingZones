@@ -7,8 +7,6 @@
     "displayName": "Subnets should have a User Defined Route",
     "metadata": {
       "category": "Network",
-
-
       "version": "2.0.0"
     },
     "mode": "All",
@@ -93,6 +91,5 @@
     },
     "policyType": "Custom"
   },
-
   "type": "Microsoft.Authorization/policyDefinitions"
 }
