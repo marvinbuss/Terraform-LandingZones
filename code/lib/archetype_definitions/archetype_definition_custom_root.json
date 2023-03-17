@@ -4,6 +4,7 @@
     "policy_definitions": [
       "Deny-CognitiveServices-NetworkAcls",
       "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
+      "Dine-CognitiveServices-Diagnostics",
       "Deny-Storage-ContainerDeleteRetentionPolicy",
       "Deny-Storage-CopyScope",
       "Deny-Storage-CorsRules",
@@ -18,7 +19,8 @@
     ],
     "policy_set_definitions": [
       "Cmplnt-CognitiveServices",
-      "Cmplnt-Storage"
+      "Cmplnt-Storage",
+      "Cmplnt-Diagnostics"
     ],
     "role_definitions": [],
     "archetype_config": {
