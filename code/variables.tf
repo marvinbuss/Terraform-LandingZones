@@ -40,6 +40,18 @@ variable "mg_sandboxes_subscription_ids" {
   description = "Specifies the subscription IDs to assotiate with sandbox managemend group."
 }
 
+variable "mg_corp_subscription_ids" {
+  type        = list(string)
+  default     = []
+  description = "Specifies the subscription IDs to assotiate with corp managemend group."
+}
+
+variable "mg_cloud_native_subscription_ids" {
+  type        = list(string)
+  default     = []
+  description = "Specifies the subscription IDs to assotiate with the cloud-native managemend group."
+}
+
 variable "log_analytics_id" {
   description = "Specifies the resource ID of the Log Analytics Workspace"
   type        = string
