@@ -6,7 +6,6 @@
   "properties": {
     "displayName": "Storage Accounts should use a container delete retention policy",
     "description": "Enforce container delete retention policies larger than seven days for storage account. Enable this for increased data loss protection",
-    "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"
@@ -18,11 +17,7 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": [
-          "Deny",
-          "Audit",
-          "Disabled"
-        ],
+        "allowedValues": ["Deny", "Audit", "Disabled"],
         "defaultValue": "Deny"
       },
       "minContainerDeleteRetentionInDays": {
