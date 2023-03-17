@@ -4,4 +4,6 @@ locals {
     parameters     = {}
     access_control = {}
   }
+
+  mg_connectivity_subscription_id_overrides = []
 }
