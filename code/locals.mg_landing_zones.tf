@@ -2,6 +2,19 @@ locals {
   mg_landing_zones_archetype_config_overrides = {
     archetype_id = "custom_landing_zones"
     parameters = {
+      Cmplnt-CognitiveServices = {
+        cognitiveServicesNetworkAccess             = "Deny",
+        cognitiveServicesPublicNetworkAccess       = "Deny",
+        cognitiveServicesModifyPublicNetworkAccess = "Modify",
+        cognitiveServicesModifyDisableLocalAuth    = "Modify",
+        cognitiveServicesDisableLocalAuth          = "Deny",
+        cognitiveServicesCustomerStorage           = "Deny",
+        cognitiveServicesCmk                       = "Deny",
+        cognitiveServicesManagedIdentity           = "Deny",
+        cognitiveServicesNetworkAcls               = "Deny",
+        cognitiveServicesOutboundNetworkAccess     = "Deny"
+      }
+
       Cmplnt-Storage = {
         storageKeysExpiration                           = "Deny",
         modifyStorageFileSyncPublicEndpoint             = "Modify",
@@ -40,6 +53,7 @@ locals {
         storageCorsRules                         = "Deny",
         modifyStorageAccountPublicEndpoint       = "Modify"
       }
+
       # Cmplnt-PrivateDns = {
       #   storageBlobPrivateDnsZone                = "Disabled",
       #   storageBlobPrivateDnsZoneId              = "",
