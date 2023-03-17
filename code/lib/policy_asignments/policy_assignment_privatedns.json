@@ -56,7 +56,7 @@
         "value": ""
       }
     },
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Diagnostics",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-PrivateDns",
     "nonComplianceMessages": [
       {
         "message": "Compliant Private DNS required {enforcementMode}."
