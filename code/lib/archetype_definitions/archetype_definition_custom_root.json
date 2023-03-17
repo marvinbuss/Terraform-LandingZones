@@ -1,0 +1,17 @@
+{
+  "custom_root": {
+    "policy_assignments": [],
+    "policy_definitions": [
+      "Deny-CognitiveServices-NetworkAcls",
+      "Deny-CognitiveServices-RestrictOutboundNetworkAccess"
+    ],
+    "policy_set_definitions": [
+      "Cmplnt-CognitiveServices"
+    ],
+    "role_definitions": [],
+    "archetype_config": {
+      "parameters": {},
+      "access_control": {}
+    }
+  }
+}
