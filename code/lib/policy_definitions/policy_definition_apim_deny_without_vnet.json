@@ -12,11 +12,7 @@
     },
     "parameters": {
       "effect": {
-        "allowedValues": [
-          "Audit",
-          "Deny",
-          "Disabled"
-        ],
+        "allowedValues": ["Audit", "Deny", "Disabled"],
         "defaultValue": "Audit",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
@@ -32,10 +28,7 @@
           "Premium",
           "Consumption"
         ],
-        "defaultValue": [
-          "Developer",
-          "Premium"
-        ],
+        "defaultValue": ["Developer", "Premium"],
         "metadata": {
           "description": "List of API Management SKUs against which this policy will be evaluated.",
           "displayName": "API Management SKU Names"
