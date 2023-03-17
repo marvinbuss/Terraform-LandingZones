@@ -16,10 +16,6 @@ module "enterprise_scale" {
 
   # Specify library path for 
   library_path = "${path.root}/lib"
-
-  template_file_variables = {
-    user_assigned_identity_id = ""
-  }
   # Custom archetype overwrites
   archetype_config_overrides = {
     root           = local.mg_root_archetype_config_overrides
@@ -33,5 +29,10 @@ module "enterprise_scale" {
     # corp           = {}
     # online         = {}
     # sap            = {}
+  }
+  
+  # Specify custom template variables
+  template_file_variables = {
+    user_assigned_identity_id = ""
   }
 }
