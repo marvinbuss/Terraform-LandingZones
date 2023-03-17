@@ -7,4 +7,5 @@ repos:
     -   id: trailing-whitespace
     -   id: check-json
     -   id: check-yaml
-    -   id: pretty-format-json --indent 2 --autofix --no-sort-keys
+    -   id: pretty-format-json
+        args: ["--indent", "2", "--autofix", "--no-sort-keys"]
