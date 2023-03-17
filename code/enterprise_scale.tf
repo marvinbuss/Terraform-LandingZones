@@ -14,7 +14,7 @@ module "enterprise_scale" {
   root_name        = local.root_name
   default_location = local.default_location
 
-  # Specify library path for 
+  # Specify library path for lib
   library_path = "${path.root}/lib"
 
   # Custom archetype overwrites
