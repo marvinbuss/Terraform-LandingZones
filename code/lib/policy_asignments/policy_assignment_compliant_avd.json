@@ -1,0 +1,50 @@
+{
+  "name": "Compliant-AVD",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Virtual Desktop for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Virtual Desktop is compliant per FSI Landing Zones",
+    "notScopes": null,
+    "parameters": {
+      "avdAppGroupDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "avdAppGroupLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "avdHostPoolDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "avdHostPoolLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "avdHostPoolModifyPublicNetworkAccess": {
+        "value": "Modify"
+      },
+      "avdHostPoolPublicNetworkAccess": {
+        "value": "Deny"
+      },
+      "avdWorkspaceDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "avdWorkspaceLogAnalyticsWorkspaceId": {
+        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      },
+      "avdWorkspaceModifyPublicNetworkAccess": {
+        "value": "Modify"
+      },
+      "avdWorkspacePublicNetworkAccess": {
+        "value": "Deny"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-AVD",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "UserAssigned"
+  }
+}

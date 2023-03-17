@@ -1,0 +1,144 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deploy-PostgreSQL-sslEnforcement",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deploy-PostgreSQL-sslEnforcement",
+        "properties": {
+          "description": "Deploy a specific min TLS version requirement and enforce SSL on Azure Database for PostgreSQL server. Enables secure server to client by enforce  minimal Tls Version to secure the connection between your database server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server.",
+          "displayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
+          "metadata": {
+            "category": "SQL",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "version": "1.0.0"
+          },
+          "mode": "Indexed",
+          "parameters": {
+            "effect": {
+              "allowedValues": [
+                "DeployIfNotExists",
+                "Disabled"
+              ],
+              "defaultValue": "DeployIfNotExists",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy minimum TLS version Azure Database for PostgreSQL server",
+                "displayName": "Effect Azure Database for PostgreSQL server"
+              },
+              "type": "String"
+            },
+            "minimalTlsVersion": {
+              "allowedValues": [
+                "TLS1_2",
+                "TLS1_0",
+                "TLS1_1",
+                "TLSEnforcementDisabled"
+              ],
+              "defaultValue": "TLS1_2",
+              "metadata": {
+                "description": "Select version minimum TLS version Azure Database for PostgreSQL server to enforce",
+                "displayName": "Select version for PostgreSQL server"
+              },
+              "type": "String"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.DBforPostgreSQL/servers",
+                  "field": "type"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement",
+                      "notEquals": "Enabled"
+                    },
+                    {
+                      "field": "Microsoft.DBforPostgreSQL/servers/minimalTlsVersion",
+                      "notEquals": "[parameters('minimalTlsVersion')]"
+                    }
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "details": {
+                "deployment": {
+                  "properties": {
+                    "mode": "Incremental",
+                    "parameters": {
+                      "location": {
+                        "value": "[field('location')]"
+                      },
+                      "minimalTlsVersion": {
+                        "value": "[parameters('minimalTlsVersion')]"
+                      },
+                      "resourceName": {
+                        "value": "[field('name')]"
+                      }
+                    },
+                    "template": {
+                      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                      "contentVersion": "1.0.0.0",
+                      "outputs": {},
+                      "parameters": {
+                        "location": {
+                          "type": "String"
+                        },
+                        "minimalTlsVersion": {
+                          "type": "String"
+                        },
+                        "resourceName": {
+                          "type": "String"
+                        }
+                      },
+                      "resources": [
+                        {
+                          "apiVersion": "2017-12-01",
+                          "location": "[parameters('location')]",
+                          "name": "[concat(parameters('resourceName'))]",
+                          "properties": {
+                            "minimalTlsVersion": "[parameters('minimalTlsVersion')]",
+                            "sslEnforcement": "[if(equals(parameters('minimalTlsVersion'), 'TLSEnforcementDisabled'),'Disabled', 'Enabled')]"
+                          },
+                          "type": "Microsoft.DBforPostgreSQL/servers"
+                        }
+                      ],
+                      "variables": {}
+                    }
+                  }
+                },
+                "existenceCondition": {
+                  "allOf": [
+                    {
+                      "equals": "Enabled",
+                      "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement"
+                    },
+                    {
+                      "equals": "[parameters('minimalTlsVersion')]",
+                      "field": "Microsoft.DBforPostgreSQL/servers/minimalTlsVersion"
+                    }
+                  ]
+                },
+                "name": "current",
+                "roleDefinitionIds": [
+                  "/providers/microsoft.authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+                ],
+                "type": "Microsoft.DBforPostgreSQL/servers"
+              },
+              "effect": "[parameters('effect')]"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

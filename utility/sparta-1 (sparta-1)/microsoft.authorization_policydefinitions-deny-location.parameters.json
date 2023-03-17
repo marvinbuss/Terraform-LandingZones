@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Location",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deny-Location",
+        "properties": {
+          "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.",
+          "displayName": "Allowed locations for Landing Zone workloads",
+          "metadata": {
+            "category": "General",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "mode": "Indexed",
+          "parameters": {
+            "listOfAllowedLocations": {
+              "metadata": {
+                "description": "The list of locations that can be specified when deploying resources.",
+                "displayName": "Allowed locations",
+                "strongType": "location"
+              },
+              "type": "Array"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "location",
+                  "notIn": "[parameters('listOfAllowedLocations')]"
+                },
+                {
+                  "field": "location",
+                  "notEquals": "global"
+                },
+                {
+                  "field": "type",
+                  "notEquals": "Microsoft.AzureActiveDirectory/b2cDirectories"
+                },
+                {
+                  "field": "type",
+                  "notEquals": "Microsoft.Resources/deployments"
+                }
+              ]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

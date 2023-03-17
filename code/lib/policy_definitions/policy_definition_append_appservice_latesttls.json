@@ -1,0 +1,68 @@
+{
+  "kind": "policydefinitions",
+  "location": "global",
+  "name": "Append-AppService-latestTLS",
+  "properties": {
+    "description": "Append the AppService sites object to ensure that min Tls version is set to required minimum TLS version. Please note Append does not enforce compliance use then deny.",
+    "displayName": "AppService append sites with minimum TLS version to enforce.",
+    "metadata": {
+      "category": "App Service",
+      "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+      "version": "1.0.0"
+    },
+    "mode": "All",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Append",
+          "Disabled"
+        ],
+        "defaultValue": "Append",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "minTlsVersion": {
+        "allowedValues": [
+          "1.2",
+          "1.0",
+          "1.1"
+        ],
+        "defaultValue": "1.2",
+        "metadata": {
+          "description": "Select version  minimum TLS version for a  Web App config to enforce",
+          "displayName": "Select version minimum TLS Web App config"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Web/sites/config",
+            "field": "type"
+          },
+          {
+            "field": "Microsoft.Web/sites/config/minTlsVersion",
+            "notEquals": "[parameters('minTlsVersion')]"
+          }
+        ]
+      },
+      "then": {
+        "details": [
+          {
+            "field": "Microsoft.Web/sites/config/minTlsVersion",
+            "value": "[parameters('minTlsVersion')]"
+          }
+        ],
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

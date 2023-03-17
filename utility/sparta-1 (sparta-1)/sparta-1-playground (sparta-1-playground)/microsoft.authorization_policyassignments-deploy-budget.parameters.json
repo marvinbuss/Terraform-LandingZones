@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-playground/providers/Microsoft.Authorization/policyAssignments/Deploy-Budget",
+        "identity": {
+          "principalId": "d5020836-842b-4123-8ffd-2bc98f524c5e",
+          "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+          "type": "SystemAssigned"
+        },
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "Deploy-Budget",
+        "properties": {
+          "description": "Ensure there is a budget on all subscriptions under the assigned scope to control cost and spending.",
+          "displayName": "Ensure there is a budget associated with the subscription",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "amount": {
+              "value": "1000"
+            },
+            "budgetName": {
+              "value": "DefaultBudget"
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deploy-Budget",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-playground"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

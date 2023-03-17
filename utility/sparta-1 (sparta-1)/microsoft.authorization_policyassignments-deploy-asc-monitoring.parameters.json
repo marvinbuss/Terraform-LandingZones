@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyAssignments/Deploy-ASC-Monitoring",
+        "identity": {
+          "principalId": "23e4a56c-7895-4c6e-8781-20f4c8a62b47",
+          "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+          "type": "SystemAssigned"
+        },
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "Deploy-ASC-Monitoring",
+        "properties": {
+          "description": "The Azure Security Benchmark initiative represents the policies and controls implementing security recommendations defined in Azure Security Benchmark v3, see https://aka.ms/azsecbm. This also serves as the Microsoft Defender for Cloud default policy initiative. You can directly assign this initiative, or manage its policies and compliance results within Microsoft Defender for Cloud.",
+          "displayName": "Azure Security Benchmark",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "autoProvisioningOfTheLogAnalyticsAgentShouldBeEnabledOnYourSubscriptionMonitoringEffect": {
+              "value": "Disabled"
+            },
+            "identityDesignateLessThanOwnersMonitoringEffect": {
+              "value": "Disabled"
+            },
+            "identityEnableMFAForOwnerPermissionsMonitoringEffect": {
+              "value": "Disabled"
+            },
+            "networkWatcherShouldBeEnabledMonitoringEffect": {
+              "value": "Disabled"
+            },
+            "useRbacRulesMonitoringEffect": {
+              "value": "Disabled"
+            },
+            "useServicePrincipalToProtectSubscriptionsMonitoringEffect": {
+              "value": "Disabled"
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

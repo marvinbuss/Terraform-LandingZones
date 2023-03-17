@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Children": [
+          {
+            "DisplayName": "sparta-1-connectivity",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-connectivity",
+            "Name": "sparta-1-connectivity",
+            "Type": "Microsoft.Management/managementGroups"
+          },
+          {
+            "DisplayName": "sparta-1-identity",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-identity",
+            "Name": "sparta-1-identity",
+            "Type": "Microsoft.Management/managementGroups"
+          },
+          {
+            "DisplayName": "sparta-1-management",
+            "Id": "/providers/Microsoft.Management/managementGroups/sparta-1-management",
+            "Name": "sparta-1-management",
+            "Type": "Microsoft.Management/managementGroups"
+          }
+        ],
+        "DisplayName": "sparta-1-platform",
+        "Name": "sparta-1-platform",
+        "ParentDisplayName": "sparta-1",
+        "ParentId": "/providers/Microsoft.Management/managementGroups/sparta-1",
+        "ParentName": "sparta-1",
+        "TenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "Type": "Microsoft.Management/managementGroups",
+        "UpdatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+      }
+    }
+  }
+}

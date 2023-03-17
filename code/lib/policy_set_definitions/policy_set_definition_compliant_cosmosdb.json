@@ -1,0 +1,195 @@
+{
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-CosmosDb",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Cosmos DB is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Cosmos DB for Financial Services Industry",
+    "metadata": {
+      "category": "Cosmos DB",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "cosmosDbAtp": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cosmosDbCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cosmosDbFwRules": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cosmosDbLocalAuth": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cosmosDbModifyLocalAuth": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "cosmosDbModifyPublicAccess": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "cosmosDbPublicAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "cosmosDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "cosmosLogAnalyticsWorkspaceId": {
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure data protection for Cosmos DB",
+        "displayName": "Ensure compliance for data encryption, protection, and recovery for Cosmos DB",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Cosmos DB not accessible over the public internet",
+        "displayName": "Ensure Cosmos DB is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Cosmos DB is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Cosmos DB",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Cosmos DB is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Cosmos DB is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('cosmosLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-CosmosDb",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-CosmosDb"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbModifyLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/dc2d41d1-4ab1-4666-a3e1-3d51c43e0049",
+        "policyDefinitionReferenceId": "Modify-CosmosDb-Local-Auth"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbModifyPublicAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/da69ba51-aaf1-41e5-8651-607cd0b37088",
+        "policyDefinitionReferenceId": "Modify-CosmosDb-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbAtp')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b5f04e03-92a3-4b09-9410-2cc5e5047656",
+        "policyDefinitionReferenceId": "Dine-CosmosDb-Atp"
+      },
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbFwRules')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb",
+        "policyDefinitionReferenceId": "Deny-CosmosDb-Fw-Rules"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbPublicAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/797b37f7-06b8-444c-b1ad-fc62867f335a",
+        "policyDefinitionReferenceId": "Deny-CosmosDb-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5450f5bd-9c72-4390-a9c4-a7aba4edfdd2",
+        "policyDefinitionReferenceId": "Deny-CosmosDb-Local-Auth"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {},
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4750c32b-89c0-46af-bfcb-2e4541a818d5",
+        "policyDefinitionReferenceId": "Append-CosmosDb-Metadata"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cosmosDbCmk')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f905d99-2ab7-462c-a6b0-f709acca6c8f",
+        "policyDefinitionReferenceId": "Deny-CosmosDb-Cmk"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
+}

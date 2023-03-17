@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-connectivity/providers/Microsoft.Authorization/policyAssignments/Enable-DDoS-VNET",
+        "identity": {
+          "principalId": "191d77ad-37f7-488d-adc3-dc1f09c67a4c",
+          "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+          "type": "SystemAssigned"
+        },
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "Enable-DDoS-VNET",
+        "properties": {
+          "description": "Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection Standard. For more information, visit https://aka.ms/ddosprotectiondocs.",
+          "displayName": "Virtual networks should be protected by Azure DDoS Protection Standard",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "ddosPlan": {
+              "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-ddos/providers/Microsoft.Network/ddosProtectionPlans/sparta-1-ddos-eastus"
+            },
+            "effect": {
+              "value": "Modify"
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-connectivity"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

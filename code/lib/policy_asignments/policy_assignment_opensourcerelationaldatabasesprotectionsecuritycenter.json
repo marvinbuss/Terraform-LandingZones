@@ -1,0 +1,19 @@
+{
+  "name": "OpenSourceRelationalDatabasesProtectionSecurityCenter",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "ASC OpenSourceRelationalDatabasesProtection (subscription: f86ad04a-4680-4eae-84b1-557f52d9bffc)",
+    "description": "This policy assignment was automatically created by Azure Security Center",
+    "notScopes": null,
+    "parameters": null,
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/OpenSourceRelationalDatabasesProtectionSecurityCenter",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": null
+  }
+}

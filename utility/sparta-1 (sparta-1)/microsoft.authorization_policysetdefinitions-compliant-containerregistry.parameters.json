@@ -1,0 +1,320 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "kind": "policysetdefinitions",
+        "location": "global",
+        "name": "Compliant-ContainerRegistry",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Container Apps is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Container Registry for Financial Services Industry",
+          "metadata": {
+            "category": "Container Registry",
+            "version": "1.0.0"
+          },
+          "parameters": {
+            "containerRegistryAnAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryArmAudience": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryCmk": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryDiagnostics": {
+              "defaultValue": "DeployIfNotExists",
+              "type": "string"
+            },
+            "containerRegistryExports": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryLocalAuth": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryLogAnalyticsWorkspaceId": {
+              "type": "string"
+            },
+            "containerRegistryLogCategories": {
+              "defaultValue": "allLogs",
+              "type": "string"
+            },
+            "containerRegistryModifyAnAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "containerRegistryModifyArmAudience": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "containerRegistryModifyLocalAuth": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "containerRegistryModifyPublicNetworkAccess": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "containerRegistryModifyRepositoryToken": {
+              "defaultValue": "Modify",
+              "type": "string"
+            },
+            "containerRegistryPublicNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryRepositoryToken": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistrySkuPrivateLink": {
+              "defaultValue": "Deny",
+              "type": "string"
+            },
+            "containerRegistryUnrestrictedNetworkAccess": {
+              "defaultValue": "Deny",
+              "type": "string"
+            }
+          },
+          "policyDefinitionGroups": [
+            {
+              "category": "Data Protection",
+              "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
+              "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
+              "name": "Encryption"
+            },
+            {
+              "category": "Network Security",
+              "description": "Policy to ensure Container Registry is not accessible over the public internet",
+              "displayName": "Ensure Container Registry is not accessible over the public internet",
+              "name": "Network"
+            },
+            {
+              "category": "Identity Management",
+              "description": "Policy to ensure Container Registry is not using local authorization",
+              "displayName": "Ensure usage of centralized identity and auhtorization system for Container Registry",
+              "name": "Identity"
+            },
+            {
+              "category": "Logging and Threat Detection",
+              "description": "Policy to ensure Container Registry is logging all events to Log Analytics workspace",
+              "displayName": "Ensure Container Registry is logging all events to Log Analytics",
+              "name": "Logging"
+            }
+          ],
+          "policyDefinitions": [
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Logging"
+              ],
+              "parameters": {
+                "categoryGroup": {
+                  "value": "[parameters('containerRegistryLogCategories')]"
+                },
+                "effect": {
+                  "value": "[parameters('containerRegistryDiagnostics')]"
+                },
+                "logAnalytics": {
+                  "value": "[parameters('containerRegistryLogAnalyticsWorkspaceId')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/56288eb2-4350-461d-9ece-2bb242269dce",
+              "policyDefinitionReferenceId": "Dine-Diagnostics-CR"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0fdf0491-d080-4575-b627-ad0e843cba0f",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryModifyPublicNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a3701552-92ea-433e-9d17-33b7f1208fc9",
+              "policyDefinitionReferenceId": "Modify-ContainerRegistry-Public-Network-Access"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryModifyLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/79fdfe03-ffcb-4e55-b4d0-b925b8241759",
+              "policyDefinitionReferenceId": "Modify-ContainerRegistry-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryModifyRepositoryToken')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a9b426fe-8856-4945-8600-18c5dd1cca2a",
+              "policyDefinitionReferenceId": "Modify-ContainerRegistry-Repo-Token"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryCmk')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Cmk"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryArmAudience')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/42781ec6-6127-4c30-bdfa-fb423a0047d3",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Arm-Audience"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryModifyArmAudience')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/785596ed-054f-41bc-aaec-7f3d0ba05725",
+              "policyDefinitionReferenceId": "Modify-ContainerRegistry-Arm-Audience"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistrySkuPrivateLink')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bd560fc0-3c69-498a-ae9f-aa8eb7de0e13",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Sku-PrivateLink"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryModifyAnAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cced2946-b08a-44fe-9fd9-e4ed8a779897",
+              "policyDefinitionReferenceId": "Modify-ContainerRegistry-Anonymous-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryAnAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9f2dea28-e834-476c-99c5-3507b4728395",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Anonymous-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryExports')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/524b0254-c285-4903-bee6-bb8126cde579",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Exports"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Identity"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryLocalAuth')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/dc921057-6b28-4fbe-9b83-f7bec05db6c2",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Local-Auth"
+            },
+            {
+              "definitionVersion": "1.*.*",
+              "groupNames": [
+                "Encryption"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryRepositoryToken')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ff05e24e-195c-447e-b322-5e90c9f9f366",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Repo-Token"
+            },
+            {
+              "definitionVersion": "2.*.*",
+              "groupNames": [
+                "Network"
+              ],
+              "parameters": {
+                "effect": {
+                  "value": "[parameters('containerRegistryUnrestrictedNetworkAccess')]"
+                }
+              },
+              "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d0793b48-0edc-4296-a390-4c75d1bdfd71",
+              "policyDefinitionReferenceId": "Deny-ContainerRegistry-Unrestricted-Network-Access"
+            }
+          ]
+        },
+        "type": "Microsoft.Authorization/policySetDefinitions"
+      }
+    }
+  }
+}

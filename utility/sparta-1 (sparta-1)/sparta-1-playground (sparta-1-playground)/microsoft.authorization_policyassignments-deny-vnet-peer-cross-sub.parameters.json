@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-playground/providers/Microsoft.Authorization/policyAssignments/Deny-VNet-Peer-Cross-Sub",
+        "kind": "policyassignments",
+        "location": "global",
+        "name": "Deny-VNet-Peer-Cross-Sub",
+        "properties": {
+          "description": "This policy denies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
+          "displayName": "Deny vNet peering cross subscription.",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "listOfResourceTypesNotAllowed": {
+              "value": [
+                "microsoft.network/virtualnetworks/virtualnetworkpeerings",
+                "microsoft.network/expressroutecircuits/peerings",
+                "microsoft.network/expressroutecircuits/peerings/connections",
+                "microsoft.network/expressroutecrossconnections/peerings",
+                "microsoft.network/virtualrouters/peerings"
+              ]
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c112d4e-5bc7-47ae-a041-ea2d9dccd749",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-playground"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

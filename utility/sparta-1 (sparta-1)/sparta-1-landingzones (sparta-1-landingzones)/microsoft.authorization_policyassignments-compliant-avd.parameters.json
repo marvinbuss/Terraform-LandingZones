@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones/providers/Microsoft.Authorization/policyAssignments/Compliant-AVD",
+        "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-policy-identity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sparta-1-policy-identity": {
+              "clientId": "4d10169e-0c25-4dfb-b57c-71946ed8b10e",
+              "principalId": "af6ba423-3cf2-411c-af92-118bddc8c506"
+            }
+          }
+        },
+        "kind": "policyassignments",
+        "location": "eastus",
+        "name": "Compliant-AVD",
+        "properties": {
+          "description": "This policy initiative is a group of policies that ensures Virtual Desktop is compliant per FSI Landing Zones",
+          "displayName": "Enforce secure-by-default Virtual Desktop for Financial Services Industry",
+          "enforcementMode": "Default",
+          "metadata": {
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+          },
+          "parameters": {
+            "avdAppGroupDiagnostics": {
+              "value": "DeployIfNotExists"
+            },
+            "avdAppGroupLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "avdHostPoolDiagnostics": {
+              "value": "DeployIfNotExists"
+            },
+            "avdHostPoolLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "avdHostPoolModifyPublicNetworkAccess": {
+              "value": "Modify"
+            },
+            "avdHostPoolPublicNetworkAccess": {
+              "value": "Deny"
+            },
+            "avdWorkspaceDiagnostics": {
+              "value": "DeployIfNotExists"
+            },
+            "avdWorkspaceLogAnalyticsWorkspaceId": {
+              "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+            },
+            "avdWorkspaceModifyPublicNetworkAccess": {
+              "value": "Modify"
+            },
+            "avdWorkspacePublicNetworkAccess": {
+              "value": "Deny"
+            }
+          },
+          "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policySetDefinitions/Compliant-AVD",
+          "scope": "/providers/Microsoft.Management/managementGroups/sparta-1-landingzones"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyAssignments"
+      }
+    }
+  }
+}

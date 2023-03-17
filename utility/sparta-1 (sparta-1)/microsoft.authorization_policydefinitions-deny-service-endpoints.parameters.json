@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Service-Endpoints",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deny-Service-Endpoints",
+        "properties": {
+          "description": "This Policy will deny/audit Service Endpoints on subnets. Service Endpoints allows the network traffic to bypass Network appliances, such as the Azure Firewall.",
+          "displayName": "Deny or Audit service endpoints on subnets",
+          "metadata": {
+            "category": "Network",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "updatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "version": "1.0.0"
+          },
+          "mode": "All",
+          "parameters": {
+            "effect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Deny",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.Network/virtualNetworks/subnets",
+                  "field": "type"
+                },
+                {
+                  "count": {
+                    "field": "Microsoft.Network/virtualNetworks/subnets/serviceEndpoints[*]",
+                    "where": {
+                      "exists": true,
+                      "field": "Microsoft.Network/virtualNetworks/subnets/serviceEndpoints[*].service"
+                    }
+                  },
+                  "greater": 0
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

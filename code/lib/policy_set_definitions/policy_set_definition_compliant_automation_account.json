@@ -1,0 +1,216 @@
+{
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-Automation-Account",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Automation Account is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Automation Account for Financial Services Industry",
+    "metadata": {
+      "category": "Automation",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "aaCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "aaDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "aaLocalAuth": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "aaLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "aaLogsCategory": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "aaManagedIdentity": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "aaModifyLocalAuth": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "aaModifyPublicNetworkAccess": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "aaPublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "aaVariablesEncryption": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "autoHotPatch": {
+        "defaultValue": "Deny",
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure data protection for Automation Account",
+        "displayName": "Ensure compliance for data encryption, protection, and recovery for Automation Account",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Automation Account not accessible over the public internet",
+        "displayName": "Ensure Automation Account is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Automation Account is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Automation Account",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Automation Account is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Automation Account is logging all events to Log Analytics",
+        "name": "Logging"
+      },
+      {
+        "category": "DevOps Security",
+        "description": "Policy to ensure Automation Account is configured to use Git as source control",
+        "displayName": "Ensure Automation Account is is using Git as source control",
+        "name": "DevOps"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('aaLogsCategory')]"
+          },
+          "effect": {
+            "value": "[parameters('aaDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('aaLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b797045a-b3cd-46e4-adc4-bbadb3381d78",
+        "policyDefinitionReferenceId": "Dine-AA-Diagnostics"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('autoHotPatch')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6d02d2f7-e38b-4bdc-96f3-adc0a8726abc",
+        "policyDefinitionReferenceId": "Deny-Windows-Vm-HotPatch"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaManagedIdentity')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-AA-Managed-Identity",
+        "policyDefinitionReferenceId": "Deny-Aa-Managed-Identity"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/955a914f-bf86-4f0e-acd5-e0766b0efcb6",
+        "policyDefinitionReferenceId": "Deny-Aa-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaCmk')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/56a5ee18-2ae6-4810-86f7-18e39ce5629b",
+        "policyDefinitionReferenceId": "Deny-Aa-Cmk"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaLocalAuth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/48c5f1cb-14ad-4797-8e3b-f78ab3f8d700",
+        "policyDefinitionReferenceId": "Deny-Aa-Local-Auth"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaVariablesEncryption')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3657f5a0-770e-44a3-b44e-9431ba1e9735",
+        "policyDefinitionReferenceId": "Deny-Aa-Variables-Encrypt"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Identity"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaModifyLocalAUth')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/30d1d58e-8f96-47a5-8564-499a3f3cca81",
+        "policyDefinitionReferenceId": "Modify-Aa-Local-Auth"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('aaModifyPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/23b36a7c-9d26-4288-a8fd-c1d2fa284d8c",
+        "policyDefinitionReferenceId": "Modify-Aa-Public-Network-Access"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
+}

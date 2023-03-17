@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "ResourceId": "/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-EH-Cmk",
+        "kind": "policydefinitions",
+        "location": "global",
+        "name": "Deny-EH-Cmk",
+        "properties": {
+          "description": "Azure Event Hubs supports the option of encrypting data at rest with either Microsoft-managed keys (default) or customer-managed keys. Choosing to encrypt data using customer-managed keys enables you to assign, rotate, disable, and revoke access to the keys that Event Hub will use to encrypt data in your namespace. Note that Event Hub only supports encryption with customer-managed keys for namespaces in dedicated clusters.",
+          "displayName": "Event Hub namespaces should use a customer-managed key for encryption",
+          "metadata": {
+            "category": "Event Hub",
+            "createdBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd",
+            "version": "1.0.0"
+          },
+          "mode": "Indexed",
+          "parameters": {
+            "effect": {
+              "allowedValues": [
+                "Audit",
+                "Deny",
+                "Disabled"
+              ],
+              "defaultValue": "Audit",
+              "metadata": {
+                "description": "Enable or disable the execution of the policy",
+                "displayName": "Effect"
+              },
+              "type": "String"
+            }
+          },
+          "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "equals": "Microsoft.EventHub/namespaces",
+                  "field": "type"
+                },
+                {
+                  "exists": "true",
+                  "field": "Microsoft.EventHub/namespaces/clusterArmId"
+                },
+                {
+                  "not": {
+                    "equals": "Microsoft.Keyvault",
+                    "field": "Microsoft.EventHub/namespaces/encryption.keySource"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "effect": "[parameters('effect')]"
+            }
+          },
+          "policyType": "Custom"
+        },
+        "tenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "type": "Microsoft.Authorization/policyDefinitions"
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Compliant-Compute",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Compute is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Compute for Financial Services Industry",
+    "metadata": {
+      "category": "Compute",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "diskDoubleEncryption": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "managedDiskPublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "osAndDataDiskCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "vmAndVmssEncryptionHost": {
+        "defaultValue": "Deny",
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure compliance for purge protection, soft delete, and key rotation",
+        "displayName": "Ensure compliance for purge protection, soft delete, and key rotation",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Compute is not accessible over the public internet",
+        "displayName": "Ensure Compute is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Compute is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and auhtorization system for Compute",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Compute is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Compute is logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('vmAndVmssEncryptionHost')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fc4d8e41-e223-45ea-9bf5-eada37891d87",
+        "policyDefinitionReferenceId": "Deny-VmAndVmss-Encryption-Host"
+      },
+      {
+        "definitionVersion": "3.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('osAndDataDiskCmk')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/702dd420-7fcc-42c5-afe8-4026edd20fe0",
+        "policyDefinitionReferenceId": "Deny-OsAndDataDisk-Cmk"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Network"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('managedDiskPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Management/managementGroups/sparta-1/providers/Microsoft.Authorization/policyDefinitions/Deny-Disk-Public-Endpoint",
+        "policyDefinitionReferenceId": "Deny-ManagedDisk-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": [
+          "Encryption"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('diskDoubleEncryption')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ca91455f-eace-4f96-be59-e6e2c35b4816",
+        "policyDefinitionReferenceId": "Deny-Disk-Double-Encryption"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "Children": [
+          {
+            "DisplayName": "policy-jupiter-2",
+            "Id": "/subscriptions/8692fb2a-bd71-4c8d-b9bb-110e93c892ca",
+            "Name": "8692fb2a-bd71-4c8d-b9bb-110e93c892ca",
+            "Type": "/subscriptions"
+          },
+          {
+            "DisplayName": "policy-jupiter-1",
+            "Id": "/subscriptions/8c39e9ec-e186-4889-92b0-0a7db648a203",
+            "Name": "8c39e9ec-e186-4889-92b0-0a7db648a203",
+            "Type": "/subscriptions"
+          }
+        ],
+        "DisplayName": "sparta-1-playground",
+        "Name": "sparta-1-playground",
+        "ParentDisplayName": "sparta-1",
+        "ParentId": "/providers/Microsoft.Management/managementGroups/sparta-1",
+        "ParentName": "sparta-1",
+        "TenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "Type": "Microsoft.Management/managementGroups",
+        "UpdatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+      }
+    }
+  }
+}

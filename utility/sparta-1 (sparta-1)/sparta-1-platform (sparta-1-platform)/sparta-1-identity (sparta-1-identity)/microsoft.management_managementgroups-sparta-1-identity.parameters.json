@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "input": {
+      "value": {
+        "DisplayName": "sparta-1-identity",
+        "Name": "sparta-1-identity",
+        "ParentDisplayName": "sparta-1-platform",
+        "ParentId": "/providers/Microsoft.Management/managementGroups/sparta-1-platform",
+        "ParentName": "sparta-1-platform",
+        "TenantId": "5663f39e-feb1-4303-a1f9-cf20b702de61",
+        "Type": "Microsoft.Management/managementGroups",
+        "UpdatedBy": "f8bd5cba-e903-422f-8196-8a5f7f73b6cd"
+      }
+    }
+  }
+}
