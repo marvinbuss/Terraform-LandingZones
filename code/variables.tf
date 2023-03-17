@@ -16,6 +16,12 @@ variable "default_location" {
   description = "Specifies the default location for resources, including references to location within Policy templates."
 }
 
+variable "default_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Specifies the default location for resources, including references to location within Policy templates."
+}
+
 variable "log_analytics_id" {
   description = "Specifies the resource ID of the Log Analytics Workspace"
   type        = string
