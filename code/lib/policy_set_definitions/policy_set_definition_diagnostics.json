@@ -106,7 +106,7 @@
     "policyDefinitions": [
       {
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b4fe1a3b-0715-4c6c-a5ea-ffc33cf823cb",
-        "policyDefinitionReferenceId": "Dine-Diagnostics-Storage-blob",
+        "policyDefinitionReferenceId": "Dine-Storage-Blob-Diagnostics",
         "groupNames": [
           "Logging"
         ],
