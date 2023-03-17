@@ -5,8 +5,8 @@
   "scope": null,
   "properties": {
     "displayName": "Resource Access Rules resource IDs should be restricted for Storage Accounts",
-    "mode": "Indexed",
     "description": "Azure Storage accounts should restrict the resource access rule for service-level network ACLs to services from a specific Azure subscription. Enforce this for increased data exfiltration protection.",
+    "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
       "category": "Storage"
@@ -18,7 +18,11 @@
           "displayName": "Effect",
           "description": "Enable or disable the execution of the policy"
         },
-        "allowedValues": ["Deny", "Audit", "Disabled"],
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
         "defaultValue": "Deny"
       }
     },
@@ -38,7 +42,7 @@
           {
             "count": {
               "field": "Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*]",
-              "where": {               
+              "where": {
                 "value": "[split(current('Microsoft.Storage/storageAccounts/networkAcls.resourceAccessRules[*].resourceId'), '/')[2]]",
                 "equals": "*"
               }
