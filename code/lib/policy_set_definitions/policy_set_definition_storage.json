@@ -130,7 +130,7 @@
         "type": "string",
         "defaultValue": "Deny"
       },
-      "storageLocalUser": {
+      "storageSftp": {
         "type": "string",
         "defaultValue": "Deny"
       },
@@ -218,14 +218,14 @@
         }
       },
       {
-        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-LocalUser",
-        "policyDefinitionReferenceId": "Deny-Storage-LocalUser",
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Storage-Sftp",
+        "policyDefinitionReferenceId": "Deny-Storage-Sftp",
         "groupNames": [
           "Identity"
         ],
         "parameters": {
           "effect": {
-            "value": "[parameters('storageLocalUser')]"
+            "value": "[parameters('storageSftp')]"
           }
         }
       },
