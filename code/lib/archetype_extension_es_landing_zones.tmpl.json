@@ -1,7 +1,8 @@
 {
     "extend_es_landing_zones": {
         "policy_assignments": [
-            "Cmplnt-CognitiveServices"
+            "Cmplnt-CognitiveServices",
+            "Cmplnt-Storage"
         ],
         "policy_definitions": [],
         "policy_set_definitions": [],

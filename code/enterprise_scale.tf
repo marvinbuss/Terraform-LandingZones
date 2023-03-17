@@ -15,4 +15,7 @@ module "enterprise_scale" {
   default_location = local.default_location
 
   library_path = "${path.root}/lib"
+  template_file_variables = {
+    user_assigned_identity_id = ""
+  }
 }
