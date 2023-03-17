@@ -23,7 +23,13 @@
       "Cmplnt-Diagnostics",
       "Cmplnt-PrivateDns"
     ],
-    "role_definitions": [],
+    "role_definitions": [
+      "Network-Subnet-Contributor",
+      "Application-Owners",
+      "Network-Management",
+      "Security-Operations",
+      "Subscription-Owner"
+    ],
     "archetype_config": {
       "parameters": {},
       "access_control": {}
