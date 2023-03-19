@@ -2,7 +2,8 @@
   "custom_landing_zones": {
     "policy_assignments": [
       "Cmplnt-CognitiveServices",
-      "Cmplnt-Storage"
+      "Cmplnt-Storage",
+      "Cmplnt-KeyVault"
     ],
     "policy_definitions": [],
     "policy_set_definitions": [],
