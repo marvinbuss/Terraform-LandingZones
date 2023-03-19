@@ -1,0 +1,162 @@
+{
+  "name": "Cmplnt-KeyVault",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Key Vault for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Key Vault is compliant per FSI Landing Zones",
+    "notScopes": [],
+    "parameters": {
+      "keyVaultPurgeProtection": {
+        "value": "Deny"
+      },
+      "keyVaultHmsPurgeProtection": {
+        "value": "Deny"
+      },
+      "keyVaultArmRbac": {
+        "value": "Deny"
+      },
+      "keyVaultManagedHsmDisablePublicNetwork": {
+        "value": "Deny"
+      },
+      "keyVaultSoftDelete": {
+        "value": "Deny"
+      },
+      "keyVaultDisablePublicNetwork": {
+        "value": "Deny"
+      },
+      "keyVaultManagedHsmDisablePublicNetworkModify": {
+        "value": "Modify"
+      },
+      "keyVaultDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "keyVaultLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "keyVaultCertificatesPeriod": {
+        "value": "Disabled"
+      },
+      "keyVaultCertValidPeriod": {
+        "value": 12
+      },
+      "keyVaultKeysExpiration": {
+        "value": "Deny"
+      },
+      "keyVaultHmsKeysExpiration": {
+        "value": "Deny"
+      },
+      "keyVaultSecretExpiration": {
+        "value": "Deny"
+      },
+      "keysValidPeriod": {
+        "value": "Disabled"
+      },
+      "keysValidityInDays": {
+        "value": 90
+      },
+      "secretsValidPeriod": {
+        "value": "Deny"
+      },
+      "secretsValidityInDays": {
+        "value": 90
+      },
+      "keyVaultFw": {
+        "value": "Deny"
+      },
+      "keyVaultCertKeyTypes": {
+        "value": "Deny"
+      },
+      "keyVaultCertKeyTypesAllowed": {
+        "value": [
+          "RSA",
+          "RSA-HSM"
+        ]
+      },
+      "keyVaultEllipticCurve": {
+        "value": "Deny"
+      },
+      "keyVaultEllipticCurveAllowed": {
+        "value": [
+          "P-256",
+          "P-256K",
+          "P-384",
+          "P-521"
+        ]
+      },
+      "keyVaultModifyFw": {
+        "value": "Modify"
+      },
+      "keyVaultCryptographicType": {
+        "value": "Deny"
+      },
+      "keyVaultCryptographicTypeAllowed": {
+        "value": [
+          "RSA",
+          "RSA-HSM",
+          "EC",
+          "EC-HSM"
+        ]
+      },
+      "keysExpiration": {
+        "value": "Disabled"
+      },
+      "keysExpirationInDays": {
+        "value": 30
+      },
+      "keysActive": {
+        "value": "Disabled"
+      },
+      "keysActiveInDays": {
+        "value": 90
+      },
+      "keysCurveNames": {
+        "value": "Deny"
+      },
+      "keysCurvesAllowed": {
+        "value": [
+          "P-256",
+          "P-256K",
+          "P-384",
+          "P-521"
+        ]
+      },
+      "secretsExpiration": {
+        "value": "Disabled"
+      },
+      "secretsMoreInDays": {
+        "value": 30
+      },
+      "secretsActiveInDays": {
+        "value": 90
+      },
+      "secretsActive": {
+        "value": "Disabled"
+      },
+      "hsmDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "hsmDiagnosticsCategories": {
+        "value": "allLogs"
+      },
+      "hsmDiagnosticsLocation": {
+        "value": ["*"]
+      },
+      "hsmDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": ""
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-KeyVault",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Key Vault  required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
