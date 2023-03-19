@@ -6,6 +6,7 @@
   "properties": {
     "displayName": "Resource Access Rules resource IDs should be restricted for Storage Accounts",
     "description": "Azure Storage accounts should restrict the resource access rule for service-level network ACLs to services from a specific Azure subscription. Enforce this for increased data exfiltration protection.",
+    "policyType": "Custom",
     "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",
