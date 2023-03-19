@@ -6,6 +6,7 @@
   "properties": {
     "displayName": "Encryption for storage services should be enforced for Storage Accounts",
     "description": "Azure Storage accounts should enforce encryption for all storage services. Enforce this for increased encryption scope.",
+    "policyType": "Custom",
     "mode": "Indexed",
     "metadata": {
       "version": "1.0.0",

@@ -54,6 +54,67 @@ locals {
         modifyStorageAccountPublicEndpoint       = "Modify"
       }
 
+      Cmplnt-KeyVault = {
+        keyVaultPurgeProtection                      = "Deny",
+        keyVaultHmsPurgeProtection                   = "Deny",
+        keyVaultArmRbac                              = "Deny",
+        keyVaultManagedHsmDisablePublicNetwork       = "Deny",
+        keyVaultSoftDelete                           = "Deny",
+        keyVaultDisablePublicNetwork                 = "Deny",
+        keyVaultManagedHsmDisablePublicNetworkModify = "Modify",
+        keyVaultDiagnostics                          = "Disabled", # "DeployIfNotExists",
+        keyVaultLogAnalyticsWorkspaceId              = var.log_analytics_id,
+        keyVaultCertificatesPeriod                   = "Disabled",
+        keyVaultCertValidPeriod                      = 12,
+        keyVaultKeysExpiration                       = "Deny",
+        keyVaultHmsKeysExpiration                    = "Deny",
+        keyVaultSecretExpiration                     = "Deny",
+        keysValidPeriod                              = "Disabled",
+        keysValidityInDays                           = 90,
+        secretsValidPeriod                           = "Deny",
+        secretsValidityInDays                        = 90,
+        keyVaultFw                                   = "Deny",
+        keyVaultCertKeyTypes                         = "Deny",
+        keyVaultCertKeyTypesAllowed = [
+          "RSA",
+          "RSA-HSM"
+        ],
+        keyVaultEllipticCurve = "Deny",
+        keyVaultEllipticCurveAllowed = [
+          "P-256",
+          "P-256K",
+          "P-384",
+          "P-521"
+        ],
+        keyVaultModifyFw          = "Modify",
+        keyVaultCryptographicType = "Deny",
+        keyVaultCryptographicTypeAllowed = [
+          "RSA",
+          "RSA-HSM",
+          "EC",
+          "EC-HSM"
+        ],
+        keysExpiration       = "Disabled",
+        keysExpirationInDays = 30,
+        keysActive           = "Disabled",
+        keysActiveInDays     = 90,
+        keysCurveNames       = "Deny",
+        keysCurvesAllowed = [
+          "P-256",
+          "P-256K",
+          "P-384",
+          "P-521"
+        ],
+        secretsExpiration                     = "Disabled",
+        secretsMoreInDays                     = 30,
+        secretsActiveInDays                   = 90,
+        secretsActive                         = "Disabled",
+        hsmDiagnostics                        = "Disabled", # "DeployIfNotExists",
+        hsmDiagnosticsCategories              = "allLogs",
+        hsmDiagnosticsLocation                = ["*"],
+        hsmDiagnosticsLogAnalyticsWorkspaceId = var.log_analytics_id,
+      }
+
       # Cmplnt-PrivateDns = {
       #   storageBlobPrivateDnsZone                = "Disabled",
       #   storageBlobPrivateDnsZoneId              = "",
@@ -69,7 +130,7 @@ locals {
       #   storageWebPrivateDnsZone                 = "Disabled",
       #   storageWebPrivateDnsZoneId               = "",
       #   storageSecondaryWebPrivateDnsZone        = "Disabled",
-      #   storageSecondaryWebPrivateDnsZoneId      = "",
+      #   storageSecondaryWebPrivateDnsZoneId      = ""
       # }
     }
     access_control = {}
