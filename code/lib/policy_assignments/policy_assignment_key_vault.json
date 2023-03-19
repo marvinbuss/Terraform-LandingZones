@@ -140,7 +140,9 @@
         "value": "allLogs"
       },
       "hsmDiagnosticsLocation": {
-        "value": ["*"]
+        "value": [
+          "*"
+        ]
       },
       "hsmDiagnosticsLogAnalyticsWorkspaceId": {
         "value": ""
