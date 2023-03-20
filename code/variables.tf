@@ -28,6 +28,33 @@ variable "management_resources_tags" {
   description = "Specifies the tags for management resources."
 }
 
+variable "management_subscription_id" {
+  type        = string
+  description = "Specifies the subscription ID for management resources."
+}
+
+variable "identity_resources_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Specifies the tags for identity resources."
+}
+
+variable "identity_subscription_id" {
+  type        = string
+  description = "Specifies the subscription ID for identity resources."
+}
+
+variable "connectivity_resources_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Specifies the tags for connectivity resources."
+}
+
+variable "connectivity_subscription_id" {
+  type        = string
+  description = "Specifies the subscription ID for connectivity resources."
+}
+
 variable "mg_decommissioned_subscription_ids" {
   type        = list(string)
   default     = []
@@ -63,7 +90,7 @@ variable "log_analytics_id" {
   type        = string
   sensitive   = false
   validation {
-    condition     = length(split("/", var.log_analytics_id)) == 9
+    condition     = var.log_analytics_id == "" || length(split("/", var.log_analytics_id)) == 9
     error_message = "Please specify a valid resource ID."
   }
 }
