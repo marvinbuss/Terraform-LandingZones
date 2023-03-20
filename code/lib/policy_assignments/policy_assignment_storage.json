@@ -112,6 +112,96 @@
       },
       "modifyStorageAccountPublicEndpoint": {
         "value": "Modify"
+      },
+      "storageBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageBlobPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryBlobPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryBlobPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageDfsPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryDfsPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryDfsPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageQueuePrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryQueuePrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryQueuePrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageWebPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageSecondaryWebPrivateDnsZone": {
+        "value": "Disabled"
+      },
+      "storageSecondaryWebPrivateDnsZoneId": {
+        "value": ""
+      },
+      "storageFileSyncDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageFileSyncLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageTableDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageTableLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageAccountsDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageAccountsLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageQueueDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageQueueLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "storageBlobDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "storageBlobLogAnalyticsWorkspaceId": {
+        "value": ""
+      },
+      "diagFileMetrics": {
+        "value": false
+      },
+      "diagBlobMetrics": {
+        "value": false
+      },
+      "diagQueueMetrics": {
+        "value": false
+      },
+      "diagTableMetrics": {
+        "value": false
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Storage",
