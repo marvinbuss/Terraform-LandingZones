@@ -11,46 +11,46 @@
         "value": "DeployIfNotExists"
       },
       "bastionLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "ddosPlanResourceId": {
-        "value": "/subscriptions/fc035b2d-9f7c-4c87-b643-f156f14a4c5c/resourceGroups/sparta-1-ddos/providers/Microsoft.Network/ddosProtectionPlans/sparta-1-ddos-eastus"
+        "value": ""
       },
       "erDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "erDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "fdCdnDiagnostics": {
         "value": "DeployIfNotExists"
       },
-      "fdCdnLogAnalyticsWorkpaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+      "fdCdnLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
       },
       "fdDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "fdDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "gwDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "gwLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "lbDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "lbDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "nsgDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "nsgLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "p2sDiagnostics": {
         "value": "DeployIfNotExists"
@@ -62,31 +62,31 @@
         "value": "DeployIfNotExists"
       },
       "pipLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "tmDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "tmDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "vnetDiagnostics": {
         "value": "DeployIfNotExists"
       },
       "vnetDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "/subscriptions/f86ad04a-4680-4eae-84b1-557f52d9bffc/resourceGroups/sparta-1-mgmt/providers/Microsoft.OperationalInsights/workspaces/sparta-1-law"
+        "value": "${log_analytics_id}"
       },
       "vnetModifyDdos": {
         "value": "Modify"
       }
     },
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Compliant-Network",
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Network",
     "nonComplianceMessages": null,
     "scope": "${current_scope_resource_id}",
     "enforcementMode": "Default"
   },
   "location": "${default_location}",
   "identity": {
-    "type": "UserAssigned"
+    "type": "SystemAssigned"
   }
 }

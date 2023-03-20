@@ -1,10 +1,12 @@
 {
-  "kind": "policydefinitions",
-  "location": "global",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "name": "Deny-Service-Endpoints",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
-    "description": "This Policy will deny/audit Service Endpoints on subnets. Service Endpoints allows the network traffic to bypass Network appliances, such as the Azure Firewall.",
     "displayName": "Deny or Audit service endpoints on subnets",
+    "description": "This Policy will deny/audit Service Endpoints on subnets. Service Endpoints allows the network traffic to bypass Network appliances, such as the Azure Firewall.",
+    "policyType": "Custom",
     "metadata": {
       "category": "Network",
       "version": "1.0.0"
@@ -47,8 +49,6 @@
       "then": {
         "effect": "[parameters('effect')]"
       }
-    },
-    "policyType": "Custom"
-  },
-  "type": "Microsoft.Authorization/policyDefinitions"
+    }
+  }
 }

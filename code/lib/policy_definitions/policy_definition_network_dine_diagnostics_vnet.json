@@ -1,10 +1,12 @@
 {
-  "kind": "policydefinitions",
-  "location": "global",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "name": "Dine-Diagnostics-Vnet",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
-    "description": "Deploys the diagnostic settings for Virtual Network to stream to a Log Analytics workspace when any Virtual Network which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
     "displayName": "Deploy Diagnostic Settings for Virtual Network to Log Analytics workspace",
+    "description": "Deploys the diagnostic settings for Virtual Network to stream to a Log Analytics workspace when any Virtual Network which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+    "policyType": "Custom",
     "metadata": {
       "category": "Network",
       "version": "1.0.0"
@@ -157,8 +159,6 @@
         },
         "effect": "[parameters('effect')]"
       }
-    },
-    "policyType": "Custom"
-  },
-  "type": "Microsoft.Authorization/policyDefinitions"
+    }
+  }
 }

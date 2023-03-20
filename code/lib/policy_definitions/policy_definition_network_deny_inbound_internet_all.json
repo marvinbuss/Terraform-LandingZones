@@ -1,10 +1,12 @@
 {
-  "kind": "policydefinitions",
-  "location": "global",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "name": "Deny-Inbound-Internet-All",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
-    "description": "Prevent the creation of network security group rules that allow all inbound traffic",
     "displayName": "Prevent NSG rule changes that allow all inbound traffic",
+    "description": "Prevent the creation of network security group rules that allow all inbound traffic",
+    "policyType": "Custom",
     "metadata": {
       "category": "Network",
       "version": "1.0.0"
@@ -83,8 +85,6 @@
       "then": {
         "effect": "[parameters('effect')]"
       }
-    },
-    "policyType": "Custom"
-  },
-  "type": "Microsoft.Authorization/policyDefinitions"
+    }
+  }
 }

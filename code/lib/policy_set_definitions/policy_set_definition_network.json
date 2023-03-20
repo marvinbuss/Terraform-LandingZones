@@ -26,7 +26,7 @@
         "defaultValue": "Deny",
         "type": "string"
       },
-      "afwEnbaleTlsForAllAppRules": {
+      "afwEnableTlsForAllAppRules": {
         "defaultValue": "Deny",
         "type": "string"
       },
@@ -71,7 +71,7 @@
         "defaultValue": "DeployIfNotExists",
         "type": "string"
       },
-      "fdCdnLogAnalyticsWorkpaceId": {
+      "fdCdnLogAnalyticsWorkspaceId": {
         "type": "string"
       },
       "fdCdnLogCategories": {
@@ -207,7 +207,7 @@
       {
         "category": "Identity Management",
         "description": "Policy to ensure Network is not using local authorization",
-        "displayName": "Ensure usage of centralized identity and auhtorization system for API Network",
+        "displayName": "Ensure usage of centralized identity and authorization system for API Network",
         "name": "Identity"
       },
       {
@@ -312,7 +312,7 @@
         ],
         "parameters": {
           "effect": {
-            "value": "[parameters('afwEnbaleTlsForAllAppRules')]"
+            "value": "[parameters('afwEnableTlsForAllAppRules')]"
           }
         },
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a58ac66d-92cb-409c-94b8-8e48d7a96596",
@@ -388,7 +388,7 @@
             "value": "[parameters('fdCdnDiagnostics')]"
           },
           "logAnalytics": {
-            "value": "[parameters('fdCdnLogAnalyticsWorkpaceId')]"
+            "value": "[parameters('fdCdnLogAnalyticsWorkspaceId')]"
           }
         },
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6201aeb7-2b5c-4671-8ab4-5d3ba4d77f3b",

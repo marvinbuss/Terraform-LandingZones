@@ -1,10 +1,12 @@
 {
-  "kind": "policydefinitions",
-  "location": "global",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "name": "Deploy-Diagnostics-ExpressRoute",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
-    "description": "Deploys the diagnostic settings for ExpressRoute to stream to a Log Analytics workspace when any ExpressRoute which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
     "displayName": "Deploy Diagnostic Settings for ExpressRoute to Log Analytics workspace",
+    "description": "Deploys the diagnostic settings for ExpressRoute to stream to a Log Analytics workspace when any ExpressRoute which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+    "policyType": "Custom",
     "metadata": {
       "category": "Monitoring",
       "version": "1.0.0"
@@ -175,8 +177,6 @@
         },
         "effect": "[parameters('effect')]"
       }
-    },
-    "policyType": "Custom"
-  },
-  "type": "Microsoft.Authorization/policyDefinitions"
+    }
+  }
 }
