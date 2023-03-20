@@ -8,40 +8,40 @@
     "notScopes": [],
     "parameters": {
       "cognitiveServicesNetworkAccess": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesPublicNetworkAccess": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesModifyPublicNetworkAccess": {
-        "value": "Modify"
+        "value": null
       },
       "cognitiveServicesModifyDisableLocalAuth": {
-        "value": "Modify"
+        "value": null
       },
       "cognitiveServicesDisableLocalAuth": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesCustomerStorage": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesCmk": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesManagedIdentity": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesNetworkAcls": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesOutboundNetworkAccess": {
-        "value": "Deny"
+        "value": null
       },
       "cognitiveServicesDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "cognitiveServicesLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-CognitiveServices",
