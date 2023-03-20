@@ -20,9 +20,7 @@
     "policy_set_definitions": [
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
-      "Cmplnt-KeyVault",
-      "Cmplnt-Diagnostics",
-      "Cmplnt-PrivateDns"
+      "Cmplnt-KeyVault"
     ],
     "role_definitions": [
       "Network-Subnet-Contributor",

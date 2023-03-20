@@ -36,6 +36,12 @@
       },
       "cognitiveServicesOutboundNetworkAccess": {
         "value": "Deny"
+      },
+      "cognitiveServicesDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "cognitiveServicesLogAnalyticsWorkspaceId": {
+        "value": ""
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-CognitiveServices",

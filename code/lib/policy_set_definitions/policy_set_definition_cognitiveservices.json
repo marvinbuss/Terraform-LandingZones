@@ -77,6 +77,14 @@
       "cognitiveServicesOutboundNetworkAccess": {
         "type": "string",
         "defaultValue": "Deny"
+      },
+      "cognitiveServicesDiagnostics": {
+        "type": "string",
+        "defaultValue": "DeployIfNotExists"
+      },
+      "cognitiveServicesLogAnalyticsWorkspaceId": {
+        "type": "string",
+        "defaultValue": ""
       }
     },
     "policyDefinitions": [
@@ -197,6 +205,21 @@
         "parameters": {
           "effect": {
             "value": "[parameters('cognitiveServicesOutboundNetworkAccess')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-CognitiveServices-Diagnostics",
+        "policyDefinitionReferenceId": "Dine-CognitiveServices-Diagnostics",
+        "groupNames": [
+          "Logging"
+        ],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('cognitiveServicesDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('cognitiveServicesLogAnalyticsWorkspaceId')]"
           }
         }
       }
