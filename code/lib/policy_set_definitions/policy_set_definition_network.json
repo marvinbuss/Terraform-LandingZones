@@ -1,0 +1,621 @@
+{
+  "kind": "policysetdefinitions",
+  "location": "global",
+  "name": "Cmplnt-Network",
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Network and Networking services are compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Network and Networking services for Financial Services Industry",
+    "metadata": {
+      "category": "Network",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "afwEmptyIDPSBypassList": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "afwEnableAllIDPSSignatureRules": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "afwEnableIDPS": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "afwEnableTlsInspection": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "afwEnableTlsForAllAppRules": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "appGwWaf": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "bastionDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "bastionLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "bastionLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "ddosPlanResourceId": {
+        "type": "string"
+      },
+      "denyInboundInternet": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "denyRdpFromInternet": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "denySshFromInternet": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "erDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "erDiagnosticsLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "fdCdnDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "fdCdnLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "fdCdnLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "fdDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "fdDiagnosticsLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "gwDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "gwLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "gwLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "lbDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "lbDiagnosticsLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "nsgDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "nsgLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "p2sDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "p2sLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "p2sLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "pipDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "pipLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "pipLogCategories": {
+        "defaultValue": "allLogs",
+        "type": "string"
+      },
+      "subnetNsg": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "subnetServiceEndpoint": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "subnetUdr": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "tmDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "tmDiagnosticsLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "vnetDiagnostics": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      },
+      "vnetDiagnosticsLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "vnetModifyDdos": {
+        "defaultValue": "Modify",
+        "type": "string"
+      },
+      "vpnAzureAD": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "wafAfdEnabled": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "wafFwRules": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "wafMode": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "wafModeAppGw": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "wafModeAppGwRequirement": {
+        "defaultValue": "Prevention",
+        "type": "string"
+      },
+      "wafModeRequirement": {
+        "defaultValue": "Prevention",
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure API Network is using secure protocols",
+        "displayName": "Ensure Network is using secure encryption",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Network is not accessible over the public internet",
+        "displayName": "Ensure Network is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Network is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and authorization system for API Network",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Networking services are logging all events to Log Analytics workspace",
+        "displayName": "Ensure Networking services are logging all events to Log Analytics",
+        "name": "Logging"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {},
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/35f9c03a-cc27-418e-9c0c-539ff999d010",
+        "policyDefinitionReferenceId": "Deny-Nsg-GW-subnet"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('vpnAzureAD')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/21a6bc25-125e-4d13-b82d-2e19b7208ab7",
+        "policyDefinitionReferenceId": "Deny-VPN-AzureAD"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('wafAfdEnabled')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/055aa869-bc98-4af8-bafc-23f1ab6ffe2c",
+        "policyDefinitionReferenceId": "Deny-Waf-Afd-Enabled"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('afwEnableIDPS')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6484db87-a62d-4327-9f07-80a2cbdf333a",
+        "policyDefinitionReferenceId": "Deny-Waf-IDPS"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('afwEnableAllIDPSSignatureRules')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/610b6183-5f00-4d68-86d2-4ab4cb3a67a5",
+        "policyDefinitionReferenceId": "Deny-FW-AllIDPSS"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('afwEmptyIDPSBypassList')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f516dc7a-4543-4d40-aad6-98f76a706b50",
+        "policyDefinitionReferenceId": "Deny-FW-EmpIDPSBypass"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('afwEnableTlsInspection')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/711c24bb-7f18-4578-b192-81a6161e1f17",
+        "policyDefinitionReferenceId": "Deny-FW-TLS-Inspection"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('afwEnableTlsForAllAppRules')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a58ac66d-92cb-409c-94b8-8e48d7a96596",
+        "policyDefinitionReferenceId": "Deny-FW-TLS-AllApp"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('p2sLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('p2sDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('p2sLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cac9e1c5-c3cb-47fa-8d4c-88b8559262d2",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-P2S"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('gwLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('gwDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('gwLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ed6ae75a-828f-4fea-88fd-dead1145f1dd",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Gw"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('pipLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('pipDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('pipLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1513498c-3091-461a-b321-e9b433218d28",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Pip"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('fdCdnLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('fdCdnDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('fdCdnLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6201aeb7-2b5c-4671-8ab4-5d3ba4d77f3b",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-FdCdn"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "categoryGroup": {
+            "value": "[parameters('bastionLogCategories')]"
+          },
+          "effect": {
+            "value": "[parameters('bastionDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('bastionLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f8352124-56fa-4f94-9441-425109cdc14b",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Bastion"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('wafModeAppGw')]"
+          },
+          "modeRequirement": {
+            "value": "[parameters('wafModeAppGwRequirement')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/12430be1-6cc8-4527-a9a8-e3d38f250096",
+        "policyDefinitionReferenceId": "Deny-Waf-AppGw-mode"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('wafFwRules')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/632d3993-e2c0-44ea-a7db-2eca131f356d",
+        "policyDefinitionReferenceId": "Deny-Waf-Fw-rules"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('wafMode')]"
+          },
+          "modeRequirement": {
+            "value": "[parameters('wafModeRequirement')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/425bea59-a659-4cbb-8d31-34499bd030b8",
+        "policyDefinitionReferenceId": "Deny-Waf-mode"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('nsgDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('nsgLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98a2e215-5382-489e-bd29-32e7190a39ba",
+        "policyDefinitionReferenceId": "Dine-Nsg-Diagnostics"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "ddosPlan": {
+            "value": "[parameters('ddosPlanResourceId')]"
+          },
+          "effect": {
+            "value": "[parameters('vnetModifyDdos')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d",
+        "policyDefinitionReferenceId": "Modify-vNet-DDoS"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {},
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/88c0b9da-ce96-4b03-9635-f29a937e2900",
+        "policyDefinitionReferenceId": "Deny-Ip-Forwarding"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {},
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
+        "policyDefinitionReferenceId": "Deny-vNic-Pip"
+      },
+      {
+        "definitionVersion": "2.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('appGwWaf')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/564feb30-bf6a-4854-b4bb-0d2d2d1e6c66",
+        "policyDefinitionReferenceId": "Deny-AppGw-Without-Waf"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('subnetUdr')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-UDR",
+        "policyDefinitionReferenceId": "Deny-Subnet-Without-UDR"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('subnetNsg')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-NSG",
+        "policyDefinitionReferenceId": "Deny-Subnet-Without-NSG"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('denyInboundInternet')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Inbound-Internet-All",
+        "policyDefinitionReferenceId": "Deny-Inbound-Internet-All"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('subnetServiceEndpoint')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Service-Endpoints",
+        "policyDefinitionReferenceId": "Deny-Subnet-with-Service-Endpoints"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('lbDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('lbDiagnosticsLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-LoadBalancer",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-LoadBalancer"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('fdDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('fdDiagnosticsLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-FrontDoor",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-FrontDoor"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('tmDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('tmDiagnosticsLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-TrafficManager",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-TrafficManager"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('vnetDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('vnetDiagnosticsLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-Vnet",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-Vnet"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('denyRdpFromInternet')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+        "policyDefinitionReferenceId": "Deny-Rdp-From-Internet"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('denySshFromInternet')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-SSH-From-Internet",
+        "policyDefinitionReferenceId": "Deny-Ssh-From-Internet"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('erDiagnostics')]"
+          },
+          "logAnalytics": {
+            "value": "[parameters('erDiagnosticsLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Dine-Diagnostics-ExpressRouteCircuit",
+        "policyDefinitionReferenceId": "Dine-Diagnostics-ExpressRoute"
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Cmplnt-Network",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Network and Networking Services for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Network and Networking Services are compliant per FSI Landing Zones",
+    "notScopes": null,
+    "parameters": {
+      "bastionDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "bastionLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "ddosPlanResourceId": {
+        "value": ""
+      },
+      "erDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "erDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "fdCdnDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "fdCdnLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "fdDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "fdDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "gwDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "gwLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "lbDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "lbDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "nsgDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "nsgLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "p2sDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "p2sLogAnalyticsWorkspaceId": {
+        "value": "DeployIfNotExists"
+      },
+      "pipDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "pipLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "tmDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "tmDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "vnetDiagnostics": {
+        "value": "DeployIfNotExists"
+      },
+      "vnetDiagnosticsLogAnalyticsWorkspaceId": {
+        "value": "${log_analytics_id}"
+      },
+      "vnetModifyDdos": {
+        "value": "Modify"
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Network",
+    "nonComplianceMessages": null,
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": "Default"
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
