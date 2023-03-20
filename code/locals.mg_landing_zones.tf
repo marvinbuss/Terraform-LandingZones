@@ -12,7 +12,9 @@ locals {
         cognitiveServicesCmk                       = "Deny",
         cognitiveServicesManagedIdentity           = "Deny",
         cognitiveServicesNetworkAcls               = "Deny",
-        cognitiveServicesOutboundNetworkAccess     = "Deny"
+        cognitiveServicesOutboundNetworkAccess     = "Deny",
+        cognitiveServicesDiagnostics               = "Disabled", # "DeployIfNotExists",
+        cognitiveServicesLogAnalyticsWorkspaceId   = var.log_analytics_id
       }
 
       Cmplnt-Storage = {
@@ -52,6 +54,35 @@ locals {
         storageMinContainerDeleteRetentionInDays = 7,
         storageCorsRules                         = "Deny",
         modifyStorageAccountPublicEndpoint       = "Modify"
+        storageBlobPrivateDnsZone                = "Disabled",
+        storageBlobPrivateDnsZoneId              = "",
+        storageSecondaryBlobPrivateDnsZone       = "Disabled",
+        storageSecondaryBlobPrivateDnsZoneId     = "",
+        storageDfsPrivateDnsZone                 = "Disabled",
+        storageSecondaryDfsPrivateDnsZone        = "Disabled",
+        storageSecondaryDfsPrivateDnsZoneId      = "",
+        storageQueuePrivateDnsZone               = "Disabled",
+        storageQueuePrivateDnsZoneId             = "",
+        storageSecondaryQueuePrivateDnsZone      = "Disabled",
+        storageSecondaryQueuePrivateDnsZoneId    = "",
+        storageWebPrivateDnsZone                 = "Disabled",
+        storageWebPrivateDnsZoneId               = "",
+        storageSecondaryWebPrivateDnsZone        = "Disabled",
+        storageSecondaryWebPrivateDnsZoneId      = "",
+        storageFileSyncDiagnostics               = "Disabled", # "DeployIfNotExists",
+        storageFileSyncLogAnalyticsWorkspaceId   = var.log_analytics_id,
+        storageTableDiagnostics                  = "Disabled", # "DeployIfNotExists",
+        storageTableLogAnalyticsWorkspaceId      = var.log_analytics_id,
+        storageAccountsDiagnostics               = "Disabled", # "DeployIfNotExists",
+        storageAccountsLogAnalyticsWorkspaceId   = var.log_analytics_id,
+        storageQueueDiagnostics                  = "Disabled", # "DeployIfNotExists",
+        storageQueueLogAnalyticsWorkspaceId      = var.log_analytics_id,
+        storageBlobDiagnostics                   = "Disabled", # "DeployIfNotExists",
+        storageBlobLogAnalyticsWorkspaceId       = var.log_analytics_id,
+        diagFileMetrics                          = false,
+        diagBlobMetrics                          = false,
+        diagQueueMetrics                         = false,
+        diagTableMetrics                         = false
       }
 
       Cmplnt-KeyVault = {
@@ -114,24 +145,6 @@ locals {
         hsmDiagnosticsLocation                = ["*"],
         hsmDiagnosticsLogAnalyticsWorkspaceId = var.log_analytics_id,
       }
-
-      # Cmplnt-PrivateDns = {
-      #   storageBlobPrivateDnsZone                = "Disabled",
-      #   storageBlobPrivateDnsZoneId              = "",
-      #   storageSecondaryBlobPrivateDnsZone       = "Disabled",
-      #   storageSecondaryBlobPrivateDnsZoneId     = "",
-      #   storageDfsPrivateDnsZone                 = "Disabled",
-      #   storageSecondaryDfsPrivateDnsZone        = "Disabled",
-      #   storageSecondaryDfsPrivateDnsZoneId      = "",
-      #   storageQueuePrivateDnsZone               = "Disabled",
-      #   storageQueuePrivateDnsZoneId             = "",
-      #   storageSecondaryQueuePrivateDnsZone      = "Disabled",
-      #   storageSecondaryQueuePrivateDnsZoneId    = "",
-      #   storageWebPrivateDnsZone                 = "Disabled",
-      #   storageWebPrivateDnsZoneId               = "",
-      #   storageSecondaryWebPrivateDnsZone        = "Disabled",
-      #   storageSecondaryWebPrivateDnsZoneId      = ""
-      # }
     }
     access_control = {}
   }
