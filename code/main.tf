@@ -12,8 +12,8 @@ terraform {
 
   backend "azurerm" {
     environment          = "public"
-    resource_group_name  = "mycrp-prd-cicd"
-    storage_account_name = "mycrpprdstg001"
+    resource_group_name  = "workload000-cicd"
+    storage_account_name = "workload000stg001"
     container_name       = "platform"
     key                  = "terraform.tfstate"
     use_oidc             = true
