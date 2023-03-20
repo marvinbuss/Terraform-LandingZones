@@ -5,7 +5,7 @@ module "archetypes" {
   providers = {
     azurerm              = azurerm
     azurerm.connectivity = azurerm
-    azurerm.management   = azurerm.management
+    azurerm.management   = azurerm
   }
 
   # Base module configuration settings.
