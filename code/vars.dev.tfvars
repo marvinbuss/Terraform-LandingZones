@@ -2,6 +2,7 @@ root_id                            = "fsi"
 root_name                          = "FSI"
 default_location                   = "eastus"
 default_tags                       = {}
+management_resources_tags          = {}
 mg_decommissioned_subscription_ids = []
 mg_landing_zones_subscription_ids  = []
 mg_sandboxes_subscription_ids      = []

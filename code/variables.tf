@@ -19,37 +19,43 @@ variable "default_location" {
 variable "default_tags" {
   type        = map(string)
   default     = {}
-  description = "Specifies the default location for resources, including references to location within Policy templates."
+  description = "Specifies the default tags for resources."
+}
+
+variable "management_resources_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Specifies the tags for management resources."
 }
 
 variable "mg_decommissioned_subscription_ids" {
   type        = list(string)
   default     = []
-  description = "Specifies the subscription IDs to assotiate with decomissioned managemend group."
+  description = "Specifies the subscription IDs to associate with decomissioned managemend group."
 }
 
 variable "mg_landing_zones_subscription_ids" {
   type        = list(string)
   default     = []
-  description = "Specifies the subscription IDs to assotiate with landing zone managemend group."
+  description = "Specifies the subscription IDs to associate with landing zone managemend group."
 }
 
 variable "mg_sandboxes_subscription_ids" {
   type        = list(string)
   default     = []
-  description = "Specifies the subscription IDs to assotiate with sandbox managemend group."
+  description = "Specifies the subscription IDs to associate with sandbox managemend group."
 }
 
 variable "mg_corp_subscription_ids" {
   type        = list(string)
   default     = []
-  description = "Specifies the subscription IDs to assotiate with corp managemend group."
+  description = "Specifies the subscription IDs to associate with corp managemend group."
 }
 
 variable "mg_cloud_native_subscription_ids" {
   type        = list(string)
   default     = []
-  description = "Specifies the subscription IDs to assotiate with the cloud-native managemend group."
+  description = "Specifies the subscription IDs to associate with the cloud-native managemend group."
 }
 
 variable "log_analytics_id" {
