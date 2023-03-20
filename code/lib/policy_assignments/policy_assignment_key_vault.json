@@ -8,144 +8,124 @@
     "notScopes": [],
     "parameters": {
       "keyVaultPurgeProtection": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultHmsPurgeProtection": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultArmRbac": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultManagedHsmDisablePublicNetwork": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultSoftDelete": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultDisablePublicNetwork": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultManagedHsmDisablePublicNetworkModify": {
-        "value": "Modify"
+        "value": null
       },
       "keyVaultDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "keyVaultLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "keyVaultCertificatesPeriod": {
-        "value": "Disabled"
+        "value": null
       },
       "keyVaultCertValidPeriod": {
-        "value": 12
+        "value": null
       },
       "keyVaultKeysExpiration": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultHmsKeysExpiration": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultSecretExpiration": {
-        "value": "Deny"
+        "value": null
       },
       "keysValidPeriod": {
-        "value": "Disabled"
+        "value": null
       },
       "keysValidityInDays": {
-        "value": 90
+        "value": null
       },
       "secretsValidPeriod": {
-        "value": "Deny"
+        "value": null
       },
       "secretsValidityInDays": {
-        "value": 90
+        "value": null
       },
       "keyVaultFw": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultCertKeyTypes": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultCertKeyTypesAllowed": {
-        "value": [
-          "RSA",
-          "RSA-HSM"
-        ]
+        "value": null
       },
       "keyVaultEllipticCurve": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultEllipticCurveAllowed": {
-        "value": [
-          "P-256",
-          "P-256K",
-          "P-384",
-          "P-521"
-        ]
+        "value": null
       },
       "keyVaultModifyFw": {
-        "value": "Modify"
+        "value": null
       },
       "keyVaultCryptographicType": {
-        "value": "Deny"
+        "value": null
       },
       "keyVaultCryptographicTypeAllowed": {
-        "value": [
-          "RSA",
-          "RSA-HSM",
-          "EC",
-          "EC-HSM"
-        ]
+        "value": null
       },
       "keysExpiration": {
-        "value": "Disabled"
+        "value": null
       },
       "keysExpirationInDays": {
-        "value": 30
+        "value": null
       },
       "keysActive": {
-        "value": "Disabled"
+        "value": null
       },
       "keysActiveInDays": {
-        "value": 90
+        "value": null
       },
       "keysCurveNames": {
-        "value": "Deny"
+        "value": null
       },
       "keysCurvesAllowed": {
-        "value": [
-          "P-256",
-          "P-256K",
-          "P-384",
-          "P-521"
-        ]
+        "value": null
       },
       "secretsExpiration": {
-        "value": "Disabled"
+        "value": null
       },
       "secretsMoreInDays": {
-        "value": 30
+        "value": null
       },
       "secretsActiveInDays": {
-        "value": 90
+        "value": null
       },
       "secretsActive": {
-        "value": "Disabled"
+        "value": null
       },
       "hsmDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "hsmDiagnosticsCategories": {
-        "value": "allLogs"
+        "value": null
       },
       "hsmDiagnosticsLocation": {
-        "value": [
-          "*"
-        ]
+        "value": null
       },
       "hsmDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-KeyVault",
