@@ -14,11 +14,7 @@
     "mode": "All",
     "parameters": {
       "effect": {
-        "allowedValues": [
-          "Audit",
-          "Disabled",
-          "Deny"
-        ],
+        "allowedValues": ["Audit", "Disabled", "Deny"],
         "defaultValue": "Deny",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
@@ -62,18 +58,12 @@
                 "anyOf": [
                   {
                     "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix",
-                    "in": [
-                      "*",
-                      "Internet"
-                    ]
+                    "in": ["*", "Internet"]
                   },
                   {
                     "not": {
                       "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefixes[*]",
-                      "notIn": [
-                        "*",
-                        "Internet"
-                      ]
+                      "notIn": ["*", "Internet"]
                     }
                   }
                 ]

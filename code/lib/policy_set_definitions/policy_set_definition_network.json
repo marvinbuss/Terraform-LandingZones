@@ -220,18 +220,14 @@
     "policyDefinitions": [
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {},
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/35f9c03a-cc27-418e-9c0c-539ff999d010",
         "policyDefinitionReferenceId": "Deny-Nsg-GW-subnet"
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('vpnAzureAD')]"
@@ -242,9 +238,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('wafAfdEnabled')]"
@@ -255,9 +249,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('afwEnableIDPS')]"
@@ -268,9 +260,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('afwEnableAllIDPSSignatureRules')]"
@@ -281,9 +271,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('afwEmptyIDPSBypassList')]"
@@ -294,9 +282,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('afwEnableTlsInspection')]"
@@ -307,9 +293,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('afwEnableTlsForAllAppRules')]"
@@ -320,9 +304,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "categoryGroup": {
             "value": "[parameters('p2sLogCategories')]"
@@ -339,9 +321,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "categoryGroup": {
             "value": "[parameters('gwLogCategories')]"
@@ -358,9 +338,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "categoryGroup": {
             "value": "[parameters('pipLogCategories')]"
@@ -377,9 +355,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "categoryGroup": {
             "value": "[parameters('fdCdnLogCategories')]"
@@ -396,9 +372,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "categoryGroup": {
             "value": "[parameters('bastionLogCategories')]"
@@ -415,9 +389,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('wafModeAppGw')]"
@@ -431,9 +403,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('wafFwRules')]"
@@ -444,9 +414,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('wafMode')]"
@@ -460,9 +428,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('nsgDiagnostics')]"
@@ -476,10 +442,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "ddosPlan": {
             "value": "[parameters('ddosPlanResourceId')]"
@@ -493,30 +456,21 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {},
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/88c0b9da-ce96-4b03-9635-f29a937e2900",
         "policyDefinitionReferenceId": "Deny-Ip-Forwarding"
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {},
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
         "policyDefinitionReferenceId": "Deny-vNic-Pip"
       },
       {
         "definitionVersion": "2.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('appGwWaf')]"
@@ -527,10 +481,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('subnetUdr')]"
@@ -541,10 +492,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('subnetNsg')]"
@@ -555,10 +503,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('denyInboundInternet')]"
@@ -569,10 +514,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Encryption",
-          "Network"
-        ],
+        "groupNames": ["Encryption", "Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('subnetServiceEndpoint')]"
@@ -583,9 +525,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('lbDiagnostics')]"
@@ -599,9 +539,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('fdDiagnostics')]"
@@ -615,9 +553,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('tmDiagnostics')]"
@@ -631,9 +567,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('vnetDiagnostics')]"
@@ -647,9 +581,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('denyRdpFromInternet')]"
@@ -660,9 +592,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Network"
-        ],
+        "groupNames": ["Network"],
         "parameters": {
           "effect": {
             "value": "[parameters('denySshFromInternet')]"
@@ -673,9 +603,7 @@
       },
       {
         "definitionVersion": "1.*.*",
-        "groupNames": [
-          "Logging"
-        ],
+        "groupNames": ["Logging"],
         "parameters": {
           "effect": {
             "value": "[parameters('erDiagnostics')]"

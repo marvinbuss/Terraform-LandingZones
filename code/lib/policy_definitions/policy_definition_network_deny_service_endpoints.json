@@ -14,11 +14,7 @@
     "mode": "All",
     "parameters": {
       "effect": {
-        "allowedValues": [
-          "Audit",
-          "Deny",
-          "Disabled"
-        ],
+        "allowedValues": ["Audit", "Deny", "Disabled"],
         "defaultValue": "Deny",
         "metadata": {
           "description": "Enable or disable the execution of the policy",

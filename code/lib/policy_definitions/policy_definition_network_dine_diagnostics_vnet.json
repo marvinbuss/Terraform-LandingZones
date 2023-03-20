@@ -14,10 +14,7 @@
     "mode": "Indexed",
     "parameters": {
       "effect": {
-        "allowedValues": [
-          "DeployIfNotExists",
-          "Disabled"
-        ],
+        "allowedValues": ["DeployIfNotExists", "Disabled"],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
@@ -34,10 +31,7 @@
         "type": "String"
       },
       "metricsEnabled": {
-        "allowedValues": [
-          "True",
-          "False"
-        ],
+        "allowedValues": ["True", "False"],
         "defaultValue": "True",
         "metadata": {
           "description": "Whether to enable metrics stream to the Log Analytics workspace - True or False",
