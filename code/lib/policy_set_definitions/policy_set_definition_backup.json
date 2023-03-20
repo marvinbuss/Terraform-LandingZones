@@ -1,0 +1,139 @@
+{
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "name": "Cmplnt-Backup",
+  "apiVersion": "2021-06-01",
+  "scope": null,
+  "properties": {
+    "description": "This policy initiative is a group of policies that ensures Backup is compliant per FSI Landing Zones",
+    "displayName": "Enforce secure-by-default Backup for Financial Services Industry",
+    "metadata": {
+      "category": "Backup",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "asrLogAnalyticsWorkspaceId": {
+        "type": "string"
+      },
+      "asrPublicNetworkAccess": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "backupCmk": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "backupImmutability": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "backupSoftDelete": {
+        "defaultValue": "Deny",
+        "type": "string"
+      },
+      "vmBackup": {
+        "defaultValue": "DeployIfNotExists",
+        "type": "string"
+      }
+    },
+    "policyDefinitionGroups": [
+      {
+        "category": "Data Protection",
+        "description": "Policy to ensure data protection for Backup",
+        "displayName": "Ensure compliance for data encryption, protection, and recovery for Backup",
+        "name": "Encryption"
+      },
+      {
+        "category": "Network Security",
+        "description": "Policy to ensure Backup not accessible over the public internet",
+        "displayName": "Ensure Backup is not accessible over the public internet",
+        "name": "Network"
+      },
+      {
+        "category": "Identity Management",
+        "description": "Policy to ensure Backup is not using local authorization",
+        "displayName": "Ensure usage of centralized identity and authorization system for Backup",
+        "name": "Identity"
+      },
+      {
+        "category": "Logging and Threat Detection",
+        "description": "Policy to ensure Backup is logging all events to Log Analytics workspace",
+        "displayName": "Ensure Backup is logging all events to Log Analytics",
+        "name": "Logging"
+      },
+      {
+        "category": "Backup and Recovery",
+        "description": "Policy to ensure Backup is enabled and stored securely",
+        "displayName": "Ensure Backup is enabled and stored securely",
+        "name": "Backup"
+      }
+    ],
+    "policyDefinitions": [
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Logging"],
+        "parameters": {
+          "logAnalytics": {
+            "value": "[parameters('asrLogAnalyticsWorkspaceId')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c717fb0c-d118-4c43-ab3d-ece30ac81fb3",
+        "policyDefinitionReferenceId": "Dine-Asr-Diagnostics"
+      },
+      {
+        "definitionVersion": "1.*.*-preview",
+        "groupNames": ["Network"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('asrPublicNetworkAccess')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9ebbbba3-4d65-4da9-bb67-b22cfaaff090",
+        "policyDefinitionReferenceId": "Deny-Asr-Public-Network-Access"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Backup"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('backupSoftDelete')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Backup-Soft-Delete",
+        "policyDefinitionReferenceId": "Deny-Backup-Soft-Delete"
+      },
+      {
+        "definitionVersion": "9.*.*",
+        "groupNames": ["Backup"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('vmBackup')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83644c87-93dd-49fe-bf9f-6aff8fd0834e",
+        "policyDefinitionReferenceId": "Dine-Vm-Backup"
+      },
+      {
+        "definitionVersion": "1.*.*-preview",
+        "groupNames": ["Encryption", "Backup"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('backupCmk')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2e94d99a-8a36-4563-bc77-810d8893b671",
+        "policyDefinitionReferenceId": "Deny-Backup-Cmk"
+      },
+      {
+        "definitionVersion": "1.*.*",
+        "groupNames": ["Encryption", "Backup"],
+        "parameters": {
+          "effect": {
+            "value": "[parameters('backupImmutability')]"
+          }
+        },
+        "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Deny-Backup-Immutability",
+        "policyDefinitionReferenceId": "Deny-Backup-Immutability"
+      }
+    ]
+  }
+}

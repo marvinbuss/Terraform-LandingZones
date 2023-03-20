@@ -1,7 +1,8 @@
 {
-  "name": "Compliant-Backup",
-  "type": "Microsoft.Authorization/policyAssignments",
-  "apiVersion": "2019-09-01",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "name": "Cmplnt-Backup",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
     "displayName": "Enforce secure-by-default Backup for Financial Services Industry",
     "description": "This policy initiative is a group of policies that ensures Backup is compliant per FSI Landing Zones",
