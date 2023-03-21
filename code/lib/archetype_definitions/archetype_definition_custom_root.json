@@ -2,6 +2,8 @@
   "custom_root": {
     "policy_assignments": [],
     "policy_definitions": [
+      "Deny-APIM-WithOutVnet",
+      "Deny-APIM-VirtualNetworkType",
       "Deny-CognitiveServices-NetworkAcls",
       "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
       "Dine-CognitiveServices-Diagnostics",
@@ -33,6 +35,7 @@
       "Deny-Location"
     ],
     "policy_set_definitions": [
+      "Cmplnt-APIM",
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault",
