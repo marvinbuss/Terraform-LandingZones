@@ -9,6 +9,8 @@
       "Deny-Azure-Regions",
       "Deny-APIM-WithOutVnet",
       "Deny-APIM-VirtualNetworkType",
+      "Deny-Backup-Immutability",
+      "Deny-Backup-Soft-Delete",
       "Deny-CognitiveServices-NetworkAcls",
       "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
       "Dine-CognitiveServices-Diagnostics",
@@ -26,6 +28,7 @@
     ],
     "policy_set_definitions": [
       "Cmplnt-APIM",
+      "Cmplnt-Backup",
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault"
