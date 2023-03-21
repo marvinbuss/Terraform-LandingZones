@@ -1,0 +1,27 @@
+{
+  "name": "Deny-Azure-Rg-Regions",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Azure Regions for Resource Groups that are allowed per FSI compliance",
+    "description": "This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.",
+    "notScopes": [],
+    "parameters": {
+      "listOfAllowedLocations": {
+        "value": null
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Resource Group Region required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}

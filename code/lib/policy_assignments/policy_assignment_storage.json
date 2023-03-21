@@ -8,200 +8,196 @@
     "notScopes": [],
     "parameters": {
       "storageKeysExpiration": {
-        "value": "Deny"
+        "value": null
       },
       "modifyStorageFileSyncPublicEndpoint": {
-        "value": "Modify"
+        "value": null
       },
       "storageFileSyncPublicEndpoint": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountNetworkRules": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountRestrictNetworkRules": {
-        "value": "Deny"
+        "value": null
       },
       "storageThreatProtection": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageClassicToArm": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountSecureTransfer": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsInfraEncryption": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsPublicAccess": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsCmk": {
-        "value": "Deny"
+        "value": null
       },
       "storageTableCmk": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountSharedKey": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsCrossTenant": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsModifyDisablePublicNetworkAccess": {
-        "value": "Modify"
+        "value": null
       },
       "storageAccountsDisablePublicNetworkAccess": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsDoubleEncryption": {
-        "value": "Deny"
+        "value": null
       },
       "storageQueueCmk": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsTls": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsEncryptionCmk": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsCopyScope": {
-        "value": "Deny"
+        "value": null
       },
       "storageAccountsAllowedCopyScope": {
-        "value": "AAD"
+        "value": null
       },
       "storageServicesEncryption": {
-        "value": "Deny"
+        "value": null
       },
       "storageSftp": {
-        "value": "Deny"
+        "value": null
       },
       "storageNetworkAclsBypass": {
-        "value": "Deny"
+        "value": null
       },
       "storageAllowedNetworkAclsBypass": {
-        "type": "array",
-        "value": [
-          "None"
-        ]
+        "value": null
       },
       "storageResourceAccessRulesTenantId": {
-        "value": "Deny"
+        "value": null
       },
       "storageResourceAccessRulesResourceId": {
-        "value": "Deny"
+        "value": null
       },
       "storageNetworkAclsVirtualNetworkRules": {
-        "value": "Deny"
+        "value": null
       },
       "storageAllowBlobPublicAccess": {
-        "value": "Deny"
+        "value": null
       },
       "storageContainerDeleteRetentionPolicy": {
-        "value": "Deny"
+        "value": null
       },
       "storageMinContainerDeleteRetentionInDays": {
-        "type": "Integer",
-        "value": 7
+        "value": null
       },
       "storageCorsRules": {
-        "value": "Deny"
+        "value": null
       },
       "modifyStorageAccountPublicEndpoint": {
-        "value": "Modify"
+        "value": null
       },
       "storageBlobPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageBlobPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageSecondaryBlobPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageSecondaryBlobPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageDfsPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageDfsPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageSecondaryDfsPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageSecondaryDfsPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageQueuePrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageQueuePrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageSecondaryQueuePrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageSecondaryQueuePrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageWebPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageWebPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageSecondaryWebPrivateDnsZone": {
-        "value": "Disabled"
+        "value": null
       },
       "storageSecondaryWebPrivateDnsZoneId": {
-        "value": ""
+        "value": null
       },
       "storageFileSyncDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageFileSyncLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "storageTableDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageTableLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "storageAccountsDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageAccountsLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "storageQueueDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageQueueLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "storageBlobDiagnostics": {
-        "value": "DeployIfNotExists"
+        "value": null
       },
       "storageBlobLogAnalyticsWorkspaceId": {
-        "value": ""
+        "value": null
       },
       "diagFileMetrics": {
-        "value": false
+        "value": null
       },
       "diagBlobMetrics": {
-        "value": false
+        "value": null
       },
       "diagQueueMetrics": {
-        "value": false
+        "value": null
       },
       "diagTableMetrics": {
-        "value": false
+        "value": null
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Storage",

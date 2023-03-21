@@ -1,7 +1,14 @@
 {
   "custom_root": {
-    "policy_assignments": [],
+    "policy_assignments": [
+      "Deny-Azure-Regions",
+      "Deny-Azure-Rg-Regions",
+      "Deny-Azure-Resources"
+    ],
     "policy_definitions": [
+      "Deny-Azure-Regions",
+      "Deny-APIM-WithOutVnet",
+      "Deny-APIM-VirtualNetworkType",
       "Deny-CognitiveServices-NetworkAcls",
       "Deny-CognitiveServices-RestrictOutboundNetworkAccess",
       "Dine-CognitiveServices-Diagnostics",
@@ -18,6 +25,7 @@
       "Deny-Storage-NetworkAclsVirtualNetworkRules"
     ],
     "policy_set_definitions": [
+      "Cmplnt-APIM",
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault"
