@@ -7,15 +7,17 @@
     "displayName": "Soft delete should be enabled for Backup Vaults",
     "description": "This policy audits if soft delete is enabled for Backup vaults in the scope. Soft delete can help you recover your data after it has been deleted. Learn more at https://aka.ms/AB-SoftDelete",
     "policyType": "Custom",
-
-    "metadata": {
-      "category": "Backup",
-      "version": "1.0.0"
-    },
     "mode": "Indexed",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Backup"
+    },
     "parameters": {
       "checkAlwaysOnSoftDeleteOnly": {
-        "allowedValues": [true, false],
+        "allowedValues": [
+          true,
+          false
+        ],
         "defaultValue": true,
         "metadata": {
           "description": "This parameter checks if Soft Delete is 'Locked' for Backup Vaults in scope. Selecting 'true' will mark only vaults with Soft Delete 'AlwaysOn' as compliant. Selecting 'false' will mark vaults that have Soft Delete either 'On' or 'AlwaysOn' as compliant.",
@@ -24,7 +26,11 @@
         "type": "Boolean"
       },
       "effect": {
-        "allowedValues": ["Audit", "Deny", "Disabled"],
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
         "defaultValue": "Audit",
         "metadata": {
           "description": "Enable or disable the execution of the policy.",
@@ -44,7 +50,10 @@
             "anyOf": [
               {
                 "field": "Microsoft.DataProtection/backupVaults/securitySettings.softDeleteSettings.state",
-                "notIn": ["On", "AlwaysOn"]
+                "notIn": [
+                  "On",
+                  "AlwaysOn"
+                ]
               },
               {
                 "allOf": [
