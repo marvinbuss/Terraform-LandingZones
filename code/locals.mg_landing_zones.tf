@@ -149,7 +149,7 @@ locals {
 
       Cmplnt-APIM = {
         apiSubscriptionScope           = "Deny",
-        minimumApiVersion = "Deny"
+        minimumApiVersion              = "Deny"
         apimSkuVnet                    = "Deny",
         apimDisablePublicNetworkAccess = "DeployIfNotExists",
         apimApiBackendCertValidation   = "Deny",
@@ -161,8 +161,8 @@ locals {
         apimLogAnalyticsWorkspaceId    = module.management.log_analytics_workspace_id,
         apimLogsCategory               = "allLogs",
         apimVnetUsage                  = "Deny",
-        apimVnetType = "Deny",
-        apimVnetTypeAllowed = "Internal",
+        apimVnetType                   = "Deny",
+        apimVnetTypeAllowed            = "Internal",
       }
     }
     access_control = {}
