@@ -1,0 +1,29 @@
+{
+  "name": "Deny-Azure-Resources",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Azure Service Enablement - Allowed Azure services to be used in the FSI Landing Zones",
+    "description": "This policy enables the Azure services your organization can deploy into the landing zones.",
+    "notScopes": [
+      "${root_scope_resource_id}-platform"
+    ],
+    "parameters": {
+      "listOfResourceTypesAllowed": {
+        "value": null
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a08ec900-254a-4555-9bf5-e42af04b5c5c",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant resource type required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  }
+}

@@ -8,13 +8,13 @@
     "notScopes": [],
     "parameters": {
       "listOfAllowedLocations": {
-        "value": []
+        "value": null
       }
     },
-    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     "nonComplianceMessages": [
       {
-        "message": "Compliant Resource Group Region  required {enforcementMode}."
+        "message": "Compliant Resource Group Region required {enforcementMode}."
       }
     ],
     "scope": "${current_scope_resource_id}",
@@ -22,6 +22,6 @@
   },
   "location": "${default_location}",
   "identity": {
-    "type": "SystemAssigned"
+    "type": "None"
   }
 }
