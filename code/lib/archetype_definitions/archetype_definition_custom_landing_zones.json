@@ -1,6 +1,8 @@
 {
   "custom_landing_zones": {
     "policy_assignments": [
+      "Cmplnt-APIM",
+      "Cmplnt-Backup",
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault"

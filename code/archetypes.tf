@@ -1,4 +1,4 @@
-module "enterprise_scale" {
+module "archetypes" {
   source  = "Azure/caf-enterprise-scale/azurerm"
   version = "3.3.0"
 
@@ -19,22 +19,28 @@ module "enterprise_scale" {
   custom_policy_roles      = {}
 
   # Landing Zone configuration
-  custom_landing_zones          = local.custom_landing_zones
-  deploy_core_landing_zones     = true
-  deploy_connectivity_resources = false
-  subscription_id_connectivity  = ""
-  # configure_connectivity_resources = local.configure_connectivity_resources
-  deploy_identity_resources = false
-  subscription_id_identity  = ""
-  # configure_identity_resources     = local.configure_identity_resources
-  deploy_management_resources = false
-  subscription_id_management  = ""
-  # configure_management_resources   = local.configure_management_resources
-  deploy_diagnostics_for_mg   = false
+  custom_landing_zones        = local.custom_landing_zones
+  deploy_core_landing_zones   = true
   deploy_corp_landing_zones   = true
+  deploy_diagnostics_for_mg   = false
   deploy_online_landing_zones = false
   deploy_sap_landing_zones    = false
   deploy_demo_landing_zones   = false
+
+  # Connectivity configuration
+  deploy_connectivity_resources    = false
+  subscription_id_connectivity     = ""
+  configure_connectivity_resources = {}
+
+  # Identity configuration
+  deploy_identity_resources    = false
+  subscription_id_identity     = ""
+  configure_identity_resources = {}
+
+  # Management configuration
+  deploy_management_resources    = false
+  subscription_id_management     = local.management_subscription_id
+  configure_management_resources = {}
 
   # Policy configuration
   policy_non_compliance_message_default                  = "This resource {enforcementMode} be compliant with the assigned policy."
@@ -99,8 +105,8 @@ module "enterprise_scale" {
     corp           = local.mg_connectivity_subscription_id_overrides
   }
 
-  # Specify custom template variables
+  # Specify custom archetype template variables
   template_file_variables = {
-    user_assigned_identity_id = ""
+    user_assigned_identity_id = module.management.user_assigned_identity_id_policy
   }
 }

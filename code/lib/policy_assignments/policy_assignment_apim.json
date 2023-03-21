@@ -1,0 +1,69 @@
+{
+  "name": "Cmplnt-APIM",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default API Management for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures API Management is compliant per FSI Landing Zones",
+    "notScopes": [],
+    "parameters": {
+      "apiSubscriptionScope": {
+        "value": null
+      },
+      "minimumApiVersion": {
+        "value": null
+      },
+      "apimSkuVnet": {
+        "value": null
+      },
+      "apimDisablePublicNetworkAccess": {
+        "value": null
+      },
+      "apimApiBackendCertValidation": {
+        "value": null
+      },
+      "apimDirectApiEndpoint": {
+        "value": null
+      },
+      "apimCallApiAuthn": {
+        "value": null
+      },
+      "apimEncryptedProtocols": {
+        "value": null
+      },
+      "apimSecrets": {
+        "value": null
+      },
+      "apimDiagnostics": {
+        "value": null
+      },
+      "apimLogAnalyticsWorkspaceId": {
+        "value": null
+      },
+      "apimLogsCategory": {
+        "value": null
+      },
+      "apimVnetUsage": {
+        "value": null
+      },
+      "apimVnetType": {
+        "value": null
+      },
+      "apimVnetTypeAllowed": {
+        "value": null
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-APIM",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant API Management required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
