@@ -2,6 +2,15 @@ locals {
   mg_landing_zones_archetype_config_overrides = {
     archetype_id = "custom_landing_zones"
     parameters = {
+      Cmplnt-Backup = {
+        asrLogAnalyticsWorkspaceId = module.management.log_analytics_workspace_id,
+        asrPublicNetworkAccess     = "Deny",
+        backupCmk                  = "Deny",
+        backupImmutability         = "Deny",
+        backupSoftDelete           = "Deny",
+        vmBackup                   = "DeployIfNotExists",
+      }
+
       Cmplnt-CognitiveServices = {
         cognitiveServicesNetworkAccess             = "Deny",
         cognitiveServicesPublicNetworkAccess       = "Deny",
