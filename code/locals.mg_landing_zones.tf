@@ -146,6 +146,24 @@ locals {
         hsmDiagnosticsLocation                = ["*"],
         hsmDiagnosticsLogAnalyticsWorkspaceId = module.management.log_analytics_workspace_id,
       }
+
+      Cmplnt-APIM = {
+        apiSubscriptionScope           = "Deny",
+        minimumApiVersion = "Deny"
+        apimSkuVnet                    = "Deny",
+        apimDisablePublicNetworkAccess = "DeployIfNotExists",
+        apimApiBackendCertValidation   = "Deny",
+        apimDirectApiEndpoint          = "Deny",
+        apimCallApiAuthn               = "Deny",
+        apimEncryptedProtocols         = "Deny",
+        apimSecrets                    = "Deny",
+        apimDiagnostics                = "DeployIfNotExists",
+        apimLogAnalyticsWorkspaceId    = module.management.log_analytics_workspace_id,
+        apimLogsCategory               = "allLogs",
+        apimVnetUsage                  = "Deny",
+        apimVnetType = "Deny",
+        apimVnetTypeAllowed = "Internal",
+      }
     }
     access_control = {}
   }
