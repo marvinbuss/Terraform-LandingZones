@@ -1,14 +1,17 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "Deny-Location",
+  "name": "Deny-Azure-Regions",
+  "apiVersion": "2021-06-01",
+  "scope": null,
   "properties": {
     "displayName": "Allowed locations for Landing Zone workloads",
     "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.",
     "policyType": "Custom",
+    "mode": "Indexed",
     "metadata": {
+      "version": "1.0.0",
       "category": "General"
     },
-    "mode": "Indexed",
     "parameters": {
       "listOfAllowedLocations": {
         "metadata": {
@@ -17,6 +20,19 @@
           "strongType": "location"
         },
         "type": "Array"
+      },
+      "effect": {
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
       }
     },
     "policyRule": {
@@ -41,7 +57,7 @@
         ]
       },
       "then": {
-        "effect": "deny"
+        "effect": "[parameters('effect')]"
       }
     }
   }

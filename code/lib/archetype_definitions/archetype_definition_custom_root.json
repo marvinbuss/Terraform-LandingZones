@@ -1,7 +1,12 @@
 {
   "custom_root": {
-    "policy_assignments": [],
+    "policy_assignments": [
+      "Deny-Azure-Regions",
+      "Deny-Azure-Rg-Regions",
+      "Deny-Azure-Resources"
+    ],
     "policy_definitions": [
+      "Deny-Azure-Regions",
       "Deny-APIM-WithOutVnet",
       "Deny-APIM-VirtualNetworkType",
       "Deny-CognitiveServices-NetworkAcls",
@@ -17,31 +22,13 @@
       "Deny-Storage-ResourceAccessRulesResourceId",
       "Deny-Storage-ResourceAccessRulesTenantId",
       "Deny-Storage-ServicesEncryption",
-      "Deny-Storage-NetworkAclsVirtualNetworkRules",
-      "Deny-Subnet-Without-UDR",
-      "Deny-Subnet-Without-NSG",
-      "Deny-Inbound-Internet-All",
-      "Deny-Subnet-with-Service-Endpoints",
-      "Dine-Diagnostics-LoadBalancer",
-      "Dine-Diagnostics-FrontDoor",
-      "Dine-Diagnostics-TrafficManager",
-      "Dine-Diagnostics-Vnet",
-      "Deny-Rdp-From-Internet",
-      "Deny-Ssh-From-Internet",
-      "Dine-Diagnostics-ExpressRoute",
-      "Deny-Apim-without-Vnet",
-      "Deny-Backup-Soft-Delete",
-      "Deny-Backup-Immutability",
-      "Deny-Location"
+      "Deny-Storage-NetworkAclsVirtualNetworkRules"
     ],
     "policy_set_definitions": [
       "Cmplnt-APIM",
       "Cmplnt-CognitiveServices",
       "Cmplnt-Storage",
-      "Cmplnt-KeyVault",
-      "Cmplnt-Network",
-      "Cmplnt-API-Management",
-      "Cmplnt-Backup"
+      "Cmplnt-KeyVault"
     ],
     "role_definitions": [
       "Network-Subnet-Contributor",
