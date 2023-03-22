@@ -13,52 +13,52 @@
 locals {
   es_archetype_config_defaults = {
     (local.root_id) = {
-      archetype_id   = "es_root"
+      archetype_id   = "root"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-decommissioned" = {
-      archetype_id   = "es_decommissioned"
+      archetype_id   = "decommissioned"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-sandboxes" = {
-      archetype_id   = "es_sandboxes"
+      archetype_id   = "sandboxes"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-landing-zones" = {
-      archetype_id   = "es_landing_zones"
+      archetype_id   = "landing_zones"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-platform" = {
-      archetype_id   = "es_platform"
+      archetype_id   = "platform"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-connectivity" = {
-      archetype_id   = "es_connectivity"
+      archetype_id   = "connectivity"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-management" = {
-      archetype_id   = "es_management"
+      archetype_id   = "management"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-identity" = {
-      archetype_id   = "es_identity"
+      archetype_id   = "identity"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-corp" = {
-      archetype_id   = "es_corp"
+      archetype_id   = "corp"
       parameters     = local.empty_map
       access_control = local.empty_map
     }
     "${local.root_id}-cloud-native" = {
-      archetype_id   = "es_cloud_native"
+      archetype_id   = "cloud_native"
       parameters     = local.empty_map
       access_control = local.empty_map
     }

@@ -49,19 +49,6 @@ module "role_assignments_for_policy" {
 
 }
 
-# The following resource is left to help manage the
-# upgrade to using module.role_assignments_for_policy
-# To be removed in `v2.0.0`
-resource "azurerm_role_assignment" "policy_assignment" {
-  for_each = local.empty_map
-
-  # Mandatory resource attributes
-  name         = basename(each.key)
-  scope        = each.value.scope_id
-  principal_id = each.value.principal_id
-
-}
-
 resource "time_sleep" "after_azurerm_role_assignment" {
   depends_on = [
     time_sleep.after_azurerm_management_group,

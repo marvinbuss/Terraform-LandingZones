@@ -16,9 +16,5 @@ module "management_group_archetypes" {
   library_path            = local.library_path
   template_file_variables = local.template_file_variables
   default_location        = local.default_location
-  enforcement_mode = merge(
-    lookup(module.connectivity_resources.configuration.archetype_config_overrides, basename(each.key), local.enforcement_mode_default).enforcement_mode,
-    lookup(module.identity_resources.configuration.archetype_config_overrides, basename(each.key), local.enforcement_mode_default).enforcement_mode,
-    lookup(module.management_resources.configuration.archetype_config_overrides, basename(each.key), local.enforcement_mode_default).enforcement_mode,
-  )
+  enforcement_mode = local.enforcement_mode_default.enforcement_mode
 }

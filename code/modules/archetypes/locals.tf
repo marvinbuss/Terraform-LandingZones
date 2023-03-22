@@ -15,13 +15,8 @@ locals {
   archetype_config_overrides       = var.archetype_config_overrides
   subscription_id_overrides        = var.subscription_id_overrides
   custom_policy_roles              = var.custom_policy_roles
-  library_path                     = var.library_path
-  template_file_variables = merge(
-    var.template_file_variables,
-    module.connectivity_resources.configuration.template_file_variables,
-    module.identity_resources.configuration.template_file_variables,
-    module.management_resources.configuration.template_file_variables,
-  )
+  library_path                     = "${path.module}/lib"
+  template_file_variables = var.template_file_variables
   default_location                = var.default_location
   default_tags                    = var.default_tags
   strict_subscription_association = var.strict_subscription_association
@@ -93,20 +88,20 @@ locals {
 # relating to replication delays in Azure
 locals {
   create_duration_delay = {
-    after_azurerm_management_group      = var.create_duration_delay["azurerm_management_group"]
-    after_azurerm_policy_assignment     = var.create_duration_delay["azurerm_policy_assignment"]
-    after_azurerm_policy_definition     = var.create_duration_delay["azurerm_policy_definition"]
-    after_azurerm_policy_set_definition = var.create_duration_delay["azurerm_policy_set_definition"]
-    after_azurerm_role_assignment       = var.create_duration_delay["azurerm_role_assignment"]
-    after_azurerm_role_definition       = var.create_duration_delay["azurerm_role_definition"]
+    after_azurerm_management_group      = "30s"
+    after_azurerm_policy_assignment     = "30s"
+    after_azurerm_policy_definition     = "30s"
+    after_azurerm_policy_set_definition = "30s"
+    after_azurerm_role_assignment       = "0s"
+    after_azurerm_role_definition       = "60s"
   }
   destroy_duration_delay = {
-    after_azurerm_management_group      = var.destroy_duration_delay["azurerm_management_group"]
-    after_azurerm_policy_assignment     = var.destroy_duration_delay["azurerm_policy_assignment"]
-    after_azurerm_policy_definition     = var.destroy_duration_delay["azurerm_policy_definition"]
-    after_azurerm_policy_set_definition = var.destroy_duration_delay["azurerm_policy_set_definition"]
-    after_azurerm_role_assignment       = var.destroy_duration_delay["azurerm_role_assignment"]
-    after_azurerm_role_definition       = var.destroy_duration_delay["azurerm_role_definition"]
+    after_azurerm_management_group      = "0s"
+    after_azurerm_policy_assignment     = "0s"
+    after_azurerm_policy_definition     = "0s"
+    after_azurerm_policy_set_definition = "0s"
+    after_azurerm_role_assignment       = "0s"
+    after_azurerm_role_definition       = "0s"
   }
 }
 
