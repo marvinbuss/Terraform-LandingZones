@@ -50,7 +50,6 @@ variable "access_control" {
 variable "library_path" {
   type        = string
   description = "If specified, sets the path to a custom library folder for archetype artefacts."
-  default     = ""
 }
 
 variable "template_file_variables" {

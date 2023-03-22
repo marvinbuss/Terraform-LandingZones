@@ -15,19 +15,9 @@ locals {
   parameters              = var.parameters
   enforcement_mode        = var.enforcement_mode
   access_control          = var.access_control
-  library_path            = var.library_path
+  library_path            = replace(var.library_path, "//$/", local.empty_string)
   template_file_variables = var.template_file_variables
   default_location        = var.default_location
-}
-
-# The following locals are used to define the built-in
-# library path, and determine whether a custom library
-# path has been provided to enable conditional logic on
-# loading configuration files from the library path(s).
-locals {
-  builtin_library_path          = "${path.module}/lib"
-  custom_library_path_specified = try(length(local.library_path) > 0, false)
-  custom_library_path           = local.custom_library_path_specified ? replace(local.library_path, "//$/", local.empty_string) : null
 }
 
 # The following locals are used to define base Azure
@@ -60,10 +50,7 @@ locals {
     current_scope_resource_id = local.scope_id
     default_location          = local.default_location
     location                  = local.default_location
-    builtin                   = local.builtin_library_path
-    builtin_library_path      = local.builtin_library_path
-    custom                    = local.custom_library_path
-    custom_library_path       = local.custom_library_path
+    library_path       = local.library_path
   }
   template_file_vars = merge(
     local.template_file_variables,
