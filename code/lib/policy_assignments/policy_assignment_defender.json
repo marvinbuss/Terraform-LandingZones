@@ -1,0 +1,23 @@
+{
+  "name": "Cmplnt-Defender",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "properties": {
+    "displayName": "Deploy Microsoft Defender for Endpoint agent",
+    "description": "Deploy Microsoft Defender for Endpoint agent on applicable images.",
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "${root_scope_resource_id}//providers/Microsoft.Authorization/policySetDefinitions/e20d08c5-6d64-656d-6465-ce9e37fd0ebc",
+    "nonComplianceMessages": [
+      {
+        "message": "Deployment of Microsoft Defender for Endpoint agent required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
