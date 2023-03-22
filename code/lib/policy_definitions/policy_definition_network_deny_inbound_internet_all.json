@@ -7,14 +7,18 @@
     "displayName": "Prevent NSG rule changes that allow all inbound traffic",
     "description": "Prevent the creation of network security group rules that allow all inbound traffic",
     "policyType": "Custom",
-    "metadata": {
-      "category": "Network",
-      "version": "1.0.0"
-    },
     "mode": "All",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Network"
+    },
     "parameters": {
       "effect": {
-        "allowedValues": ["Audit", "Disabled", "Deny"],
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny"
+        ],
         "defaultValue": "Deny",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
@@ -58,12 +62,18 @@
                 "anyOf": [
                   {
                     "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefix",
-                    "in": ["*", "Internet"]
+                    "in": [
+                      "*",
+                      "Internet"
+                    ]
                   },
                   {
                     "not": {
                       "field": "Microsoft.Network/networkSecurityGroups/securityRules/sourceAddressPrefixes[*]",
-                      "notIn": ["*", "Internet"]
+                      "notIn": [
+                        "*",
+                        "Internet"
+                      ]
                     }
                   }
                 ]

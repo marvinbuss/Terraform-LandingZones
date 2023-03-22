@@ -7,14 +7,18 @@
     "displayName": "RDP access from the Internet should be blocked",
     "description": "This policy denies any network security rule that allows RDP access from Internet",
     "policyType": "Custom",
-    "metadata": {
-      "category": "Network",
-      "version": "1.0.0"
-    },
     "mode": "All",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Network"
+    },
     "parameters": {
       "effect": {
-        "allowedValues": ["Audit", "Deny", "Disabled"],
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
         "defaultValue": "Deny",
         "metadata": {
           "description": "Enable or disable the execution of the policy",

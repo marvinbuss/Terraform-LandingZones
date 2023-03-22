@@ -1,20 +1,23 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "Deploy-Diagnostics-TrafficManager",
+  "name": "Dine-ExpressRouteCircuit-Diagnostics",
   "apiVersion": "2021-06-01",
   "scope": null,
   "properties": {
-    "displayName": "Deploy Diagnostic Settings for Traffic Manager to Log Analytics workspace",
-    "description": "Deploys the diagnostic settings for Traffic Manager to stream to a Log Analytics workspace when any Traffic Manager which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
+    "displayName": "Deploy Diagnostic Settings for ExpressRoute to Log Analytics workspace",
+    "description": "Deploys the diagnostic settings for ExpressRoute to stream to a Log Analytics workspace when any ExpressRoute which is missing this diagnostic settings is created or updated. The Policy will set the diagnostic with all metrics and category enabled",
     "policyType": "Custom",
-    "metadata": {
-      "category": "Monitoring",
-      "version": "1.0.0"
-    },
     "mode": "Indexed",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Network"
+    },
     "parameters": {
       "effect": {
-        "allowedValues": ["DeployIfNotExists", "Disabled"],
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
@@ -30,17 +33,11 @@
         },
         "type": "String"
       },
-      "logsEnabled": {
-        "allowedValues": ["True", "False"],
-        "defaultValue": "True",
-        "metadata": {
-          "description": "Whether to enable logs stream to the Log Analytics workspace - True or False",
-          "displayName": "Enable logs"
-        },
-        "type": "String"
-      },
       "metricsEnabled": {
-        "allowedValues": ["True", "False"],
+        "allowedValues": [
+          "True",
+          "False"
+        ],
         "defaultValue": "True",
         "metadata": {
           "description": "Whether to enable metrics stream to the Log Analytics workspace - True or False",
@@ -59,10 +56,11 @@
     },
     "policyRule": {
       "if": {
-        "equals": "Microsoft.Network/trafficManagerProfiles",
+        "equals": "Microsoft.Network/expressRouteCircuits",
         "field": "type"
       },
       "then": {
+        "effect": "[parameters('effect')]",
         "details": {
           "deployment": {
             "properties": {
@@ -73,9 +71,6 @@
                 },
                 "logAnalytics": {
                   "value": "[parameters('logAnalytics')]"
-                },
-                "logsEnabled": {
-                  "value": "[parameters('logsEnabled')]"
                 },
                 "metricsEnabled": {
                   "value": "[parameters('metricsEnabled')]"
@@ -98,9 +93,6 @@
                   "logAnalytics": {
                     "type": "String"
                   },
-                  "logsEnabled": {
-                    "type": "String"
-                  },
                   "metricsEnabled": {
                     "type": "String"
                   },
@@ -113,15 +105,15 @@
                 },
                 "resources": [
                   {
-                    "apiVersion": "2017-05-01-preview",
+                    "apiVersion": "2021-05-01-preview",
                     "dependsOn": [],
                     "location": "[parameters('location')]",
                     "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
                     "properties": {
                       "logs": [
                         {
-                          "category": "ProbeHealthStatusEvents",
-                          "enabled": "[parameters('logsEnabled')]"
+                          "categoryGroup": "allLogs",
+                          "enabled": true
                         }
                       ],
                       "metrics": [
@@ -136,7 +128,7 @@
                       ],
                       "workspaceId": "[parameters('logAnalytics')]"
                     },
-                    "type": "Microsoft.Network/trafficManagerProfiles/providers/diagnosticSettings"
+                    "type": "Microsoft.Network/expressRouteCircuits/providers/diagnosticSettings"
                   }
                 ],
                 "variables": {}
@@ -159,14 +151,13 @@
               }
             ]
           },
-          "name": "setByPolicy",
+          "name": "[parameters('profileName')]",
           "roleDefinitionIds": [
             "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
             "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
           ],
           "type": "Microsoft.Insights/diagnosticSettings"
-        },
-        "effect": "[parameters('effect')]"
+        }
       }
     }
   }

@@ -7,14 +7,18 @@
     "displayName": "Deny or Audit service endpoints on subnets",
     "description": "This Policy will deny/audit Service Endpoints on subnets. Service Endpoints allows the network traffic to bypass Network appliances, such as the Azure Firewall.",
     "policyType": "Custom",
-    "metadata": {
-      "category": "Network",
-      "version": "1.0.0"
-    },
     "mode": "All",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Network"
+    },
     "parameters": {
       "effect": {
-        "allowedValues": ["Audit", "Deny", "Disabled"],
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
         "defaultValue": "Deny",
         "metadata": {
           "description": "Enable or disable the execution of the policy",
