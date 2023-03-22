@@ -5,85 +5,167 @@
   "properties": {
     "displayName": "Enforce secure-by-default Network and Networking Services for Financial Services Industry",
     "description": "This policy initiative is a group of policies that ensures Network and Networking Services are compliant per FSI Landing Zones",
-    "notScopes": null,
+    "notScopes": [],
     "parameters": {
+      "afwEmptyIDPSBypassList": {
+        "defaultValue": null
+      },
+      "afwEnableAllIDPSSignatureRules": {
+        "defaultValue": null
+      },
+      "afwEnableIDPS": {
+        "defaultValue": null
+      },
+      "afwEnableTlsInspection": {
+        "defaultValue": null
+      },
+      "afwEnableTlsForAllAppRules": {
+        "defaultValue": null
+      },
+      "appGwWaf": {
+        "defaultValue": null
+      },
       "bastionDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "bastionLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
+      },
+      "bastionLogCategories": {
+        "defaultValue": null
       },
       "ddosPlanResourceId": {
-        "value": ""
+        "defaultValue": null
+      },
+      "denyInboundInternet": {
+        "defaultValue": null
+      },
+      "denyRdpFromInternet": {
+        "defaultValue": null
+      },
+      "denySshFromInternet": {
+        "defaultValue": null
       },
       "erDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "erDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
+      },
+      "erCircuitDiagnostics": {
+        "defaultValue": null
+      },
+      "erCircuitDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
       },
       "fdCdnDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "fdCdnLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
+      },
+      "fdCdnLogCategories": {
+        "defaultValue": null
       },
       "fdDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "fdDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
       },
       "gwDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "gwLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
+      },
+      "gwLogCategories": {
+        "defaultValue": null
       },
       "lbDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "lbDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
       },
       "nsgDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "nsgLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
       },
       "p2sDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "p2sLogAnalyticsWorkspaceId": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
+      },
+      "p2sLogCategories": {
+        "defaultValue": null
       },
       "pipDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "pipLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
+      },
+      "pipLogCategories": {
+        "defaultValue": null
+      },
+      "subnetNsg": {
+        "defaultValue": null
+      },
+      "subnetServiceEndpoint": {
+        "defaultValue": null
+      },
+      "subnetUdr": {
+        "defaultValue": null
       },
       "tmDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "tmDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
       },
       "vnetDiagnostics": {
-        "value": "DeployIfNotExists"
+        "defaultValue": null
       },
       "vnetDiagnosticsLogAnalyticsWorkspaceId": {
-        "value": "${log_analytics_id}"
+        "defaultValue": null
       },
       "vnetModifyDdos": {
-        "value": "Modify"
+        "defaultValue": null
+      },
+      "vpnAzureAD": {
+        "defaultValue": null
+      },
+      "wafAfdEnabled": {
+        "defaultValue": null
+      },
+      "wafFwRules": {
+        "defaultValue": null
+      },
+      "wafMode": {
+        "defaultValue": null
+      },
+      "wafModeAppGw": {
+        "defaultValue": null
+      },
+      "wafModeAppGwRequirement": {
+        "defaultValue": null
+      },
+      "wafModeRequirement": {
+        "defaultValue": null
       }
     },
     "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Network",
-    "nonComplianceMessages": null,
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Network  required {enforcementMode}."
+      }
+    ],
     "scope": "${current_scope_resource_id}",
-    "enforcementMode": "Default"
+    "enforcementMode": null
   },
   "location": "${default_location}",
   "identity": {
