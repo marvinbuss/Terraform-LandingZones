@@ -24,12 +24,25 @@
       "Deny-Storage-ResourceAccessRulesResourceId",
       "Deny-Storage-ResourceAccessRulesTenantId",
       "Deny-Storage-ServicesEncryption",
-      "Deny-Storage-NetworkAclsVirtualNetworkRules"
+      "Deny-Storage-NetworkAclsVirtualNetworkRules",
+      "Deny-Inbound-Internet-All",
+      "Deny-RDP-From-Internet",
+      "Deny-Service-Endpoints",
+      "Deny-SSH-From-Internet",
+      "Deny-Subnet-Without-NSG",
+      "Deny-Subnet-Without-UDR",
+      "Dine-ExpressRoute-Diagnostics",
+      "Dine-ExpressRouteCircuit-Diagnostics",
+      "Dine-FrontDoor-Diagnostics",
+      "Dine-LoadBalancer-Diagnostics",
+      "Dine-TrafficManager-Diagnostics",
+      "Dine-Vnet-Diagnostics"
     ],
     "policy_set_definitions": [
       "Cmplnt-APIM",
       "Cmplnt-Backup",
       "Cmplnt-CognitiveServices",
+      "Cmplnt-Network",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault"
     ],
