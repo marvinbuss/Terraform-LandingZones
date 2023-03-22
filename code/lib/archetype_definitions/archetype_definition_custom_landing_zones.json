@@ -4,6 +4,7 @@
       "Cmplnt-APIM",
       "Cmplnt-Backup",
       "Cmplnt-CognitiveServices",
+      "Cmplnt-Network",
       "Cmplnt-Storage",
       "Cmplnt-KeyVault"
     ],

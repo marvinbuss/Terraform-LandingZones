@@ -1,0 +1,174 @@
+{
+  "name": "Cmplnt-Network",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "displayName": "Enforce secure-by-default Network and Networking Services for Financial Services Industry",
+    "description": "This policy initiative is a group of policies that ensures Network and Networking Services are compliant per FSI Landing Zones",
+    "notScopes": [],
+    "parameters": {
+      "afwEmptyIDPSBypassList": {
+        "defaultValue": null
+      },
+      "afwEnableAllIDPSSignatureRules": {
+        "defaultValue": null
+      },
+      "afwEnableIDPS": {
+        "defaultValue": null
+      },
+      "afwEnableTlsInspection": {
+        "defaultValue": null
+      },
+      "afwEnableTlsForAllAppRules": {
+        "defaultValue": null
+      },
+      "appGwWaf": {
+        "defaultValue": null
+      },
+      "bastionDiagnostics": {
+        "defaultValue": null
+      },
+      "bastionLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "bastionLogCategories": {
+        "defaultValue": null
+      },
+      "ddosPlanResourceId": {
+        "defaultValue": null
+      },
+      "denyInboundInternet": {
+        "defaultValue": null
+      },
+      "denyRdpFromInternet": {
+        "defaultValue": null
+      },
+      "denySshFromInternet": {
+        "defaultValue": null
+      },
+      "erDiagnostics": {
+        "defaultValue": null
+      },
+      "erDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "erCircuitDiagnostics": {
+        "defaultValue": null
+      },
+      "erCircuitDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "fdCdnDiagnostics": {
+        "defaultValue": null
+      },
+      "fdCdnLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "fdCdnLogCategories": {
+        "defaultValue": null
+      },
+      "fdDiagnostics": {
+        "defaultValue": null
+      },
+      "fdDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "gwDiagnostics": {
+        "defaultValue": null
+      },
+      "gwLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "gwLogCategories": {
+        "defaultValue": null
+      },
+      "lbDiagnostics": {
+        "defaultValue": null
+      },
+      "lbDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "nsgDiagnostics": {
+        "defaultValue": null
+      },
+      "nsgLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "p2sDiagnostics": {
+        "defaultValue": null
+      },
+      "p2sLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "p2sLogCategories": {
+        "defaultValue": null
+      },
+      "pipDiagnostics": {
+        "defaultValue": null
+      },
+      "pipLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "pipLogCategories": {
+        "defaultValue": null
+      },
+      "subnetNsg": {
+        "defaultValue": null
+      },
+      "subnetServiceEndpoint": {
+        "defaultValue": null
+      },
+      "subnetUdr": {
+        "defaultValue": null
+      },
+      "tmDiagnostics": {
+        "defaultValue": null
+      },
+      "tmDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "vnetDiagnostics": {
+        "defaultValue": null
+      },
+      "vnetDiagnosticsLogAnalyticsWorkspaceId": {
+        "defaultValue": null
+      },
+      "vnetModifyDdos": {
+        "defaultValue": null
+      },
+      "vpnAzureAD": {
+        "defaultValue": null
+      },
+      "wafAfdEnabled": {
+        "defaultValue": null
+      },
+      "wafFwRules": {
+        "defaultValue": null
+      },
+      "wafMode": {
+        "defaultValue": null
+      },
+      "wafModeAppGw": {
+        "defaultValue": null
+      },
+      "wafModeAppGwRequirement": {
+        "defaultValue": null
+      },
+      "wafModeRequirement": {
+        "defaultValue": null
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policySetDefinitions/Cmplnt-Network",
+    "nonComplianceMessages": [
+      {
+        "message": "Compliant Network  required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
