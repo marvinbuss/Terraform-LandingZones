@@ -722,7 +722,24 @@ locals {
           "microsoft.securityinsights/workspacemanagerconfigurations",
           "microsoft.securityinsights/workspacemanagergroups",
           "microsoft.securityinsights/workspacemanagermembers",
-          "microsoft.storage/storageaccounts"
+          "Microsoft.ManagedIdentity/userAssignedIdentities",
+          "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials",
+          "Microsoft.Storage/storageAccounts",
+          "Microsoft.Storage/storageAccounts/blobServices",
+          "Microsoft.Storage/storageAccounts/blobServices/containers",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies",
+          "Microsoft.Storage/storageAccounts/encryptionScopes",
+          "Microsoft.Storage/storageAccounts/fileServices",
+          "Microsoft.Storage/storageAccounts/fileServices/shares",
+          "Microsoft.Storage/storageAccounts/inventoryPolicies",
+          # "Microsoft.Storage/storageAccounts/localUsers",
+          "Microsoft.Storage/storageAccounts/managementPolicies",
+          "Microsoft.Storage/storageAccounts/objectReplicationPolicies",
+          "Microsoft.Storage/storageAccounts/privateEndpointConnections",
+          "Microsoft.Storage/storageAccounts/queueServices",
+          "Microsoft.Storage/storageAccounts/queueServices/queues",
+          "Microsoft.Storage/storageAccounts/tableServices",
+          "Microsoft.Storage/storageAccounts/tableServices/tables"
         ]
       }
     }
