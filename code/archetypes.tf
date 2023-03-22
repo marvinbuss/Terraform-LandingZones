@@ -22,25 +22,8 @@ module "archetypes" {
   custom_landing_zones        = local.custom_landing_zones
   deploy_core_landing_zones   = true
   deploy_corp_landing_zones   = true
-  deploy_diagnostics_for_mg   = false
-  deploy_online_landing_zones = false
   deploy_sap_landing_zones    = false
   deploy_demo_landing_zones   = false
-
-  # Connectivity configuration
-  deploy_connectivity_resources    = false
-  subscription_id_connectivity     = ""
-  configure_connectivity_resources = {}
-
-  # Identity configuration
-  deploy_identity_resources    = false
-  subscription_id_identity     = ""
-  configure_identity_resources = {}
-
-  # Management configuration
-  deploy_management_resources    = false
-  subscription_id_management     = local.management_subscription_id
-  configure_management_resources = {}
 
   # Policy configuration
   policy_non_compliance_message_default                  = "This resource {enforcementMode} be compliant with the assigned policy."
@@ -90,8 +73,7 @@ module "archetypes" {
     management     = local.mg_management_archetype_config_overrides
     identity       = local.mg_identity_archetype_config_overrides
     corp           = local.mg_corp_archetype_config_overrides
-    # online         = {}
-    # sap            = {}
+    cloud-native = local.mg_cloud_native_archetype_config_overrides
   }
   subscription_id_overrides = {
     root           = local.mg_root_subscription_id_overrides
@@ -103,6 +85,7 @@ module "archetypes" {
     management     = local.mg_management_subscription_id_overrides
     identity       = local.mg_identity_subscription_id_overrides
     corp           = local.mg_connectivity_subscription_id_overrides
+    cloud-native = local.mg_cloud_native_subscription_id_overrides
   }
 
   # Specify custom archetype template variables
