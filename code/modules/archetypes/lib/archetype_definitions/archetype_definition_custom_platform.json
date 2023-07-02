@@ -1,5 +1,5 @@
 {
-  "custom_cloud_native": {
+  "platform": {
     "policy_assignments": [],
     "policy_definitions": [],
     "policy_set_definitions": [],
