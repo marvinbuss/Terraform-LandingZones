@@ -1,0 +1,45 @@
+{
+  "name": "Dine-NsgFlowLogs",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "properties": {
+    "displayName": "Enforce NSG Flows are enabled to Storage and Log Analytics workspace",
+    "description": "Deploys NSG flow logs and traffic analytics to Log Analytics with a specified retention period for a single Azure region. To use across additional regions, assign the policy per region.",
+    "notScopes": [],
+    "parameters": {
+      "networkWatcherName": {
+        "value": "NetworkWatcher_${default_location}"
+      },
+      "networkWatcherRg": {
+        "value": "NetworkWatcherRG"
+      },
+      "nsgRegion": {
+        "value": "${default_location}"
+      },
+      "storageId": {
+        "value": ""
+      },
+      "workspaceId": {
+        "value": ""
+      },
+      "workspaceRegion": {
+        "value": "${default_location}"
+      },
+      "workspaceResourceId": {
+        "value": ""
+      }
+    },
+    "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/5e1cd26a-5090-4fdb-9d6a-84a90335e22d",
+    "nonComplianceMessages": [
+      {
+        "message": "Deployment of Microsoft Defender for Endpoint agent required {enforcementMode}."
+      }
+    ],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}
