@@ -1,5 +1,5 @@
 {
-  "custom_decommissioned": {
+  "decommissioned": {
     "policy_assignments": [],
     "policy_definitions": [],
     "policy_set_definitions": [],

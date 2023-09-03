@@ -1,5 +1,5 @@
 {
-  "custom_root": {
+  "root": {
     "policy_assignments": [
       "Deny-Azure-Regions",
       "Deny-Azure-Rg-Regions",
