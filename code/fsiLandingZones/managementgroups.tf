@@ -1,6 +1,6 @@
 resource "azurerm_management_group" "management_group_root" {
-  name         = "${local.prefix}-${var.organization_name}"
-  display_name = var.organization_name
+  name             = "${local.prefix}-${var.organization_name}"
+  display_name     = var.organization_name
   subscription_ids = []
 }
 
@@ -9,7 +9,7 @@ resource "azurerm_management_group" "management_group_platform" {
   parent_management_group_id = azurerm_management_group.management_group_root.id
   name                       = "${local.prefix}-platform"
   display_name               = "Platform"
-  subscription_ids = []
+  subscription_ids           = []
 }
 
 resource "azurerm_management_group" "management_group_identity" {
@@ -44,7 +44,7 @@ resource "azurerm_management_group" "management_group_landing_zones" {
   parent_management_group_id = azurerm_management_group.management_group_root.id
   name                       = "${local.prefix}-landing-zones"
   display_name               = "Landing Zones"
-  subscription_ids = []
+  subscription_ids           = []
 }
 
 resource "azurerm_management_group" "management_group_corp" {
