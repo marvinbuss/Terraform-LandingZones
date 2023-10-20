@@ -37,4 +37,20 @@ locals {
     for value in local.policy_definitions_list :
     try(value.name, "") => value
   }
+
+  # Load policy resources
+  policy_resources = flatten([
+    for key, value in local.azure_policies_definitions:
+    try(value.resources, [])
+  ])
+
+  # Load Custom Azure Policy Set Definitions from files
+  policy_set_definitions_list = [
+    for index, value in local.policy_resources:
+    lower(try(value.type, "")) == lower("Microsoft.Authorization/policySetDefinitions") ? value : null
+  ]
+  policy_set_definitions_map = {
+    for index, value in compact(local.policy_set_definitions_list):
+    try(value.name, "") => value
+  }
 }
