@@ -1,5 +1,5 @@
 resource "azurerm_management_group" "management_group_root" {
-  name             = "${local.prefix}-${var.organization_name}"
+  name             = "${local.prefix}-${lower(var.organization_name)}"
   display_name     = var.organization_name
   subscription_ids = []
 }
